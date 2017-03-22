@@ -19,7 +19,7 @@ function [segments,Signal,Limits,fs]=Vocal_algorithm_dectection(Init)
     clc;
     
     %% add path
-    addpath('../ressources');
+    addpath('../Ressources');
     % variables
     nbin=100 ;  % fixed by default (need to be between 50 and 100 for best accuracy of adaptive threshold)
     weight=2;
