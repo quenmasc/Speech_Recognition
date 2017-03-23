@@ -22,61 +22,10 @@ function [index,model]=Gaussian_mixture_model(feature, number_of_clusters)
         if abs(convergence(i)-convergence(i-1)) < 1e-6*abs(convergence(i))
             break;
         end
-        
-        
     end
-    
-    
-    
-%     %% weight
-%     % allocation
-%     mu_new=zeros(n,number_of_clusters);
-%     cov_new=zeros(n,number_of_clusters);
 
-    
-    %% useless command
-  %  variance=cov_init;
-  %  weight=weight_init;
-    %% end of useless command
-    
-%     %% allocation
-%     Probability_of_Cluster_given_Point=zeros(m,number_of_clusters);
-% 
-%     %% General loop EM
-%     iter=1;
-%     while iter<loop
-%     % find weight and label
-%         [weight,Index] = Cluster_belonging(feature,mu);
-%         if(iter==1)
-%             cov_init=zeros(n,number_of_clusters);
-%             for i=1:number_of_clusters
-%                     cov_init(:,i)=Covariance_cluster(feature(:,Index==i));
-%             end
-%         else
-%             for i=1:number_of_clusters
-%             cov_new(:,i)=compute_sigma_clusters(feature,mu,variance,weight,i);
-%             end
-%         end
-%         variance=cov_init;
-%     % Expectation
-%         for i=1:number_of_clusters
-%             for j=1:m
-%                 Probability_of_Cluster_given_Point(j,i)=Expectation(feature(j,:),mu,variance,weight,i);
-% 
-%             end
-%             
-%         end
-%         
-%         for i=1:number_of_clusters
-%             mu_new(:,i)=compute_mu_clusters(feature,mu,variance,weight,i);
-%         end
-%         mu=mu_new;
-% 
-%         iter=iter+1;
-%     end
-%     model.mu=mu;
-%     model.sigma=variance;
-%     model.weight=weight;
+
+
 end
 
 function [R,model_input]=Initialization(data,init,max_iter)
