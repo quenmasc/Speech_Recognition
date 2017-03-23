@@ -154,5 +154,5 @@ function z=ComputeLogSumExp(data)
     if any(i(:))
        z(i) = a(i);
     end
-   
 end
+
