@@ -1,7 +1,7 @@
 function [index,model]=Gaussian_mixture_model(feature, number_of_clusters)
     %% path
     addpath('../Kmean');
-    addpath('../Ressources');
+    addpath('../../Ressources');
     % variables
     loop=10; % by default
     max_iter=100;
