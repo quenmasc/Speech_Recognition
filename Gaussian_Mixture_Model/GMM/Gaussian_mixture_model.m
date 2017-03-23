@@ -23,9 +23,7 @@ function [index,model]=Gaussian_mixture_model(feature, number_of_clusters)
             break;
         end
     end
-    keyboard;
-    GMM=GmmComputation(feature,model);
-    keyboard;
+
 end
 
 function [R,model_input]=Initialization(data,init,max_iter)
@@ -106,24 +104,3 @@ function z=ComputeLogSumExp(data)
    
 end
 
-function GMM=GmmComputation(data,model)
-    [~,d]=size(model.mu);
-    [n,m]=size(data);
-    mu=model.mu;
-    sigma=model.sigma;
-    weight=model.weight;
-    
-    %% allocation memory
-    GMM=zeros(m,d);
-    
-    %% meandiff
-    
-    for i=1:m
-        for j=1:d
-            meandiff=bsxfun(@minus,data(:,i),mu(:,j));
-            GMM(i,j)=weight(j)*(1/sqrt((2*pi)^n*det(sigma(:,:,j))))*exp((-1/2)*transpose(meandiff)*sigma(:,:,j)*meandiff);
-        end
-    end
-              
-                    
-end
