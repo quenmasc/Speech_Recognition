@@ -24,6 +24,8 @@ function [index,model]=Gaussian_mixture_model(feature, number_of_clusters)
         end
     end
 
+
+
 end
 
 function [R,model_input]=Initialization(data,init,max_iter)
