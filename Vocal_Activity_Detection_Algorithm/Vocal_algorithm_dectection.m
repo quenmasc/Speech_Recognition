@@ -75,9 +75,9 @@ function [segments,Signal,Limits,fs]=Vocal_algorithm_dectection(Init)
     endpoint=EndPoint(Signal,window_ms,step_ms,fs,0.9,EndPoint_noise(Init, window_ms, step_ms, fs));
 
     % zero-crossing-rate 
-    zrc=zero_crossing_rate(Signal,window_ms,step_ms,fs);
+    %zrc=zero_crossing_rate(Signal,window_ms,step_ms,fs);
     % Spectral flux 
-    flux=spectral_flux(Signal,window_ms, step_ms, fs, p);
+    %flux=spectral_flux(Signal,window_ms, step_ms, fs, p);
     
     % Energy
     energy=short_time_energy(Signal,window_ms, step_ms, fs);
@@ -89,8 +89,8 @@ function [segments,Signal,Limits,fs]=Vocal_algorithm_dectection(Init)
     th_e_noise=mean(entropy(1:20))+3*std(entropy(1:20));
     th_e=variable_threshold(entropy,th_e_noise,0.96);
     
-    th_en=mean(energy(1:20))+3*std(energy(1:20));
-    th_zrc=mean(zrc(1:20))+3*std(zrc(1:20));
+   % th_en=mean(energy(1:20))+3*std(energy(1:20));
+   % th_zrc=mean(zrc(1:20))+3*std(zrc(1:20));
     % Flags of EndPoint function
     flags=(endpoint>th)&(entropy>th_e);
 
