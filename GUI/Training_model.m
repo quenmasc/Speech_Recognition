@@ -107,7 +107,7 @@ set(handles.textbox_instructions,'String','End of recording');
 pause(0.5);
 set(handles.textbox_instructions,'String','Begin analysis');
 set(handles.textbox_number_segment,'String',num2str(length(segments)));
-data=repmat(struct('gender',[],'name',[],'word',[],'test',[],'nature',[],'phoneme',[],'feature',[],'segments',[],'classe',[]),1,length(segments));
+data=repmat(struct('gender',[],'name',[],'word',[],'test',[],'nature',[],'phoneme',[],'feature',[],'feature_w',[],'segments',[],'classe',[]),1,length(segments));
 
 features=zeros(length(segments),150*39);
 features_w=zeros(length(segments),150*39);
@@ -912,7 +912,7 @@ function button_back_data_Callback(hObject, eventdata, handles)
 % --- Executes on button press in button_back_data.
 function button_next_data_Callback(hObject, eventdata, handles)
 % hObject    handle to button_back_data (see GCBO)
-    global segments name word test_number data features ;
+    global segments name word test_number data features features_w ;
     pop_s=get(handles.menu_voice_noise,'String');
     pop_v=get(handles.menu_voice_noise,'Value');
     noise_voice=strjoin(pop_s(pop_v));
@@ -995,6 +995,7 @@ function button_next_data_Callback(hObject, eventdata, handles)
     data(curent).nature=noise_voice;
     data(curent).phoneme=phoneme;
     data(curent).feature=features(curent,:);
+    data(current).feature_w=features_w(current,:);
     data(curent).segments=segments(curent);
     data(curent).classe=classe;
 
