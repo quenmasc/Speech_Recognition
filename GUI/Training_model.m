@@ -641,9 +641,9 @@ function button_data_Callback(hObject, eventdata, handles)
         local_gender=data(i).gender;
         switch data(i).nature
             case 'Voice'
-        a=strcat('../data_saved/',strjoin(data(i).word),'/',data(i).phoneme,'/',data(i).name,'_test_',data(i).test,'_',data(i).phoneme,'.wav');
+        a=strcat('../data_saved/',data(i).name,'/',strjoin(data(i).word),'/',data(i).phoneme,'/',data(i).name,'_test_',data(i).test,'_',data(i).phoneme,'.wav');
         %% check folder
-        fn=fullfile(strcat('../data_saved/',strjoin(data(i).word),'/',data(i).phoneme));
+        fn=fullfile(strcat('../data_saved/',data(i).name,'/',strjoin(data(i).word),'/',data(i).phoneme));
         if ~exist(fn,'dir')
             mkdir(fn) ;
         end
@@ -652,10 +652,10 @@ function button_data_Callback(hObject, eventdata, handles)
         audiowrite(a,cell2mat(data(i).segments),fs,'BitsPerSample',16);
         
         %% save segments
-        b=strcat('../features_saved/',strjoin(data(i).word),'/',data(i).phoneme,'/',data(i).name,'_test_',data(i).test,'_',data(i).phoneme,'.mat');
+        b=strcat('../features_saved/',data(i).name,'/',strjoin(data(i).word),'/',data(i).phoneme,'/',data(i).name,'_test_',data(i).test,'_',data(i).phoneme,'.mat');
         c=strcat('../features_saved/ALL/',data(i).name,'_test_',data(i).test,'_',data(i).phoneme,'.mat');
         %% check if folders exist
-        fn=fullfile(strcat('../features_saved/',strjoin(data(i).word),'/',data(i).phoneme));
+        fn=fullfile(strcat('../features_saved/',data(i).name,'/',strjoin(data(i).word),'/',data(i).phoneme));
         if ~exist(fn,'dir')
             mkdir (fn);
         end
