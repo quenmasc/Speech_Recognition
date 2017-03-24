@@ -88,7 +88,7 @@ function button_record_Callback(hObject, eventdata, handles)
 % hObject    handle to button_record (see GCBO)
 %% addpath
 
-global segments Signal Limits Init fs word name test_number features data flag; 
+global segments Signal Limits Init fs word name test_number features features_w data flag; 
 flag=0;
 addpath('../Vocal_Activity_Detection_Algorithm');
 addpath('../Feature_Extraction');
@@ -110,8 +110,9 @@ set(handles.textbox_number_segment,'String',num2str(length(segments)));
 data=repmat(struct('gender',[],'name',[],'word',[],'test',[],'nature',[],'phoneme',[],'feature',[],'segments',[],'classe',[]),1,length(segments));
 
 features=zeros(length(segments),150*39);
+features_w=zeros(length(segments),150*39);
 for i=1:length(segments)
-    features(i,:)=SetFeactureExtraction(cell2mat(segments(i)),fs,15,5);
+    [features(i,:),features_w(i,:)]=SetFeactureExtraction(cell2mat(segments(i)),fs,15,5);
 end
 set(handles.textbox_segment_data,'String',num2str(1));
 %%
