@@ -45,6 +45,6 @@ function [features,features_w]=SetFeactureExtraction(Segments,fs,window_ms,step_
         features=[features , zeros(1,Lmax-length(features))];
     end
     if (length(features_w)<Lmax)
-        features=[features_w , zeros(1,Lmax-length(features_w))];
+        features_w=[features_w , zeros(1,Lmax-length(features_w))];
     end
 end
