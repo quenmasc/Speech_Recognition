@@ -64,6 +64,7 @@ set(handles.textbox_repetition_2,'String',get(handles.textbox_number_repetition,
 set(handles.textbox_repetition_1,'String',get(handles.textbox_number_repetition,'String'));
 set(handles.textbox_instructions,'String','Enter a name in Input Parameters, Please');
 
+
 % Update handles structure
 guidata(hObject, handles);
 
@@ -636,16 +637,44 @@ function button_data_Callback(hObject, eventdata, handles)
         switch data(i).nature
             case 'Voice'
         a=strcat('../data_saved/',strjoin(data(i).word),'/',data(i).phoneme,'/',data(i).name,'_test_',data(i).test,'_',data(i).phoneme,'.wav');
+        %% check folder
+        if ~exist(a)
+            mkdir a ;
+        end
+        %% save
         audiowrite(a,cell2mat(data(i).segments),fs,'BitsPerSample',16);
+        
+        %% save segments
         b=strcat('../features_saved/',strjoin(data(i).word),'/',data(i).phoneme,'/',data(i).name,'_test_',data(i).test,'_',data(i).phoneme,'.mat');
         c=strcat('../features_saved/ALL/',data(i).name,'_test_',data(i).test,'_',data(i).phoneme,'.mat');
+        %% check if folders exist
+        if ~exist(b)
+            mkdir b ;
+        end
+        if ~exist(c)
+            mkdir c ;
+        end
+        %% back up
         save([b],'local_feature','local_classe','local_gender');
         save([c],'local_feature','local_classe','local_gender');
             case 'Noise'
         a=strcat('../data_saved/Noise/',data(i).phoneme,'/',name,'_test_',test_number,'_',data(i).phoneme,'.wav');
+        %% check folder
+        if ~exist(a)
+            mkdir a ;
+        end
+        %% save 
         audiowrite(a,cell2mat(data(i).segments),fs,'BitsPerSample',16);
         b=strcat('../features_saved/Noise/',data(i).phoneme,'/',name,'_test_',test_number,'_',data(i).phoneme,'.mat');
         c=strcat('../features_saved/ALL/',data(i).name,'_test_',data(i).test,'_',data(i).phoneme,'.mat');
+        %% check if folders exist
+        if ~exist(b)
+            mkdir b ;
+        end
+        if ~exist(c)
+            mkdir c ;
+        end
+        %% back up
         save([b],'local_feature','local_classe');
         save([c],'local_feature','local_classe');
         end 
