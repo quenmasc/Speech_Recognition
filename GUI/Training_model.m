@@ -102,7 +102,7 @@ set(handles.textbox_instructions,'String','No speak, I analyze your environment'
 set(handles.textbox_instructions,'String','End of environment recording');
 pause(1);
 set(handles.textbox_instructions,'String',strcat('Say:~',word,'.'));
-[segments,Signal,Limits,fs]=Vocal_algorithm_dectection(Init);
+[segments,Signal,Limits,fs]=Vocal_algorithm_dectection(Init,str2double(get(handles.textbox_recording_time,'String')),str2double(get(handles.textbox_sample_rate,'String')));
 set(handles.textbox_instructions,'String','End of recording');
 pause(0.5);
 set(handles.textbox_instructions,'String','Begin analysis');
