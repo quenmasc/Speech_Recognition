@@ -12,7 +12,7 @@
 %% OUTPUT 
 % Segments : segments of speech extraction
 %
-function [segments,Signal,Limits,fs]=Vocal_algorithm_dectection(Init)
+function [segments,Signal,Limits,fs]=Vocal_algorithm_dectection(Init,time_record,fs)
     % clearing and closing
 %    clear;
 %    close all;
@@ -24,9 +24,7 @@ function [segments,Signal,Limits,fs]=Vocal_algorithm_dectection(Init)
     nbin=100 ;  % fixed by default (need to be between 50 and 100 for best accuracy of adaptive threshold)
     weight=2;
     p=0.95;
-    fs=16000; % fixed by default (need to be over 12 000 Hz according to Shanon Theorem)
-    time_record=3; % time of  recording fixed to 4s 
-    time_init=1;
+   % fs=16000; % fixed by default (need to be over 12 000 Hz according to Shanon Theorem)
     step_ms= 5;% fixed by default 
     window_ms = 15; % fixed by default
     time_exclusion=0.100;%ms
