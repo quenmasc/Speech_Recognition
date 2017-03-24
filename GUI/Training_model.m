@@ -638,6 +638,7 @@ function button_data_Callback(hObject, eventdata, handles)
     pause(1);
     for i=1:length(segments)
         local_feature=data(i).feature;
+        local_feature_w=data(i).feature_w;
         local_classe=data(i).classe;
         local_gender=data(i).gender;
         switch data(i).nature
@@ -645,51 +646,76 @@ function button_data_Callback(hObject, eventdata, handles)
         a=strcat('../data_saved/',data(i).name,'/',strjoin(data(i).word),'/',data(i).phoneme,'/',data(i).name,'_test_',data(i).test,'_',data(i).phoneme,'.wav');
         %% check folder
         fn=fullfile(strcat('../data_saved/',data(i).name,'/',strjoin(data(i).word),'/',data(i).phoneme));
-        if ~exist(fn,'dir')
+        if ~exist(fn)
             mkdir(fn) ;
         end
         
         %% save
-        audiowrite(a,cell2mat(data(i).segments),fs,'BitsPerSample',16);
+        audiowrite([a],cell2mat(data(i).segments),fs,'BitsPerSample',16);
         
         %% save segments
         b=strcat('../features_saved/',data(i).name,'/',strjoin(data(i).word),'/',data(i).phoneme,'/',data(i).name,'_test_',data(i).test,'_',data(i).phoneme,'.mat');
         c=strcat('../features_saved/ALL/',data(i).name,'_test_',data(i).test,'_',data(i).phoneme,'.mat');
+        e=strcat('../features_saved/features_filtered/',data(i).name,'/',strjoin(data(i).word),'/',data(i).phoneme,'/',data(i).name,'_test_',data(i).test,'_',data(i).phoneme,'.mat');
+        f=strcat('../features_saved/features_filtered/ALL/',data(i).name,'_test_',data(i).test,'_',data(i).phoneme,'.mat');
         %% check if folders exist
         fn=fullfile(strcat('../features_saved/',data(i).name,'/',strjoin(data(i).word),'/',data(i).phoneme));
-        if ~exist(fn,'dir')
+        if ~exist(fn)
             mkdir (fn);
         end
         fn=fullfile(strcat('../features_saved/ALL'));
-        if ~exist(fn,'dir')
+        if ~exist(fn)
+            mkdir (fn);
+        end
+        fn=fullfile(strcat('../features_saved/features_filtered/',data(i).name,'/',strjoin(data(i).word),'/',data(i).phoneme));
+        if ~exist(fn)
+            mkdir (fn);
+        end
+        fn=fullfile(strcat('../features_saved/features_filtered/ALL'));
+        if ~exist(fn)
             mkdir (fn);
         end
         %% back up
         save([b],'local_feature','local_classe','local_gender');
         save([c],'local_feature','local_classe','local_gender');
+        save([e],'local_feature_w','local_classe','local_gender');
+        save([f],'local_feature_w','local_classe','local_gender');
             case 'Noise'
         a=strcat('../data_saved/Noise/',data(i).phoneme,'/',name,'_test_',test_number,'_',data(i).phoneme,'.wav');
         %% check folder
-        fn=fullfile(strcat('../data_saved/Noise/',data(i).phoneme),'dir');
-        if ~exist(fn,'dir')
+        fn=fullfile(strcat('../data_saved/Noise/',data(i).phoneme));
+        if ~exist(fn)
             mkdir (fn) ;
         end
         %% save 
         audiowrite(a,cell2mat(data(i).segments),fs,'BitsPerSample',16);
         b=strcat('../features_saved/Noise/',data(i).phoneme,'/',name,'_test_',test_number,'_',data(i).phoneme,'.mat');
         c=strcat('../features_saved/ALL/',data(i).name,'_test_',data(i).test,'_',data(i).phoneme,'.mat');
+        e=strcat('../features_saved/features_filtered/Noise/',data(i).phoneme,'/',name,'_test_',test_number,'_',data(i).phoneme,'.mat');
+        f=strcat('../features_saved/features_filtered/ALL/',data(i).name,'_test_',data(i).test,'_',data(i).phoneme,'.mat');
+       
         %% check if folders exist
         fn=fullfile(strcat('../features_saved/Noise/',data(i).phoneme));
-        if ~exist(fn,'dir')
+        if ~exist(fn)
             mkdir (fn) ;
         end
         fn =fullfile(strcat('../features_saved/ALL'));
-        if ~exist(fn,'dir')
+        if ~exist(fn)
+            mkdir(fn);
+        end
+        fn=fullfile(strcat('../features_saved/features_filtered/Noise/',data(i).phoneme));
+        if ~exist(fn)
+            mkdir (fn) ;
+        end
+        fn =fullfile(strcat('../features_saved/features_filtered/ALL'));
+        if ~exist(fn)
             mkdir(fn);
         end
         %% back up
-        save([b],'local_feature','local_classe');
-        save([c],'local_feature','local_classe');
+        save([b],'local_feature','local_classe','local_gender');
+        save([c],'local_feature','local_classe','local_gender');
+        save([e],'local_feature_w','local_classe','local_gender');
+        save([f],'local_feature_w','local_classe','local_gender');
         end 
         set(handles.textbox_instructions,'String',strcat('Segments~',num2str(i),' done'));
         pause(0.5);
@@ -995,7 +1021,7 @@ function button_next_data_Callback(hObject, eventdata, handles)
     data(curent).nature=noise_voice;
     data(curent).phoneme=phoneme;
     data(curent).feature=features(curent,:);
-    data(current).feature_w=features_w(current,:);
+    data(curent).feature_w=features_w(curent,:);
     data(curent).segments=segments(curent);
     data(curent).classe=classe;
 
