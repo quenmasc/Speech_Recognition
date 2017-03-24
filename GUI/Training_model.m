@@ -90,7 +90,7 @@ function button_record_Callback(hObject, eventdata, handles)
 
 global segments Signal Limits Init fs word name test_number features data flag; 
 flag=0;
-addpath('../VAD');
+addpath('../Vocal_Activity_Detection_Algorithm');
 addpath('../Feature_Extraction');
 psp=get(handles.menu_word_list,'String');
 pve=get(handles.menu_word_list,'Value');
@@ -109,7 +109,7 @@ set(handles.textbox_instructions,'String','Begin analysis');
 set(handles.textbox_number_segment,'String',num2str(length(segments)));
 data=repmat(struct('gender',[],'name',[],'word',[],'test',[],'nature',[],'phoneme',[],'feature',[],'segments',[],'classe',[]),1,length(segments));
 
-features=zeros(length(segments),200*39);
+features=zeros(length(segments),150*39);
 for i=1:length(segments)
     features(i,:)=SetFeactureExtraction(cell2mat(segments(i)),fs,15,5);
 end
@@ -624,7 +624,12 @@ function button_data_Callback(hObject, eventdata, handles)
     global Signal fs  data name test_number word segments flag;
     set(handles.textbox_instructions,'String','Signal backup is in progress');
     pause(0.5);
+    
     a=strcat('../data_saved/all_speech/',name,'_test_',test_number,'_',strjoin(word),'.wav');
+    fn=fullfile('../data_saved/all_speech/');
+    if ~exist(fn,'dir')
+        mkdir(fn);
+    end
     audiowrite([a],Signal,fs,'BitsPerSample',16);
     set(handles.textbox_instructions,'String','Signal saved');
     pause(0.5);
@@ -638,9 +643,11 @@ function button_data_Callback(hObject, eventdata, handles)
             case 'Voice'
         a=strcat('../data_saved/',strjoin(data(i).word),'/',data(i).phoneme,'/',data(i).name,'_test_',data(i).test,'_',data(i).phoneme,'.wav');
         %% check folder
-        if ~exist(a)
-            mkdir a ;
+        fn=fullfile(strcat('../data_saved/',strjoin(data(i).word),'/',data(i).phoneme));
+        if ~exist(fn,'dir')
+            mkdir(fn) ;
         end
+        
         %% save
         audiowrite(a,cell2mat(data(i).segments),fs,'BitsPerSample',16);
         
@@ -648,11 +655,13 @@ function button_data_Callback(hObject, eventdata, handles)
         b=strcat('../features_saved/',strjoin(data(i).word),'/',data(i).phoneme,'/',data(i).name,'_test_',data(i).test,'_',data(i).phoneme,'.mat');
         c=strcat('../features_saved/ALL/',data(i).name,'_test_',data(i).test,'_',data(i).phoneme,'.mat');
         %% check if folders exist
-        if ~exist(b)
-            mkdir b ;
+        fn=fullfile(strcat('../features_saved/',strjoin(data(i).word),'/',data(i).phoneme));
+        if ~exist(fn,'dir')
+            mkdir (fn);
         end
-        if ~exist(c)
-            mkdir c ;
+        fn=fullfile(strcat('../features_saved/ALL'));
+        if ~exist(fn,'dir')
+            mkdir (fn);
         end
         %% back up
         save([b],'local_feature','local_classe','local_gender');
@@ -660,19 +669,22 @@ function button_data_Callback(hObject, eventdata, handles)
             case 'Noise'
         a=strcat('../data_saved/Noise/',data(i).phoneme,'/',name,'_test_',test_number,'_',data(i).phoneme,'.wav');
         %% check folder
-        if ~exist(a)
-            mkdir a ;
+        fn=fullfile(strcat('../data_saved/Noise/',data(i).phoneme),'dir');
+        if ~exist(fn,'dir')
+            mkdir (fn) ;
         end
         %% save 
         audiowrite(a,cell2mat(data(i).segments),fs,'BitsPerSample',16);
         b=strcat('../features_saved/Noise/',data(i).phoneme,'/',name,'_test_',test_number,'_',data(i).phoneme,'.mat');
         c=strcat('../features_saved/ALL/',data(i).name,'_test_',data(i).test,'_',data(i).phoneme,'.mat');
         %% check if folders exist
-        if ~exist(b)
-            mkdir b ;
+        fn=fullfile(strcat('../features_saved/Noise/',data(i).phoneme));
+        if ~exist(fn,'dir')
+            mkdir (fn) ;
         end
-        if ~exist(c)
-            mkdir c ;
+        fn =fullfile(strcat('../features_saved/ALL'));
+        if ~exist(fn,'dir')
+            mkdir(fn);
         end
         %% back up
         save([b],'local_feature','local_classe');
@@ -908,7 +920,7 @@ function button_next_data_Callback(hObject, eventdata, handles)
     phoneme=strjoin(pop_string(pop_value));
     pop_f_m_s=get(handles.menu_female_male,'String');
     pop_f_m_v=get(handles.menu_female_male,'Value');
-    fem_mal=pop_f_m_s(pop_f_m_v);
+    fem_mal=strjoin(pop_f_m_s(pop_f_m_v));
     curent =str2double( get(handles.textbox_segment_data,'String'));
     if(curent==length(segments))
          set(handles.button_data,'Visible','On');
