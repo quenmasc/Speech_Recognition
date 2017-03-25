@@ -818,10 +818,10 @@ function menu_voice_noise_Callback(hObject, eventdata, handles)
             switch worde
                 case 'BACKWARD'
                     set(handles.menu_label,'Value',1);
-                    set(handles.menu_label,'String',{'BACK';'WARD';'BACKWARD';'OTHER'});
+                    set(handles.menu_label,'String',{'BACK';'WARD';'DE';'BACKWARD';'OTHER'});
                 case 'FORWARD'
                     set(handles.menu_label,'Value',1);
-                    set(handles.menu_label,'String',{'FOR';'WARD';'FORWARD';'OTHER'});
+                    set(handles.menu_label,'String',{'FOR';'WARD';'DE';'FORWARD';'OTHER'});
                 case 'GOTO'
                     set(handles.menu_label,'Value',1);
                     set(handles.menu_label,'String',{'GO';'TO';'GOTO';'OTHER'});
