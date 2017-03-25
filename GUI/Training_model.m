@@ -689,10 +689,10 @@ function button_data_Callback(hObject, eventdata, handles)
         end
         %% save 
         audiowrite(a,cell2mat(data(i).segments),fs,'BitsPerSample',16);
-        b=strcat('../Data/features/features_saved/',data(i).name,'/Noise/',data(i).phoneme,'/',name,'_test_',test_number,'_',data(i).phoneme,'.mat');
-        c=strcat('../Data/features/features_saved/ALL/',data(i).name,'_test_',data(i).test,'_',data(i).phoneme,'.mat');
-        e=strcat('../Data/features/features_filtered/',data(i).name,'/Noise/',data(i).phoneme,'/',name,'_test_',test_number,'_',data(i).phoneme,'.mat');
-        f=strcat('../Data/features/features_filtered/ALL/',data(i).name,'_test_',data(i).test,'_',data(i).phoneme,'.mat');
+        b=strcat('../Data/features/features_saved/',data(i).name,'/Noise/',data(i).phoneme,'/',name,'_test_',test_number,'_',strjoin(data(i).word),'_',data(i).phoneme,'.mat');
+        c=strcat('../Data/features/features_saved/ALL/',data(i).name,'_test_',data(i).test,'_',strjoin(data(i).word),'_',data(i).phoneme,'.mat');
+        e=strcat('../Data/features/features_filtered/',data(i).name,'/Noise/',data(i).phoneme,'/',name,'_test_',test_number,'_',strjoin(data(i).word),'_',data(i).phoneme,'.mat');
+        f=strcat('../Data/features/features_filtered/ALL/',data(i).name,'_test_',data(i).test,'_',strjoin(data(i).word),'_',data(i).phoneme,'.mat');
        
         %% check if folders exist
         fn=fullfile(strcat('../Data/features/features_saved/',data(i).name,'/Noise/',data(i).phoneme));
