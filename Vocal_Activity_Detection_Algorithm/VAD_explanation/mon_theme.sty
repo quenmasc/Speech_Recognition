@@ -1,0 +1,100 @@
+\usepackage[left=2cm, right=2cm, top=3.75cm, bottom=4cm]{geometry}
+\usepackage{color}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{ifthen}
+
+
+
+
+\definecolor{ROUGE}{rgb}{1,0,0}
+\definecolor{ROUGEENSEA}{rgb}{0.75,0.01,0.25}
+\definecolor{ROSE}{rgb}{1,0,0.51}
+\definecolor{VERT}{rgb}{0.25,1,0.15}
+\definecolor{ORANGE}{rgb}{0.674,0.118,0.266}
+\definecolor{BLEU}{rgb}{0,0,1}
+\definecolor{BLACK}{rgb}{0,0,0}
+\definecolor{white}{rgb}{1,1,1}
+\definecolor{ulaval_rouge}{RGB}{255,0,0}
+\definecolor{ulaval_jaune}{RGB}{254,203,47}
+
+\newcommand{\pageDeGarde}[5][]
+{
+\thispagestyle{empty}
+\begin{picture}(0,0) \put(-10,20){\includegraphics{logo.jpg}}\end{picture}
+\textsc{\bfseries{
+Département de génie électrique et de génie informatique}} \\ 
+\textsc{Faculté des sciences et de génie} \\
+\textsc{Université Laval} \\
+\textsc{1065, avenue de la Médecine} \\
+\textsc{Québec (Québec) G1V 0A6} \\
+\textsc{Téléphone : +1 (418) 656-2984} \\
+\textsc{Télécopieur : +1 (418) 656-3159}\\
+\textsc{Courrier électronique : gel@gel.ulaval.ca}\\
+\put(-30,-120){\color{ulaval_rouge}{\rule{12cm}{10pt}}}
+\put(315,-120){\color{ulaval_jaune}{\rule{6cm}{10pt}}}
+\put(-30,-200){\color{ulaval_rouge}{\rule{12cm}{10pt}}}
+\put(315,-200){\color{ulaval_jaune}{\rule{6cm}{10pt}}}
+\begin{picture}(-10,-10)
+\put(-20,-150){\color{BLACK}{\begin{minipage}{20cm} \Huge \bfseries {#2} \end{minipage}}}
+\put(20,-170){\color{BLACK}{\begin{minipage}{20cm} \Huge \bfseries {#3} \end{minipage}}}
+\put(0,-300){\color{BLACK}{\begin{minipage}{15cm} \large \raggedleft  {#4} \end{minipage}}}
+\put(-10,-650){\color{BLACK}{\begin{minipage}{10cm} \large #5\end{minipage}}}
+\put(150,-400){\textsc{{\bfseries{Sous la tutelle de } } benoit gosselin }}
+\put(200,-580){\textsc{\copyright MASCRET Quentin}}
+\put(100,-590){\textsc{\copyright Département de génie électrique et de génie informatiques}}
+\end{picture}
+
+
+
+\thispagestyle{empty}
+\null
+\newpage
+\clearpage
+}
+
+
+\newcommand{\pageMATIERE}[1][]{
+\thispagestyle{empty}
+\begin{picture}(0,0) \put(150,-5){\includegraphics{logo.jpg}}\end{picture}
+\begin{center}
+{{\Large {\textsc{Département de génie électrique et de génie informatiques}}} \\\textsc{Faculté des sciences et de génie} \\
+\textsc{Université Laval} \\ }
+\end{center}
+\begin{picture}(0,0)
+\put(-30,5){\color{ulaval_rouge}{\rule{12cm}{10pt}}}
+\put(315,5){\color{ulaval_jaune}{\rule{6cm}{10pt}}}
+
+\put(200,-600){\textsc{\copyright MASCRET Quentin}}
+\put(100,-610){\textsc{\copyright Département de génie électrique et de génie informatiques}}
+\put(100,-620){\textsc{}}
+\end{picture}
+\fancyhead[RO]{}
+\fancyhead[CO]{}
+
+\fancyfoot[LO,RO]{}
+\renewcommand\headrulewidth{0pt}
+\renewcommand\footrulewidth{0pt}
+}
+
+\newcommand{\pageTHEME}[1][]{
+\setlength{\headheight}{40pt} 
+\fancyhead[LO]{\begin{picture}(0,0) \put(180,55){\includegraphics{logo.jpg}}
+\put(-30,-5){\color{ulaval_rouge}{\rule{12cm}{10pt}}}
+\put(315,-5){\color{ulaval_jaune}{\rule{6cm}{10pt}}} 
+\end{picture}}
+\fancyhead[CO]{}
+\fancyhead[RO]{}
+\fancyfoot[LO,RO]{}
+\fancyfoot[RO]{\color{ROSE}{\thepage}}
+\renewcommand\headrulewidth{0pt}
+\fancyhead[CO]{{\Large {\textsc{Département de génie électrique et de génie informatiques}}} \\\textsc{Faculté des sciences et de génie} \\
+\textsc{Université Laval} \\  }
+\renewcommand\footrulewidth{0pt}
+\fancyfoot[L]{{\textsc{Cahier des charges} \\ {\textsc{\copyright MASCRET Quentin}} \\
+{\textsc{\copyright Département de génie électrique et de génie informatiques}}}}
+\fancyfoot[R]{{\textsc{\today}}}}
+
+
+

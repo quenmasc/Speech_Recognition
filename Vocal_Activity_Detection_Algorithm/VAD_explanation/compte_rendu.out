@@ -1,0 +1,16 @@
+\BOOKMARK [1][-]{section.1}{Introduction}{}% 1
+\BOOKMARK [1][-]{section.2}{Notions th\351oriques}{}% 2
+\BOOKMARK [2][-]{subsection.2.1}{Traitement \340 court-terme du signal vocal}{section.2}% 3
+\BOOKMARK [2][-]{subsection.2.2}{M\351thodes dans le domaine temporel}{section.2}% 4
+\BOOKMARK [3][-]{subsubsection.2.2.1}{\311nergie \340 court terme}{subsection.2.2}% 5
+\BOOKMARK [3][-]{subsubsection.2.2.2}{Taux de passage par z\351ro \(Zero Crossing Rate, ZRC\)}{subsection.2.2}% 6
+\BOOKMARK [2][-]{subsection.2.3}{Domaine fr\351quentiel}{section.2}% 7
+\BOOKMARK [3][-]{subsubsection.2.3.1}{Entropie Spectrale}{subsection.2.3}% 8
+\BOOKMARK [3][-]{subsubsection.2.3.2}{Spectral Centro\357d}{subsection.2.3}% 9
+\BOOKMARK [3][-]{subsubsection.2.3.3}{Mel Feature Cepstral Coefficients \(MFCC\)}{subsection.2.3}% 10
+\BOOKMARK [1][-]{section.3}{Travaux r\351alis\351s}{}% 11
+\BOOKMARK [2][-]{subsection.3.1}{L'id\351e}{section.3}% 12
+\BOOKMARK [2][-]{subsection.3.2}{D\351termination des seuils}{section.3}% 13
+\BOOKMARK [3][-]{subsubsection.3.2.1}{Seuil pour les MFCCs}{subsection.3.2}% 14
+\BOOKMARK [3][-]{subsubsection.3.2.2}{Seuil pour l'entropie spectrale}{subsection.3.2}% 15
+\BOOKMARK [1][-]{equation.3.14}{R\351f\351rences}{}% 16

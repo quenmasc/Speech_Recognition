@@ -1,0 +1,49 @@
+This is BibTeX, Version 0.99d (TeX Live 2015)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: compte_rendu.aux
+The style file: plain.bst
+Database file #1: biblio.bib.bib
+Warning--to sort, need author or key in MFCC
+Warning--empty journal in centroid
+You've used 7 entries,
+            2118 wiz_defined-function locations,
+            533 strings with 5204 characters,
+and the built_in function-call counts, 1626 in all, are:
+= -- 155
+> -- 67
+< -- 1
++ -- 28
+- -- 20
+* -- 78
+:= -- 290
+add.period$ -- 21
+call.type$ -- 7
+change.case$ -- 31
+chr.to.int$ -- 0
+cite$ -- 9
+duplicate$ -- 73
+empty$ -- 131
+format.name$ -- 20
+if$ -- 336
+int.to.chr$ -- 0
+int.to.str$ -- 7
+missing$ -- 6
+newline$ -- 38
+num.names$ -- 12
+pop$ -- 41
+preamble$ -- 1
+purify$ -- 24
+quote$ -- 0
+skip$ -- 56
+stack$ -- 0
+substring$ -- 40
+swap$ -- 11
+text.length$ -- 1
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 28
+warning$ -- 2
+while$ -- 13
+width$ -- 8
+write$ -- 71
+(There were 2 warnings)

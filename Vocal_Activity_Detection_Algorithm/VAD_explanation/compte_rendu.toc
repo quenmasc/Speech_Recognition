@@ -1,0 +1,29 @@
+\select@language {french}
+\contentsline {paragraph}{}{1}{paragraph*.1}
+\contentsline {paragraph}{}{1}{paragraph*.2}
+\contentsline {paragraph}{}{1}{paragraph*.3}
+\contentsline {section}{\numberline {1}Introduction}{2}{section.1}
+\contentsline {section}{\numberline {2}Notions th\'eoriques}{3}{section.2}
+\contentsline {subsection}{\numberline {2.1}Traitement \`a court-terme du signal vocal}{3}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}M\'ethodes dans le domaine temporel}{3}{subsection.2.2}
+\contentsline {subsubsection}{\numberline {2.2.1}\'Energie \`a court terme}{3}{subsubsection.2.2.1}
+\contentsline {subsubsection}{\numberline {2.2.2}Taux de passage par z\'ero (Zero Crossing Rate, ZRC)}{3}{subsubsection.2.2.2}
+\contentsline {subsection}{\numberline {2.3}Domaine fr\'equentiel}{4}{subsection.2.3}
+\contentsline {subsubsection}{\numberline {2.3.1}Entropie Spectrale}{4}{subsubsection.2.3.1}
+\contentsline {paragraph}{Travaux de Shen J, Hung J et Lee J \cite {entropie}}{4}{paragraph*.4}
+\contentsline {paragraph}{L'entropie spectrale}{4}{paragraph*.5}
+\contentsline {paragraph}{Energie spectrale}{4}{paragraph*.6}
+\contentsline {paragraph}{P(k,l)}{4}{paragraph*.7}
+\contentsline {paragraph}{Entropie Spectrale}{4}{paragraph*.8}
+\contentsline {paragraph}{Limitation}{5}{paragraph*.9}
+\contentsline {subsubsection}{\numberline {2.3.2}Spectral Centro\IeC {\"\i }d}{5}{subsubsection.2.3.2}
+\contentsline {subsubsection}{\numberline {2.3.3}Mel Feature Cepstral Coefficients (MFCC)}{5}{subsubsection.2.3.3}
+\contentsline {paragraph}{}{5}{paragraph*.10}
+\contentsline {paragraph}{Etape pour d\'eterminer les MFCCs}{5}{paragraph*.11}
+\contentsline {section}{\numberline {3}Travaux r\'ealis\'es}{6}{section.3}
+\contentsline {subsection}{\numberline {3.1}L'id\'ee}{6}{subsection.3.1}
+\contentsline {paragraph}{}{6}{paragraph*.12}
+\contentsline {subsection}{\numberline {3.2}D\'etermination des seuils}{6}{subsection.3.2}
+\contentsline {subsubsection}{\numberline {3.2.1}Seuil pour les MFCCs}{6}{subsubsection.3.2.1}
+\contentsline {subsubsection}{\numberline {3.2.2}Seuil pour l'entropie spectrale}{7}{subsubsection.3.2.2}
+\contentsline {section}{R\'ef\'erences}{8}{equation.3.14}

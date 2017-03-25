@@ -1,0 +1,46 @@
+\begin{thebibliography}{1}
+
+\bibitem{MFCC}
+Mel frequency cepstral coefficient (mfcc) tutorial.
+\newblock
+  \url{http://practicalcryptography.com/miscellaneous/machine-learning/guide-mel-frequency-cepstral-coefficients-mfccs/}.
+\newblock [Online; Accessed: 2017-03-15].
+
+\bibitem{entropy}
+Ouzounov .A.
+\newblock Robust features for speech detection a comparative study.
+\newblock {\em In Int. Conference on Computer System and Technology}, 2005.
+
+\bibitem{ref}
+Patrick Durand and René Durand.
+\newblock Les tomates tueuses.
+\newblock {\em Le beau journal}, page~24, jan 2007.
+
+\bibitem{centroid}
+Theodoros Giannakopoulos.
+\newblock A method for silence removal and segmentation of speech signals,
+  implemented in matlab.
+\newblock 2009.
+
+\bibitem{temp_dom}
+Faran Awais~Butt Madiha~Jalil and Ahmed Malik.
+\newblock Short-time energy, magnitude, zero crossing rate and autocorrelation
+  measurement for discriminating voiced and unvoiced segments of speech
+  signals.
+\newblock {\em 978-1-4673-5613-8\copyright2013 IEEE}, Mai 2013.
+
+\bibitem{entropie}
+Hung~J. Shen~J and Lee J.
+\newblock Robust entropy-based endpoint detection for speech recognition in
+  noisy environments.
+\newblock {\em In Fifth International conference on spoken Language
+  Processing}, 1998.
+
+\bibitem{background}
+Hongzhi Wang and Meijing~Li Yuchao~Xu.
+\newblock Study on the mfcc similarity-based voice activity detection
+  algorithm.
+\newblock {\em Artificial Intelligence, Management Science and Electronic
+  Commerce (AIMSEC), 2011 2nd International Conference on}, 2011.
+
+\end{thebibliography}
