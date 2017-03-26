@@ -24,10 +24,13 @@
 \contentsline {subsection}{\numberline {3.1}Fonctionnement g\'en\'eral de l'algorithme}{6}{subsection.3.1}
 \contentsline {paragraph}{}{6}{paragraph*.12}
 \contentsline {paragraph}{}{6}{paragraph*.13}
-\contentsline {subsection}{\numberline {3.2}L'id\'ee}{6}{subsection.3.2}
-\contentsline {paragraph}{}{7}{paragraph*.14}
+\contentsline {paragraph}{}{6}{paragraph*.14}
+\contentsline {paragraph}{}{6}{paragraph*.15}
+\contentsline {paragraph}{Finalit\'e}{7}{paragraph*.16}
+\contentsline {subsection}{\numberline {3.2}L'id\'ee d'utiliser la distance entre des vecteurs de bruit de fond et celui de chaque trame ... }{7}{subsection.3.2}
+\contentsline {paragraph}{}{7}{paragraph*.17}
 \contentsline {subsection}{\numberline {3.3}D\'etermination des seuils}{7}{subsection.3.3}
-\contentsline {subsubsection}{\numberline {3.3.1}Seuil pour les MFCCs}{7}{subsubsection.3.3.1}
-\contentsline {subsubsection}{\numberline {3.3.2}Seuil pour l'entropie spectrale}{7}{subsubsection.3.3.2}
-\contentsline {paragraph}{Am\'elioration possible du seuil}{8}{paragraph*.15}
-\contentsline {section}{R\'ef\'erences}{9}{paragraph*.15}
+\contentsline {subsubsection}{\numberline {3.3.1}Seuil pour les MFCCs}{8}{subsubsection.3.3.1}
+\contentsline {subsubsection}{\numberline {3.3.2}Seuil pour l'entropie spectrale}{8}{subsubsection.3.3.2}
+\contentsline {paragraph}{Am\'elioration possible du seuil}{8}{paragraph*.18}
+\contentsline {section}{R\'ef\'erences}{9}{paragraph*.18}
