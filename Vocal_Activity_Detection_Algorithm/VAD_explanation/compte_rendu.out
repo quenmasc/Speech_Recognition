@@ -9,8 +9,9 @@
 \BOOKMARK [3][-]{subsubsection.2.3.2}{Spectral Centro\357d}{subsection.2.3}% 9
 \BOOKMARK [3][-]{subsubsection.2.3.3}{Mel Feature Cepstral Coefficients \(MFCC\)}{subsection.2.3}% 10
 \BOOKMARK [1][-]{section.3}{Travaux r\351alis\351s}{}% 11
-\BOOKMARK [2][-]{subsection.3.1}{L'id\351e}{section.3}% 12
-\BOOKMARK [2][-]{subsection.3.2}{D\351termination des seuils}{section.3}% 13
-\BOOKMARK [3][-]{subsubsection.3.2.1}{Seuil pour les MFCCs}{subsection.3.2}% 14
-\BOOKMARK [3][-]{subsubsection.3.2.2}{Seuil pour l'entropie spectrale}{subsection.3.2}% 15
-\BOOKMARK [1][-]{equation.3.14}{R\351f\351rences}{}% 16
+\BOOKMARK [2][-]{subsection.3.1}{Fonctionnement g\351n\351ral de l'algorithme}{section.3}% 12
+\BOOKMARK [2][-]{subsection.3.2}{L'id\351e}{section.3}% 13
+\BOOKMARK [2][-]{subsection.3.3}{D\351termination des seuils}{section.3}% 14
+\BOOKMARK [3][-]{subsubsection.3.3.1}{Seuil pour les MFCCs}{subsection.3.3}% 15
+\BOOKMARK [3][-]{subsubsection.3.3.2}{Seuil pour l'entropie spectrale}{subsection.3.3}% 16
+\BOOKMARK [1][-]{paragraph*.15}{R\351f\351rences}{}% 17

@@ -6,6 +6,12 @@ Mel frequency cepstral coefficient (mfcc) tutorial.
   \url{http://practicalcryptography.com/miscellaneous/machine-learning/guide-mel-frequency-cepstral-coefficients-mfccs/}.
 \newblock [Online; Accessed: 2017-03-15].
 
+\bibitem{matlab}
+Record and play audio.
+\newblock
+  \url{https://www.mathworks.com/help/matlab/import_export/record-and-play-audio.html}.
+\newblock [Online; Accessed: 2017-02-04].
+
 \bibitem{entropy}
 Ouzounov .A.
 \newblock Robust features for speech detection a comparative study.

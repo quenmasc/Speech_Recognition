@@ -129,7 +129,16 @@ Les explications qui suivent sont issues et pour la plupart recopier du site $pr
 Pour déterminer les MFCCs, ll faut commencer, comme tout au long de notre étude, par sectionner le signal en courte trame se recouvrant les unes aux autres (overlapping). Pour chaque trame, on calcule l'estimation du périodogramme du spectre de puissance (en d'autres termes, on regarde la distribution de notre périodogramme). Ensuite, on applique un banc de filtres Mel aux spectres de puissances, somme de l'énergie dans chaque filtre. On prend le logarithme de toutes les énergies du banc de filtre. Puis la transformée en cosinus inverse (DCT). On ne garde que les 12 premiers coefficients en omettant le premier. 
 \newpage
 \section{Travaux réalisés}
-Cette partie va aborder du travail réalisé sur l'algorithme de détection vocale (VAD). Une grande partie est inspirée de méthodes et modèles existants. En ce qui concerne le modèle de bruit de fond avec mise à jour à chaque trame, il est extrait des travaux Hongzhi Wang et Yuchao Xu, Meijing Li \cite{background}. J'ai donc transposé leur travaux à l'entropie afin de la rendre plus robuste au bruit. Nous avions parler d'une de ces limitations un peu plus que nous avons cherché à combler.
+Cette partie va aborder du travail réalisé sur l'algorithme de détection vocale (VAD). Une grande partie est inspirée de méthodes et modèles existants. En ce qui concerne le modèle de bruit de fond avec mise à jour à chaque trame, il est extrait des travaux Hongzhi Wang et Yuchao Xu, Meijing Li \cite{background}. J'ai donc transposé leur travaux à l'entropie afin de la rendre plus robuste au bruit. Nous avions parler d'une des limitations de l'entropie un peu plus que nous avons cherché à combler par cette méthode.
+\subsection{Fonctionnement général de l'algorithme}
+Avant de rentrer des explications plus approfondis sur les méthodes utilisées ainsi que leurs outils, nous allons expliquer globalement le fonctionnement de notre algorithme. \\
+\paragraph{} Tout d'abord, une première fonction $recorder.m$ \cite{matlab} permet l'acquisition de donnée par la carte son de mon laptop et de sauvegarder des données dans des veccteurs. Deux acquisition sont réalisées : 
+\begin{itemize}
+	\item Acquisition du bruit environnant
+	\item Acquisition d'une trame de voix durant 3s (le temps est ici arbitraire. D'autant plus, que par la suite nous chercherons à être en temps réel).
+\end{itemize}
+Une fois ces deux acquisitions opérées, nous utilisons celle de bruit de fond afin de générer un vecteur $MFCCs_{noise}$. Pour cela, nous "découpons" le signal acquis en plusieurs trames de $15 \milli \second$ avec un recouvrement de $10 \milli \second$ afin de respecter l'hypothèse du caractère stationnaire exprimé un peu plus haut. Ces trames (ou fenêtres) sont ensuite envoyées à un algorithme : $ short_time_Fourier_transform.m$ pour réaliser une transformée de Fourier (l'appellation de la fonction est un peu faussée car nous sommes déjà dans un cas de court terme). Enfin, on extrait les Mel Feature Cepstral Coefficients du signal de bruit de fond (toutes les trames) que nous moyennons. Ce vecteur est donc la moyenne des coefficients cepstraux du bruit (en considérant que seule du bruit de fond est présent dans cette acquisition). On opère similairement pour l'entropie, en calculant la valeur moyenne de l'entropie pour le signal de bruit de fond (on réalise la moyenne sur l'ensemble des trames). 
+\paragraph{} 
 \subsection{L'idée} L'article de Hongzhi Wang et Yuchao Xu, Meijing Li propose d'extraire les Mel Features Cepstral Coefficients (MFCCs) d'un signal vocal pour chaque trame en considérant les dix (10) premières trames comme des trames de bruit d'arrière plan. En réalisant la moyenne de ces vecteurs, on obtient un vecteur de $MFCC_{bruité}$. Ce vecteur va permettre de réaliser la Corrélation des MFCC de chaque nouvelle trame avec lui même (dans l'article, ils utilisent aussi la distance euclidienne, qui se révèle être moins performante).Le vecteur de $MFCC_{bruité}$ est mis à jour à chaque trame :
 \begin{equation}
 	\underline{cno}=\underline{c}.p+(1-p).\underline{c}
@@ -148,7 +157,7 @@ La fonction de seuillage concernant l'entropie spectrale est quant à elle très s
 \begin{equation}
 	th_{noise}=\frac{1}{N}\sum_{k=1}^N x_k + 3 .\sqrt{\frac{1}{N-1}\sum_{i=1}^N|x_i -\mu|}
 \end{equation}
-où $\mu$ représente la moyenne du signal considéré.\\
+où $\mu$ représente la moyenne du signal considéré. En effet, on considère que sur les 20 premières trames ne représentent que bruit. En y ajoutant trois fois l'écart-type, on s'assure d'être au-dessus du bruit de fond dans sa majeur partie.\\
 Pour avoir un seuil pertinent et précis, on réalise une mise à jour ce seuil. La mise à jour est effective dès que l'on a 10 trames à traiter. En effet, nous n'avons pas de pertinence à utiliser la moyenne et l'écart type sur une trame. Dix trames nous semblaient convenable pour pouvoir exploiter ces deux indices pour une mise à jour correcte de notre seuil. Les étapes de la mise à jour sont les suivantes :\\
 \begin{itemize}
 	\item On collecte dix nouvelles trames
@@ -162,6 +171,8 @@ Pour avoir un seuil pertinent et précis, on réalise une mise à jour ce seuil. La
 	\end{equation}
 	Comme durant la mise à jour du vecteur bruit, on cherche à avoir une valeur de $p$ proche de $1$ (un) afin que la mise à jour ne soit pas polluée par une trame de voix. Cela rendrait nos seuil inutile car il ne considérerait plus les trames de voix ou alors celle avec des intensités plus élevées que celle considérée.
 \end{itemize}
+\paragraph{Amélioration possible du seuil} On pourrait, tout comme le seuil des MFCCs, considérer une fonction sigmoïde particulière pour calculer le seuil optimal à chaque trame. Pour le moment, celle-là n'a pas été développée car les résultats étaient satisfaisants. 
+
 
 \newpage
 \bibliographystyle{plain} 

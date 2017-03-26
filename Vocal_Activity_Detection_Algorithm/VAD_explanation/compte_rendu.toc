@@ -21,9 +21,13 @@
 \contentsline {paragraph}{}{5}{paragraph*.10}
 \contentsline {paragraph}{Etape pour d\'eterminer les MFCCs}{5}{paragraph*.11}
 \contentsline {section}{\numberline {3}Travaux r\'ealis\'es}{6}{section.3}
-\contentsline {subsection}{\numberline {3.1}L'id\'ee}{6}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.1}Fonctionnement g\'en\'eral de l'algorithme}{6}{subsection.3.1}
 \contentsline {paragraph}{}{6}{paragraph*.12}
-\contentsline {subsection}{\numberline {3.2}D\'etermination des seuils}{6}{subsection.3.2}
-\contentsline {subsubsection}{\numberline {3.2.1}Seuil pour les MFCCs}{6}{subsubsection.3.2.1}
-\contentsline {subsubsection}{\numberline {3.2.2}Seuil pour l'entropie spectrale}{7}{subsubsection.3.2.2}
-\contentsline {section}{R\'ef\'erences}{8}{equation.3.14}
+\contentsline {paragraph}{}{6}{paragraph*.13}
+\contentsline {subsection}{\numberline {3.2}L'id\'ee}{6}{subsection.3.2}
+\contentsline {paragraph}{}{7}{paragraph*.14}
+\contentsline {subsection}{\numberline {3.3}D\'etermination des seuils}{7}{subsection.3.3}
+\contentsline {subsubsection}{\numberline {3.3.1}Seuil pour les MFCCs}{7}{subsubsection.3.3.1}
+\contentsline {subsubsection}{\numberline {3.3.2}Seuil pour l'entropie spectrale}{7}{subsubsection.3.3.2}
+\contentsline {paragraph}{Am\'elioration possible du seuil}{8}{paragraph*.15}
+\contentsline {section}{R\'ef\'erences}{9}{paragraph*.15}

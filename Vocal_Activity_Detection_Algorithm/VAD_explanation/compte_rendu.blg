@@ -4,46 +4,47 @@ The top-level auxiliary file: compte_rendu.aux
 The style file: plain.bst
 Database file #1: biblio.bib.bib
 Warning--to sort, need author or key in MFCC
+Warning--to sort, need author or key in matlab
 Warning--empty journal in centroid
-You've used 7 entries,
+You've used 8 entries,
             2118 wiz_defined-function locations,
-            533 strings with 5204 characters,
-and the built_in function-call counts, 1626 in all, are:
-= -- 155
-> -- 67
+            537 strings with 5345 characters,
+and the built_in function-call counts, 1794 in all, are:
+= -- 172
+> -- 68
 < -- 1
-+ -- 28
++ -- 29
 - -- 20
-* -- 78
-:= -- 290
-add.period$ -- 21
-call.type$ -- 7
-change.case$ -- 31
+* -- 83
+:= -- 309
+add.period$ -- 24
+call.type$ -- 8
+change.case$ -- 34
 chr.to.int$ -- 0
-cite$ -- 9
-duplicate$ -- 73
-empty$ -- 131
+cite$ -- 11
+duplicate$ -- 80
+empty$ -- 154
 format.name$ -- 20
-if$ -- 336
+if$ -- 378
 int.to.chr$ -- 0
-int.to.str$ -- 7
+int.to.str$ -- 8
 missing$ -- 6
-newline$ -- 38
+newline$ -- 43
 num.names$ -- 12
-pop$ -- 41
+pop$ -- 51
 preamble$ -- 1
-purify$ -- 24
+purify$ -- 26
 quote$ -- 0
-skip$ -- 56
+skip$ -- 61
 stack$ -- 0
-substring$ -- 40
-swap$ -- 11
+substring$ -- 45
+swap$ -- 12
 text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 28
-warning$ -- 2
+type$ -- 32
+warning$ -- 3
 while$ -- 13
-width$ -- 8
-write$ -- 71
-(There were 2 warnings)
+width$ -- 9
+write$ -- 80
+(There were 3 warnings)
