@@ -38,4 +38,10 @@
 \contentsline {paragraph}{Segmentation}{9}{paragraph*.20}
 \contentsline {paragraph}{}{10}{paragraph*.21}
 \contentsline {paragraph}{Post traitement des segments}{10}{paragraph*.22}
-\contentsline {section}{R\'ef\'erences}{11}{paragraph*.22}
+\contentsline {subsection}{\numberline {3.4}Conclusion}{10}{subsection.3.4}
+\contentsline {section}{\numberline {4}Tests et comparaisons}{11}{section.4}
+\contentsline {subsection}{\numberline {4.1}Pr\'esentation des algorithmes \'evalu\'es}{11}{subsection.4.1}
+\contentsline {paragraph}{}{11}{paragraph*.23}
+\contentsline {paragraph}{}{11}{paragraph*.24}
+\contentsline {subsubsection}{\numberline {4.1.1}Robustesse au bruit}{11}{subsubsection.4.1.1}
+\contentsline {section}{R\'ef\'erences}{12}{subsubsection.4.1.1}

@@ -214,7 +214,26 @@ Pour calculer l'échantillon du "tail", l'opération est similaire, mais il faut v
 où $window_{ms}$ est la fenêtre d'étude considérée. \\
 \paragraph{} Les échantillons des "heads" et "tails" sont renvoyés dans un vecteur que l'on concatenate\footnote{Mots anglais : enchainement des vecteurs en soit} avec ceux déjà retournés. On obtient finalement une matrice. On n'a plus qu'à extraire les segments en s'appuyant de la matrice précédemment trouvée pour l'ensemble du signal.
 \paragraph{Post traitement des segments}
-Nous avions déjà commencé à développer l'idée un peu plus haut, nous allons continuer ici. Ce qu'il faut retenir c'est que malgré notre correction des labels un peu plus haut, des erreurs subsistent. Vous nous direz : "Mais alors quel fut l'avantage de corriger les labels un peu plus haut ?". Tout simplement, la fonction de correction des labels permet de corriger des labels isolés. Néanmoins, elle ne prend pas en compte le fait que les segments doivent-être d'une certaine taille pour pouvoir être assimilé à une activité vocale. En effet, la durée est quelque chose que nous n'avions pas évoqué, mais c'est un paramètre important à prendre en compte. Un phonème peut durer entre $20ms$ et $100ms$, une syllabe $100ms$ à minima. Aucune contrainte n'a été faite sur la longueur (en sample) de nos segments. Il se peut que ceux-ci ne durent qu'une centaine d'échantillons ($i.e$ moins de 5ms à $16~000Hz$). Il faut donc les rejeter car ne caractérise par une activité vocale.  
+Nous avions déjà commencé à développer l'idée un peu plus haut, nous allons continuer ici. Ce qu'il faut retenir c'est que malgré notre correction des labels un peu plus haut, des erreurs subsistent. Vous nous direz : "Mais alors quel fut l'avantage de corriger les labels un peu plus haut ?". Tout simplement, la fonction de correction des labels permet de corriger des labels isolés. Néanmoins, elle ne prend pas en compte le fait que les segments doivent-être d'une certaine taille pour pouvoir être assimilé à une activité vocale. En effet, la durée est quelque chose que nous n'avions pas évoqué, mais c'est un paramètre important à prendre en compte. Un phonème peut durer entre $20ms$ et $100ms$, une syllabe $100ms$ à minima. Aucune contrainte n'a été faite sur la longueur (en sample) de nos segments. Il se peut que ceux-ci ne durent qu'une centaine d'échantillons ($i.e$ moins de 5ms à $16~000Hz$). Il faut donc les rejeter car ne caractérise par une activité vocale. Pour cela, nous avons choisi de rejeter tous les segments représentants moins de $50ms$ en estimant qu'on ne peut avoir une activité vocale dans ce lapse de temps. Les autres segments sont quant à eux conservés. 
+\subsection{Conclusion} Après avoir discuté des nos choix méthodiques et les algorithme mis en oeuvre, nous allons maintenant discuter des performances de notre algorithme de détection d'activité vocale en le comparant à des algorithmes. 
+\newpage
+\section{Tests et comparaisons}
+Dans cette partie, nous allons comparer notre algorithme à ceux de la littérature. La plupart des algorithmes ont été récupérés sur la plate-forme collaborative de Matlab en se basant sur leur cotation mais aussi le respect de la littérature. 
+\subsection{Présentation des algorithmes évalués}
+Nous allons évaluer différents algorithmes à savoir :
+\begin{itemize}
+	\item Un algorithme basé sur la détection de l'énergie et du taux de passage par zéro. Les seuils sont fixés de manière manuelle dans une plage prédéfinie \cite{end}.
+	\item Un algorithme basé sur la détection de l'énergie ainsi que le centroïde spectrale ("centre de gravité").\cite{silence} Les seuils sont définis par détection des maximas locaux de leur histogramme. Pour des explications un peu plus précise, nous vous invitons à lire son article\cite{centroid}.
+	
+\end{itemize}
+\paragraph{} Plusieurs tests seront opérés :
+\begin{itemize}
+	\item Performances : Rapidité de la détection de l'algorithme.
+	\item Robustesse au bruit : nous chercherons à ajouter progressivement du bruit dans nos tests  en baissant le SNR (Signal Noise Ratio\footnote{Taux du rapport signal à bruit}).
+\end{itemize}
+\paragraph{} Nous savons que nous partons dès le départ avec un désavantage. En effet, nous utilisons que des méthodes fréquentielles qui ont une complexité de calcul élevé. De plus, notre algorithme n'est pas optimisé car nous répétons certaines opérations plusieurs fois, notamment la plus gourmande, la Discrete Fourier Transform \footnote{Transformée de Fourier Discrète}. 
+\subsubsection{Robustesse au bruit} 
+Nous allons commencer par un signal avec un SNR très élévé
 \newpage
 \bibliographystyle{plain} 
 \bibliography{biblio.bib} 

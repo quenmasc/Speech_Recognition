@@ -1,4 +1,4 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 
 \bibitem{MFCC}
 Mel frequency cepstral coefficient (mfcc) tutorial.
@@ -22,6 +22,13 @@ Patrick Durand and René Durand.
 \newblock Les tomates tueuses.
 \newblock {\em Le beau journal}, page~24, jan 2007.
 
+\bibitem{silence}
+Theodoros Giannakopoulos.
+\newblock Silence removal in speech signals.
+\newblock
+  \url{https://www.mathworks.com/matlabcentral/fileexchange/28826-silence-removal-in-speech-signals}.
+\newblock [Online; Accessed: 2017-03-27].
+
 \bibitem{centroid}
 Theodoros Giannakopoulos.
 \newblock A method for silence removal and segmentation of speech signals,
@@ -41,6 +48,15 @@ Hung~J. Shen~J and Lee J.
   noisy environments.
 \newblock {\em In Fifth International conference on spoken Language
   Processing}, 1998.
+
+\bibitem{end}
+Prof. Lawrence Rabiner~(Rutgers University, Prof. Ronald Schafer (Stanford
+  University) Kirty~Vedula University~of California, Santa~Barbara), and Siva
+  Yedithi~(Rutgers University).
+\newblock Endpoint detector.
+\newblock
+  \url{https://www.mathworks.com/matlabcentral/fileexchange/45314-endpoint-detectorl}.
+\newblock [Online; Accessed: 2017-03-27].
 
 \bibitem{background}
 Hongzhi Wang and Meijing~Li Yuchao~Xu.
