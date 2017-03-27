@@ -33,4 +33,9 @@
 \contentsline {subsubsection}{\numberline {3.3.1}Seuil pour les MFCCs}{8}{subsubsection.3.3.1}
 \contentsline {subsubsection}{\numberline {3.3.2}Seuil pour l'entropie spectrale}{8}{subsubsection.3.3.2}
 \contentsline {paragraph}{Am\'elioration possible du seuil}{8}{paragraph*.18}
-\contentsline {section}{R\'ef\'erences}{9}{paragraph*.18}
+\contentsline {subsubsection}{\numberline {3.3.3}Segmentation et correction des labels}{9}{subsubsection.3.3.3}
+\contentsline {paragraph}{Correction des "uns" et "z\'eros" isol\'es}{9}{paragraph*.19}
+\contentsline {paragraph}{Segmentation}{9}{paragraph*.20}
+\contentsline {paragraph}{}{10}{paragraph*.21}
+\contentsline {paragraph}{Post traitement des segments}{10}{paragraph*.22}
+\contentsline {section}{R\'ef\'erences}{11}{paragraph*.22}

@@ -14,4 +14,5 @@
 \BOOKMARK [2][-]{subsection.3.3}{D\351termination des seuils}{section.3}% 14
 \BOOKMARK [3][-]{subsubsection.3.3.1}{Seuil pour les MFCCs}{subsection.3.3}% 15
 \BOOKMARK [3][-]{subsubsection.3.3.2}{Seuil pour l'entropie spectrale}{subsection.3.3}% 16
-\BOOKMARK [1][-]{paragraph*.18}{R\351f\351rences}{}% 17
+\BOOKMARK [3][-]{subsubsection.3.3.3}{Segmentation et correction des labels}{subsection.3.3}% 17
+\BOOKMARK [1][-]{paragraph*.22}{R\351f\351rences}{}% 18

@@ -19,11 +19,13 @@
 \usepackage{pdfpages}
 \usepackage{lastpage}
 \usepackage{hyperref}
-\usepackage{amsmath}
+\usepackage{amssymb, amsmath}
 \usepackage{multirow}
 \usepackage{titlesec}
 \usepackage[nottoc, notlof, notlot]{tocbibind}
 \usepackage{url}
+\usepackage{array}
+\usepackage[dvipsnames]{xcolor}
 
 \title{}
 \date{}
@@ -176,8 +178,43 @@ Pour avoir un seuil pertinent et précis, on réalise une mise à jour ce seuil. La
 	Comme durant la mise à jour du vecteur bruit, on cherche à avoir une valeur de $p$ proche de $1$ (un) afin que la mise à jour ne soit pas polluée par une trame de voix. Cela rendrait nos seuil inutile car il ne considérerait plus les trames de voix ou alors celle avec des intensités plus élevées que celle considérée.
 \end{itemize}
 \paragraph{Amélioration possible du seuil} On pourrait, tout comme le seuil des MFCCs, considérer une fonction sigmoïde particulière pour calculer le seuil optimal à chaque trame. Pour le moment, celle-là n'a pas été développée car les résultats étaient satisfaisants. 
-
-
+\subsubsection{Segmentation et correction des labels}
+Nous en avions un peu parlé plus haut, une fois nos seuils identifiés, il faut labéliser chaque trame. Chaque label est soit un "1" soit un "0" ("0" correspondant à une trame sous le seuil). On réalise cette opération pour les deux paramètres que nous utilisions. Nous combinons nos résultats obtenus pour labéliser chaque trame (nous avons donc un "et" logique entre les deux vecteurs de labels obtenus). 
+\paragraph{Correction des "uns" et "zéros" isolés} Notre vecteur de labels récupéré, ils arrivent que des "zéros" et des "uns" se retrouvent isolés dans une combinaison, respectivement, de "uns" et des "zéros". Afin de corriger ces "erreurs", on va chercher à évaluer le poids des labels entourant le label considéré. En soit, on balaye tous les labels afin de tous les vérifier. Les poids des labels entourant chaque label doit-être paire pour éviter des générer des nouvelles erreurs ou déplacer des labels (on a donc un nombre impaire des labels à évaluer pour trancher sur la valeur du label que l'on considère). On évalue donc le nombre de "un" et de "zéro", ce qui détermine si notre label est un "un" ou un "zéro". Mes propos ci-dessus n'étant pas forcément claire, illustrons mes propos avec un exemple :
+\begin{enumerate}
+	\item Considérons un vecteur de labels : $[ 1~1~0~0~1~1~1]$ et poids de 3 labels de part et d'autres du label que l'on évalue. On cherche à savoir si les "zéros" de ce vecteur de "uns" ne sont pas des erreurs. On se positionne sur le premier "zéro", on prend 3 labels à gauche et à droite (les premières valeurs n'ayant pas ou peu de labels sur leur gauche, on ne considère que le poids à d'autres en y intégrant au fur et à mesure les labels à gauche). On évalue donc le vecteur : $[ 1~1~{\color{red}0~0}~1~1]$. On constate qu'il y a 4 "un" pour 2 "zéro". Le label "zéro" considéré est en faite un "un" (car il y a plus de poids de "un" que de "zéro"). Finalement, en évaluant l'ensemble du vecteur de label, on a : $[ 1~1~{\color{red}1~1}~1~1~1]$. Notre vecteur est donc corrigé. 
+\end{enumerate}
+Aucune littérature n'a été utilisée pour traiter de ce problème, simplement des constats sur un grand nombre d'exemple. Le résultat obtenu est concluant, même si des améliorations sont tout à fait envisageable. Notamment sur le poids à considérer qui pourrait ne pas être fixe par exemple. On pourrait considérer que le poids devient plus grand quand, pendant un lapse de labels, ces derniers sont inchangeants. De fait, on pourrait corriger des "zéros"' ou "uns" isolés sur un plus grand poids. 
+\paragraph{Segmentation}\footnote{L'idée s'appuit sur le principe des bufferisation que l'on utilise couramment en temps réel pour stocker nos données que l'on acquisitionne. Notamment en ce qui concerne les appelations "head" et "tail"}
+Une fois le vecteur de labels corrigé, il nous reste plus qu'à extraire les segments où il y a de l'activité vocale. Pour cela, on considère un "head" et "tail". Le "head" caractérise le premier label "un" qui précède un "zéro" du vecteur et le "tail", le dernier "un" qui précède un groupe de "un" et est suivi d'un "zéro". Il peut y avoir plusieurs "head" et "tail" sur le signal acquisitionné. Le "head" est le premier marqueur, le "tail" lui n'apparait dès lors qu'un "head" est marqué sur le vecteur de labels. On extrait pour chaque "head" et "tail", leurs limites (la valeur de leur échantillon). Par exemple :
+\begin{enumerate}
+	\item On considère un vecteur de label : $[0~0~0~0~1~1~1~1~0~0~0]$ ({\bfseries{nb:}} la taille du vecteur est plus conséquente dans l'algorithme). On balaye toutes les valeurs du vecteur jusqu'au premier "head" (un "un" qui est précédé d'un "zéro"). On place donc le "head" sur le "un" qui représente le cinquième échantillon de notre vecteur ($[0~0~0~0~{\color{red}1}~1~1~1~0~0~0]$, ici en rouge). Puis on continue l'analyse mais cette fois-ci pour trouver le "tail". Ici le "tail" est le "un" qui représente le huitième échantillon du vecteur  ($[0~0~0~0~1~1~1~{\color{blue}1}~0~0~0]$, ici en bleu). Le "head" et le "tail" délimite donc le segment suivant : $[0~0~0~0~{\color{BurntOrange}1~1~1~1}~0~0~0]$.
+\end{enumerate} 
+Ensuite, le "head" et le "tail" renvoient leurs limites (à savoir la valeur de leur échantillon). On obtient donc :
+	\[
+\begin{bmatrix}
+    Limits(head)    \\
+    Limits(tail) \\
+\end{bmatrix}
+=
+\begin{bmatrix}
+    5 \\
+    8 \\
+\end{bmatrix}
+\]
+Pour extraire notre vecteur, il nous reste plus qu'à réaliser la conversion : Trame $\Leftrightarrow$ Samples. Pour cela, on utilise la formule suivante pour calculer l'échantillon du "head" : 
+\begin{equation}
+	Sample=Limits(head).step_{ms}
+\end{equation}
+où $step_{ms}$ représente la durée en $ms$ de la fenêtre d'étude en $ms$ moins le recouvrement que l'on considère en $ms$. Dans notre cas, elle est de $5ms$.
+Pour calculer l'échantillon du "tail", l'opération est similaire, mais il faut veiller à rajouter la longueur en $ms$ de la fenêtre d'étude :
+\begin{equation}
+	Sample=Limits(head).step_{ms}+ window_{ms}
+\end{equation}
+où $window_{ms}$ est la fenêtre d'étude considérée. \\
+\paragraph{} Les échantillons des "heads" et "tails" sont renvoyés dans un vecteur que l'on concatenate\footnote{Mots anglais : enchainement des vecteurs en soit} avec ceux déjà retournés. On obtient finalement une matrice. On n'a plus qu'à extraire les segments en s'appuyant de la matrice précédemment trouvée pour l'ensemble du signal.
+\paragraph{Post traitement des segments}
+Nous avions déjà commencé à développer l'idée un peu plus haut, nous allons continuer ici. Ce qu'il faut retenir c'est que malgré notre correction des labels un peu plus haut, des erreurs subsistent. Vous nous direz : "Mais alors quel fut l'avantage de corriger les labels un peu plus haut ?". Tout simplement, la fonction de correction des labels permet de corriger des labels isolés. Néanmoins, elle ne prend pas en compte le fait que les segments doivent-être d'une certaine taille pour pouvoir être assimilé à une activité vocale. En effet, la durée est quelque chose que nous n'avions pas évoqué, mais c'est un paramètre important à prendre en compte. Un phonème peut durer entre $20ms$ et $100ms$, une syllabe $100ms$ à minima. Aucune contrainte n'a été faite sur la longueur (en sample) de nos segments. Il se peut que ceux-ci ne durent qu'une centaine d'échantillons ($i.e$ moins de 5ms à $16~000Hz$). Il faut donc les rejeter car ne caractérise par une activité vocale.  
 \newpage
 \bibliographystyle{plain} 
 \bibliography{biblio.bib} 
