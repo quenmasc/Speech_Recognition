@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.10.5)  27 MAR 2017 15:29
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.10.5)  28 MAR 2017 16:16
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -579,39 +579,32 @@ Package xcolor Info: Model `wave' substituted by `hsb' on input line 1360.
 File: dvipsnam.def 2014/10/14 v3.0j Driver-dependent file (DPC,SPQR)
 ))
 (./compte_rendu.aux)
-Runaway argument?
-{\contentsline {subsubsection}{\numberline {3.3.1}Seuil pour les MFCC\ETC.
-./compte_rendu.tex:36: File ended while scanning use of \@writefile.
-<inserted text> 
-                \par 
-l.36 \begin{document}
-                     
-? 
 \openout1 = `compte_rendu.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 36.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 36.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 38.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 38.
+
 (/usr/local/texlive/2015/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Info: Redefining \degres on input line 36.
-LaTeX Info: Redefining \dots on input line 36.
-LaTeX Info: Redefining \up on input line 36.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Info: Redefining \degres on input line 38.
+LaTeX Info: Redefining \dots on input line 38.
+LaTeX Info: Redefining \up on input line 38.
 
 (/usr/local/texlive/2015/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -712,8 +705,8 @@ LaTeX Info: Redefining \selectfont on input line 126.
 \AtBeginShipoutBox=\box36
 Package lastpage Info: Please have a look at the pageslts package at
 (lastpage)             https://www.ctan.org/pkg/pageslts
-(lastpage)             ! on input line 36.
-Package hyperref Info: Link coloring OFF on input line 36.
+(lastpage)             ! on input line 38.
+Package hyperref Info: Link coloring OFF on input line 38.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
@@ -723,50 +716,50 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
 \c@section@level=\count158
 )
-LaTeX Info: Redefining \ref on input line 36.
-LaTeX Info: Redefining \pageref on input line 36.
-LaTeX Info: Redefining \nameref on input line 36.
+LaTeX Info: Redefining \ref on input line 38.
+LaTeX Info: Redefining \pageref on input line 38.
+LaTeX Info: Redefining \nameref on input line 38.
 
 (./compte_rendu.out) (./compte_rendu.out)
 \@outlinefile=\write3
 \openout3 = `compte_rendu.out'.
 
 
-<logo.jpg, id=4, 138.5175pt x 57.5751pt>
+<logo.jpg, id=92, 138.5175pt x 57.5751pt>
 File: logo.jpg Graphic file (type jpg)
  <use logo.jpg>
-Package pdftex.def Info: logo.jpg used on input line 38.
+Package pdftex.def Info: logo.jpg used on input line 40.
 (pdftex.def)             Requested size: 138.51715pt x 57.57495pt.
 
 
-Package xcolor Warning: Incompatible color definition on input line 38.
+Package xcolor Warning: Incompatible color definition on input line 40.
 
-LaTeX Font Info:    Try loading font information for U+msa on input line 38.
+LaTeX Font Info:    Try loading font information for U+msa on input line 40.
 (/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 38.
+LaTeX Font Info:    Try loading font information for U+msb on input line 40.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 
-Package xcolor Warning: Incompatible color definition on input line 38.
+Package xcolor Warning: Incompatible color definition on input line 40.
 
 
-Package xcolor Warning: Incompatible color definition on input line 38.
+Package xcolor Warning: Incompatible color definition on input line 40.
 
 
-Package xcolor Warning: Incompatible color definition on input line 38.
+Package xcolor Warning: Incompatible color definition on input line 40.
 
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 38.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 40.
 (/usr/local/texlive/2015/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/sc' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 38.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 40.
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 38.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 40.
  [1
 
 {/usr/local/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./logo.
@@ -774,7 +767,7 @@ jpg>]
 File: logo.jpg Graphic file (type jpg)
 
 <use logo.jpg>
-Package pdftex.def Info: logo.jpg used on input line 40.
+Package pdftex.def Info: logo.jpg used on input line 42.
 (pdftex.def)             Requested size: 138.51715pt x 57.57495pt.
  (./compte_rendu.toc)
 \tf@toc=\write4
@@ -785,7 +778,7 @@ Package pdftex.def Info: logo.jpg used on input line 40.
 ]
 File: logo.jpg Graphic file (type jpg)
  <use logo.jpg>
-Package pdftex.def Info: logo.jpg used on input line 53.
+Package pdftex.def Info: logo.jpg used on input line 55.
 (pdftex.def)             Requested size: 138.51715pt x 57.57495pt.
 
 
@@ -798,11 +791,11 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.53 \newpage
+l.55 \newpage
               [1]
 File: logo.jpg Graphic file (type jpg)
  <use logo.jpg>
-Package pdftex.def Info: logo.jpg used on input line 56.
+Package pdftex.def Info: logo.jpg used on input line 58.
 (pdftex.def)             Requested size: 138.51715pt x 57.57495pt.
 
 
@@ -815,17 +808,11 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.56 \newpage
+l.58 \newpage
               [2]
-
-LaTeX Warning: Citation `ref' on page 3 undefined on input line 59.
-
-
-LaTeX Warning: Citation `temp_dom' on page 3 undefined on input line 61.
-
 File: logo.jpg Graphic file (type jpg)
-<use logo.jpg>
-Package pdftex.def Info: logo.jpg used on input line 92.
+ <use logo.jpg>
+Package pdftex.def Info: logo.jpg used on input line 94.
 (pdftex.def)             Requested size: 138.51715pt x 57.57495pt.
 
 
@@ -836,27 +823,21 @@ Package Fancyhdr Warning: \headheight is too small (40.0pt):
 
 [3]
 
-LaTeX Warning: Citation `entropie' on page 4 undefined on input line 96.
-
-
-LaTeX Warning: Command \` invalid in math mode on input line 103.
+LaTeX Warning: Command \` invalid in math mode on input line 105.
 
 Missing character: There is no è in font cmr8!
 
-LaTeX Warning: Command \` invalid in math mode on input line 103.
+LaTeX Warning: Command \` invalid in math mode on input line 105.
 
 Missing character: There is no è in font cmr8!
 
-Underfull \hbox (badness 10000) in paragraph at lines 102--104
+Underfull \hbox (badness 10000) in paragraph at lines 104--106
 
  []
 
-
-LaTeX Warning: Citation `entropy' on page 4 undefined on input line 117.
-
 File: logo.jpg Graphic file (type jpg)
 <use logo.jpg>
-Package pdftex.def Info: logo.jpg used on input line 118.
+Package pdftex.def Info: logo.jpg used on input line 120.
 (pdftex.def)             Requested size: 138.51715pt x 57.57495pt.
 
 
@@ -867,33 +848,27 @@ Package Fancyhdr Warning: \headheight is too small (40.0pt):
 
 [4]
 
-LaTeX Warning: Command \` invalid in math mode on input line 119.
+LaTeX Warning: Command \` invalid in math mode on input line 121.
 
 Missing character: There is no è in font cmr8!
 
-LaTeX Warning: Command \` invalid in math mode on input line 123.
+LaTeX Warning: Command \` invalid in math mode on input line 125.
 
 Missing character: There is no è in font cmr8!
 
-LaTeX Warning: Citation `centroid' on page 5 undefined on input line 125.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 122--126
+Underfull \hbox (badness 10000) in paragraph at lines 124--128
 
  []
 
 
-LaTeX Warning: Citation `MFCC' on page 5 undefined on input line 127.
-
-
-Overfull \hbox (2.88542pt too wide) in paragraph at lines 127--128
+Overfull \hbox (2.88542pt too wide) in paragraph at lines 129--130
 []\T1/cmr/m/n/10.95 Les ex-pli-ca-tions qui suivent sont is-sues et pour la plu
 -part re-co-pier du site $\OML/cmm/m/it/10.95 practicalcryptography:com$
  []
 
 File: logo.jpg Graphic file (type jpg)
 <use logo.jpg>
-Package pdftex.def Info: logo.jpg used on input line 132.
+Package pdftex.def Info: logo.jpg used on input line 134.
 (pdftex.def)             Requested size: 138.51715pt x 57.57495pt.
 
 
@@ -903,20 +878,13 @@ Package Fancyhdr Warning: \headheight is too small (40.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [5]
-
-LaTeX Warning: Citation `background' on page 6 undefined on input line 134.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 136--137
+Underfull \hbox (badness 10000) in paragraph at lines 138--139
 
  []
 
-
-LaTeX Warning: Citation `matlab' on page 6 undefined on input line 137.
-
 File: logo.jpg Graphic file (type jpg)
 <use logo.jpg>
-Package pdftex.def Info: logo.jpg used on input line 146.
+Package pdftex.def Info: logo.jpg used on input line 148.
 (pdftex.def)             Requested size: 138.51715pt x 57.57495pt.
 
 
@@ -927,20 +895,20 @@ Package Fancyhdr Warning: \headheight is too small (40.0pt):
 
 [6]
 
-LaTeX Warning: Command \' invalid in math mode on input line 148.
+LaTeX Warning: Command \' invalid in math mode on input line 150.
 
 Missing character: There is no é in font cmr8!
 
-LaTeX Warning: Command \' invalid in math mode on input line 148.
+LaTeX Warning: Command \' invalid in math mode on input line 150.
 
 Missing character: There is no é in font cmr8!
 
-LaTeX Warning: Command \' invalid in math mode on input line 152.
+LaTeX Warning: Command \' invalid in math mode on input line 154.
 
 Missing character: There is no é in font cmr8!
 File: logo.jpg Graphic file (type jpg)
 <use logo.jpg>
-Package pdftex.def Info: logo.jpg used on input line 160.
+Package pdftex.def Info: logo.jpg used on input line 162.
 (pdftex.def)             Requested size: 138.51715pt x 57.57495pt.
 
 
@@ -950,13 +918,13 @@ Package Fancyhdr Warning: \headheight is too small (40.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [7]
-Underfull \hbox (badness 10000) in paragraph at lines 165--168
+Underfull \hbox (badness 10000) in paragraph at lines 167--170
 
  []
 
 File: logo.jpg Graphic file (type jpg)
 <use logo.jpg>
-Package pdftex.def Info: logo.jpg used on input line 183.
+Package pdftex.def Info: logo.jpg used on input line 185.
 (pdftex.def)             Requested size: 138.51715pt x 57.57495pt.
 
 
@@ -968,7 +936,7 @@ Package Fancyhdr Warning: \headheight is too small (40.0pt):
 [8]
 File: logo.jpg Graphic file (type jpg)
  <use logo.jpg>
-Package pdftex.def Info: logo.jpg used on input line 204.
+Package pdftex.def Info: logo.jpg used on input line 206.
 (pdftex.def)             Requested size: 138.51715pt x 57.57495pt.
 
 
@@ -978,13 +946,13 @@ Package Fancyhdr Warning: \headheight is too small (40.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [9]
-Underfull \hbox (badness 10000) in paragraph at lines 213--215
+Underfull \hbox (badness 10000) in paragraph at lines 215--217
 
  []
 
 File: logo.jpg Graphic file (type jpg)
 <use logo.jpg>
-Package pdftex.def Info: logo.jpg used on input line 219.
+Package pdftex.def Info: logo.jpg used on input line 221.
 (pdftex.def)             Requested size: 138.51715pt x 57.57495pt.
 
 
@@ -994,18 +962,9 @@ Package Fancyhdr Warning: \headheight is too small (40.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [10]
-
-LaTeX Warning: Citation `end' on page 11 undefined on input line 225.
-
-
-LaTeX Warning: Citation `silence' on page 11 undefined on input line 226.
-
-
-LaTeX Warning: Citation `centroid' on page 11 undefined on input line 226.
-
 File: logo.jpg Graphic file (type jpg)
-<use logo.jpg>
-Package pdftex.def Info: logo.jpg used on input line 237.
+ <use logo.jpg>
+Package pdftex.def Info: logo.jpg used on input line 246.
 (pdftex.def)             Requested size: 138.51715pt x 57.57495pt.
 
 
@@ -1014,7 +973,89 @@ Package Fancyhdr Warning: \headheight is too small (40.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[11] (./compte_rendu.bbl
+[11]
+Package epstopdf Info: Source file: <mode_un_deux_sb.eps>
+(epstopdf)                    date: 2017-03-28 14:50:35
+(epstopdf)                    size: 228583 bytes
+(epstopdf)             Output file: <mode_un_deux_sb-eps-converted-to.pdf>
+(epstopdf)                    date: 2017-03-28 14:53:41
+(epstopdf)                    size: 71231 bytes
+(epstopdf)             Command: <repstopdf --outfile=mode_un_deux_sb-eps-conver
+ted-to.pdf mode_un_deux_sb.eps>
+(epstopdf)             \includegraphics on input line 251.
+Package epstopdf Info: Output file is already uptodate.
+ <mode_un_deux_sb-eps-converted-to.pdf, id=270, 562.1pt x 421.575pt>
+File: mode_un_deux_sb-eps-converted-to.pdf Graphic file (type pdf)
+
+<use mode_un_deux_sb-eps-converted-to.pdf>
+Package pdftex.def Info: mode_un_deux_sb-eps-converted-to.pdf used on input lin
+e 251.
+(pdftex.def)             Requested size: 426.79134pt x 320.09155pt.
+Package epstopdf Info: Source file: <test_1_ec.eps>
+(epstopdf)                    date: 2017-03-28 15:46:19
+(epstopdf)                    size: 1419675 bytes
+(epstopdf)             Output file: <test_1_ec-eps-converted-to.pdf>
+(epstopdf)                    date: 2017-03-28 15:50:46
+(epstopdf)                    size: 429588 bytes
+(epstopdf)             Command: <repstopdf --outfile=test_1_ec-eps-converted-to
+.pdf test_1_ec.eps>
+(epstopdf)             \includegraphics on input line 261.
+Package epstopdf Info: Output file is already uptodate.
+
+<test_1_ec-eps-converted-to.pdf, id=272, 830.10126pt x 572.1375pt>
+File: test_1_ec-eps-converted-to.pdf Graphic file (type pdf)
+
+<use test_1_ec-eps-converted-to.pdf>
+Package pdftex.def Info: test_1_ec-eps-converted-to.pdf used on input line 261.
+
+(pdftex.def)             Requested size: 284.52756pt x 196.10432pt.
+Package epstopdf Info: Source file: <test_1_2_ec.eps>
+(epstopdf)                    date: 2017-03-28 16:09:14
+(epstopdf)                    size: 237129 bytes
+(epstopdf)             Output file: <test_1_2_ec-eps-converted-to.pdf>
+(epstopdf)                    date: 2017-03-28 16:11:33
+(epstopdf)                    size: 75061 bytes
+(epstopdf)             Command: <repstopdf --outfile=test_1_2_ec-eps-converted-
+to.pdf test_1_2_ec.eps>
+(epstopdf)             \includegraphics on input line 267.
+Package epstopdf Info: Output file is already uptodate.
+
+<test_1_2_ec-eps-converted-to.pdf, id=274, 562.1pt x 421.575pt>
+File: test_1_2_ec-eps-converted-to.pdf Graphic file (type pdf)
+
+<use test_1_2_ec-eps-converted-to.pdf>
+Package pdftex.def Info: test_1_2_ec-eps-converted-to.pdf used on input line 26
+7.
+(pdftex.def)             Requested size: 284.52756pt x 213.39221pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+File: logo.jpg Graphic file (type jpg)
+<use logo.jpg>
+Package pdftex.def Info: logo.jpg used on input line 270.
+(pdftex.def)             Requested size: 138.51715pt x 57.57495pt.
+
+
+Package Fancyhdr Warning: \headheight is too small (40.0pt): 
+ Make it at least 55.0499pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[12 <./mode_un_deux_sb-eps-converted-to.pdf>]
+File: logo.jpg Graphic file (type jpg)
+ <use logo.jpg>
+Package pdftex.def Info: logo.jpg used on input line 271.
+(pdftex.def)             Requested size: 138.51715pt x 57.57495pt.
+
+
+Package Fancyhdr Warning: \headheight is too small (40.0pt): 
+ Make it at least 55.0499pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[13 <./test_1_ec-eps-converted-to.pdf> <./test_1_2_ec-eps-converted-to.pdf>]
+(./compte_rendu.bbl
 LaTeX Font Info:    Try loading font information for T1+cmtt on input line 6.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/base/t1cmtt.fd
@@ -1051,15 +1092,11 @@ Underfull \hbox (badness 1496) in paragraph at lines 53--60
  and Siva Ye-di-thi (Rut-gers Uni-
  []
 
-)
-
-Package lastpage Warning: Rerun to get the references right on input line 240.
-
-
+) 
 AED: lastpage setting LastPage
 File: logo.jpg Graphic file (type jpg)
 <use logo.jpg>
-Package pdftex.def Info: logo.jpg used on input line 240.
+Package pdftex.def Info: logo.jpg used on input line 275.
 (pdftex.def)             Requested size: 138.51715pt x 57.57495pt.
 
 
@@ -1068,12 +1105,14 @@ Package Fancyhdr Warning: \headheight is too small (40.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[12]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 240.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 240.
+[14
+
+]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 275.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 275.
  (./compte_rendu.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 240.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 240.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 275.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 275.
 
 
 Package rerunfilecheck Warning: File `compte_rendu.out' has changed.
@@ -1081,51 +1120,51 @@ Package rerunfilecheck Warning: File `compte_rendu.out' has changed.
 (rerunfilecheck)                or use package `bookmark'.
 
 Package rerunfilecheck Info: Checksums for `compte_rendu.out':
-(rerunfilecheck)             Before: D41D8CD98F00B204E9800998ECF8427E;0
-(rerunfilecheck)             After:  7F0A2FBF1553E7FE907126A0C7DB4B32;1807.
-
-LaTeX Warning: There were undefined references.
-
+(rerunfilecheck)             Before: 9897D33810A9C6DAD45A5BBE4BF79B2B;1805
+(rerunfilecheck)             After:  F91D3E2E329A9C78C6DA782AD909C5CA;1801.
 
 LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 240.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 275.
  ) 
 Here is how much of TeX's memory you used:
- 12472 strings out of 493089
- 183613 string characters out of 6134842
+ 12547 strings out of 493089
+ 184971 string characters out of 6134842
  313415 words of memory out of 5000000
- 15595 multiletter control sequences out of 15000+600000
+ 15647 multiletter control sequences out of 15000+600000
  22965 words of font info for 57 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 42i,18n,43p,1226b,439s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texlive/2015/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}
-</usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><
-/usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></
-usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></us
-r/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/
-local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/lo
-cal/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local
-/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/te
-xlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/tex
-live/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texli
-ve/2015/texmf-dist/fonts/type1/public/cm-super/sfbx1095.pfb></usr/local/texlive
-/2015/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2
-015/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/201
-5/texmf-dist/fonts/type1/public/cm-super/sfcc1095.pfb></usr/local/texlive/2015/
-texmf-dist/fonts/type1/public/cm-super/sfcc1440.pfb></usr/local/texlive/2015/te
-xmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/local/texlive/2015/texm
-f-dist/fonts/type1/public/cm-super/sfrm0900.pfb></usr/local/texlive/2015/texmf-
-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/local/texlive/2015/texmf-di
-st/fonts/type1/public/cm-super/sfti1095.pfb></usr/local/texlive/2015/texmf-dist
-/fonts/type1/public/cm-super/sftt1095.pfb></usr/local/texlive/2015/texmf-dist/f
-onts/type1/public/cm-super/sfxc1095.pfb></usr/local/texlive/2015/texmf-dist/fon
-ts/type1/public/cm-super/sfxc1200.pfb></usr/local/texlive/2015/texmf-dist/fonts
-/type1/public/cm-super/sfxc2488.pfb>
-Output written on compte_rendu.pdf (14 pages, 430849 bytes).
+ 42i,18n,75p,1226b,497s stack positions out of 5000i,500n,10000p,200000b,80000s
+pdfTeX warning (dest): name{figure.caption.26} has been referenced but does n
+ot exist, replaced by a fixed one
+
+{/usr/local/texlive/2015/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}</
+usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></u
+sr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></us
+r/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/
+local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/lo
+cal/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/loca
+l/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/t
+exlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texl
+ive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texli
+ve/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive
+/2015/texmf-dist/fonts/type1/public/cm-super/sfbx1095.pfb></usr/local/texlive/2
+015/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/201
+5/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2015/
+texmf-dist/fonts/type1/public/cm-super/sfcc1095.pfb></usr/local/texlive/2015/te
+xmf-dist/fonts/type1/public/cm-super/sfcc1440.pfb></usr/local/texlive/2015/texm
+f-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/local/texlive/2015/texmf-
+dist/fonts/type1/public/cm-super/sfrm0900.pfb></usr/local/texlive/2015/texmf-di
+st/fonts/type1/public/cm-super/sfrm1095.pfb></usr/local/texlive/2015/texmf-dist
+/fonts/type1/public/cm-super/sfti1095.pfb></usr/local/texlive/2015/texmf-dist/f
+onts/type1/public/cm-super/sftt1095.pfb></usr/local/texlive/2015/texmf-dist/fon
+ts/type1/public/cm-super/sfxc1095.pfb></usr/local/texlive/2015/texmf-dist/fonts
+/type1/public/cm-super/sfxc1200.pfb></usr/local/texlive/2015/texmf-dist/fonts/t
+ype1/public/cm-super/sfxc2488.pfb>
+Output written on compte_rendu.pdf (16 pages, 1017223 bytes).
 PDF statistics:
- 265 PDF objects out of 1000 (max. 8388607)
- 223 compressed objects within 3 object streams
- 90 named destinations out of 1000 (max. 500000)
- 6 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 426 PDF objects out of 1000 (max. 8388607)
+ 373 compressed objects within 4 object streams
+ 109 named destinations out of 1000 (max. 500000)
+ 197 words of extra memory for PDF output out of 10000 (max. 10000000)
 

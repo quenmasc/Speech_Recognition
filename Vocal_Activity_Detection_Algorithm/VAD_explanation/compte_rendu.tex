@@ -27,6 +27,8 @@
 \usepackage{array}
 \usepackage[dvipsnames]{xcolor}
 
+
+
 \title{}
 \date{}
 \author{}
@@ -233,8 +235,43 @@ Nous allons évaluer différents algorithmes à savoir :
 \end{itemize}
 \paragraph{} Nous savons que nous partons dès le départ avec un désavantage. En effet, nous utilisons que des méthodes fréquentielles qui ont une complexité de calcul élevé. De plus, notre algorithme n'est pas optimisé car nous répétons certaines opérations plusieurs fois, notamment la plus gourmande, la Discrete Fourier Transform \footnote{Transformée de Fourier Discrète}. 
 \subsubsection{Robustesse au bruit} 
-Nous allons commencer par un signal avec un SNR très élévé
+Notre première tâche avant de parler de performances en terme de temps d'exécution est de tester leur robustesse face aux bruits. En d'autres termes, sachant que nous allons travailler dans des environnements différents, il faut veiller à ce que l'environnement de travail n'empiète pas sur la reconnaissance vocale. Pour cela, nous allons réaliser plusieurs test sur un fichier audio contenant de la voix. On veillera dans un premier à ce qu'il est pas ou peu de bruit de fond. Puis nous en rajouterons progressivement. Enfin, le test ultime sera dans un environnement musical, nous mettrons en fond, une trame musicale (disons d'un style "métal"\footnote{Le style métal ne représente par forcément le style englobant du morceau que nous choisirons. Néanmoins, nous vous donnons le style métal pour que vous puissiez vous représenter le bruit généré par ce style de musique}). Le but de chaque algorithme est sur cinq tests \footnote{Le nombre de tests est pris aléatoirement et de manière impaire} d'avoir le plus de trame avec présence vocale et le moins avec du bruit environnant. 
+\paragraph{Données des tests}
+Les données suivantes seront utilisées pour tous les test. En cas de changement, nous les rappelerons :
+\begin{enumerate}
+	\item Fréquence d'échantillonnage : $16~kHz$
+	\item Quantification du signal : $16~bits$
+	\item Taille des fenêtres : $15~ms$
+	\item Décalage entre les fenêtres : $5~ms$
+\end{enumerate}
+\paragraph{Signal avec présence de voix et peu ou pas de bruit (SNR élévé)}
+Pour commencer, nous allons illustrer le signal que nous allons utiliser. Il est assez simpliste, dure environ $5s$ et dans un premier temps, le SNR est très élevé. La figure ci-dessous (\figurename~\ref{figure_1}) est la représentation temporelle du signal avec des marqueurs indiquant la présence des mots "mode", "un et "deux". À titre d'information, le signal est échantillonné à $16kHz$ et quantitifé sur $16bits$. 
+\begin{figure}[!h]
+\centering
+\includegraphics[width=15cm]{mode_un_deux_sb.eps}
+\caption{Représentation temporelle du signal utilisé}
+\label{figure_1}
+\end{figure}
+\paragraph{} Nous allons maintenant tester ce signal avec l'algorithme que nous proposons et ceux que nous avons soumis à titre comparatif. 
+\subparagraph{Algorithme utilisant le ZRC (Zero Crossing Rate) et le STE( Short time Energy)}\footnote{ZRC : taux de passage par zéro ; STE :  énergie à court-terme}
+\subparagraph{Algorithme utilisant le Spectral centroid et le STE( Short time Energy)}
+Après avoir utilisé notre "morceau" en argument, nous obtenons le résultat suivant :
+\begin{figure}[!h]
+\centering
+\includegraphics[width=10cm]{test_1_ec.eps}
+\caption{Résultat de l'algorithme testé avec notre "morceau"}
+\end{figure}
+Les figures de l'algorithme n'étant pas forcément concrète sur le découpage (sauf si l'on sait que la partie grisée est la partie rejetée et les parties bordeaux sont celles conservées), nous avons utilisé les données retournées par l'algorithme pour vous présenter une figure similaire à ~\figurename~\ref{figure_1}.
+\begin{figure}[!h]
+\centering
+\includegraphics[width=10cm]{test_1_2_ec.eps}
+\caption{Résultat de l'algorithme testé avec notre "morceau"}
+\end{figure}
+\paragraph{} Etant donné que le découpage des segments n'était pas le même que celui présenté, nous avons labellisé les segments pour plus de compréhension. Comme vous pouvez le constater, le mot "mode" a été décomposé en syllabes. Ceci est dû au fenêtrage et au décalage très réduits.
+\paragraph{Notre algorithme}
+Nous avions évoqué un peu plus haut, le fait que nous utilisons un signal dit de bruit de fond. Dans notre cas, nous allons utiliser la fin du signal (où il n'y a aucune présence vocale à des fins de vecteur de bruit). Dans les conditions normales d'utilisation, ce dernier aurait été directement acquis en amont du traitement. 
 \newpage
+\clearpage
 \bibliographystyle{plain} 
 \bibliography{biblio.bib} 
 \end{document}

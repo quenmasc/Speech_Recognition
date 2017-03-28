@@ -44,4 +44,10 @@
 \contentsline {paragraph}{}{11}{paragraph*.23}
 \contentsline {paragraph}{}{11}{paragraph*.24}
 \contentsline {subsubsection}{\numberline {4.1.1}Robustesse au bruit}{11}{subsubsection.4.1.1}
-\contentsline {section}{R\'ef\'erences}{12}{subsubsection.4.1.1}
+\contentsline {paragraph}{Donn\'ees des tests}{11}{paragraph*.25}
+\contentsline {paragraph}{Signal avec pr\'esence de voix et peu ou pas de bruit (SNR \'el\'ev\'e)}{12}{paragraph*.26}
+\contentsline {paragraph}{}{12}{paragraph*.28}
+\contentsline {subparagraph}{Algorithme utilisant le ZRC (Zero Crossing Rate) et le STE( Short time Energy)}{12}{subparagraph*.29}
+\contentsline {subparagraph}{Algorithme utilisant le Spectral centroid et le STE( Short time Energy)}{12}{subparagraph*.30}
+\contentsline {paragraph}{}{13}{paragraph*.33}
+\contentsline {section}{R\'ef\'erences}{14}{paragraph*.33}
