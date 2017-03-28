@@ -7,7 +7,7 @@ function espace=SupportVectorMachine()
     %% import data
     imageDir = fullfile('../Data/features/features_saved/ALL/');
     filenames = dir(fullfile(imageDir, '*.mat'));
-    features=zeros(numel(filenames),7800);
+    features=zeros(numel(filenames),5850);
     Output=zeros(numel(filenames),1);
         for i=1:numel(filenames)
             path=strcat(filenames(i).folder,'/',filenames(i).name);
@@ -15,7 +15,6 @@ function espace=SupportVectorMachine()
             features(i,:)=im.local_feature;
             Output(i)=im.local_classe;
         end
-        keyboard;
         t = templateSVM('Standardize',1,'KernelFunction','rbf','KernelScale','auto');
 % t = templateSVM('Standardize',1,'KernelFunction','rbf');
 
