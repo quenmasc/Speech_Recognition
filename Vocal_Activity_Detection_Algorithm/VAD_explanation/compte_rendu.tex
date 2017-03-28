@@ -264,12 +264,23 @@ Après avoir utilisé notre "morceau" en argument, nous obtenons le résultat suiva
 Les figures de l'algorithme n'étant pas forcément concrète sur le découpage (sauf si l'on sait que la partie grisée est la partie rejetée et les parties bordeaux sont celles conservées), nous avons utilisé les données retournées par l'algorithme pour vous présenter une figure similaire à ~\figurename~\ref{figure_1}.
 \begin{figure}[!h]
 \centering
-\includegraphics[width=10cm]{test_1_2_ec.eps}
+\includegraphics[width=12cm]{test_1_2_ec.eps}
 \caption{Résultat de l'algorithme testé avec notre "morceau"}
 \end{figure}
 \paragraph{} Etant donné que le découpage des segments n'était pas le même que celui présenté, nous avons labellisé les segments pour plus de compréhension. Comme vous pouvez le constater, le mot "mode" a été décomposé en syllabes. Ceci est dû au fenêtrage et au décalage très réduits.
 \paragraph{Notre algorithme}
-Nous avions évoqué un peu plus haut, le fait que nous utilisons un signal dit de bruit de fond. Dans notre cas, nous allons utiliser la fin du signal (où il n'y a aucune présence vocale à des fins de vecteur de bruit). Dans les conditions normales d'utilisation, ce dernier aurait été directement acquis en amont du traitement. 
+Nous avions évoqué un peu plus haut, le fait que nous utilisons un signal dit de bruit de fond. Dans notre cas, nous allons utiliser la fin du signal (où il n'y a aucune présence vocale à des fins de vecteur de bruit). Dans les conditions normales d'utilisation, ce dernier aurait été directement acquis en amont du traitement. Notre signal servant de référence est réalisé de manière à avoir $1$ seconde d'acquisition. Les courbes suivantes sont les résultats de nos différents paramètres utilisés. Les paramètres sont accompagnés de leur seuil. La dernière courbe symbolise notre vecteur de labels.
+\begin{figure}[!h]
+\centering
+\includegraphics[width=14cm]{test_1_us.eps}
+\caption{Paramètres de détection de notre algorithme}
+\end{figure}
+Comme précédemment, nous allons symbolisé les différents morceaux comme nous l'avons fait tout au long du rapport afin d'en simplifier la lecture. Néanmoins, vous pouvez constater une détection de segments assez fiable. On remarque aussi que le mot "Mode" (cf~\figurename~\ref{figure_1}) en deux syllabes. Il est vrai que les légendes des figures selon "x" ne sont pas toutes les mêmes, néanmoins, on conçoit un alignement.
+\begin{figure}[!h]
+\centering
+\includegraphics[width=12cm]{test_1__2_us.eps}
+\caption{Segmentation du signal par notre algorithme}
+\end{figure}
 \newpage
 \clearpage
 \bibliographystyle{plain} 

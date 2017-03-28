@@ -50,4 +50,5 @@
 \contentsline {subparagraph}{Algorithme utilisant le ZRC (Zero Crossing Rate) et le STE( Short time Energy)}{12}{subparagraph*.29}
 \contentsline {subparagraph}{Algorithme utilisant le Spectral centroid et le STE( Short time Energy)}{12}{subparagraph*.30}
 \contentsline {paragraph}{}{13}{paragraph*.33}
-\contentsline {section}{R\'ef\'erences}{14}{paragraph*.33}
+\contentsline {paragraph}{Notre algorithme}{14}{paragraph*.34}
+\contentsline {section}{R\'ef\'erences}{16}{figure.caption.36}
