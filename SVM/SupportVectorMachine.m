@@ -5,7 +5,7 @@ function espace=SupportVectorMachine()
     clc ;
     
     %% import data
-    imageDir = fullfile('../features_saved/ALL/');
+    imageDir = fullfile('../Data/features/features_saved/ALL/');
     filenames = dir(fullfile(imageDir, '*.mat'));
     features=zeros(numel(filenames),7800);
     Output=zeros(numel(filenames),1);
