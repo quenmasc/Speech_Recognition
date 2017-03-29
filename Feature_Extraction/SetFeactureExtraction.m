@@ -16,7 +16,7 @@
 % features(15:26,:)=Delta MFCC
 % features (27,:)= Delta DeltaLog Energy
 % features(28:39,:)=Delta Delta MFCC
-function [features]=SetFeactureExtraction(Segments,fs,window_ms,step_ms)
+function [features,features_w]=SetFeactureExtraction(Segments,fs,window_ms,step_ms)
     %% add path to folder
     addpath('../Ressources');
     
@@ -38,9 +38,13 @@ function [features]=SetFeactureExtraction(Segments,fs,window_ms,step_ms)
     features(2:13,:)=MFCC(Segments,window_ms,step_ms,fs);
     features(14:26,:)=Delta_feature(features(1:13,:));
     features(27:end,:)=Delta_feature(features(14:26,:));
+    features_w=MFCCsFilter(features);
     features=reshape(features,1,[]);
+    features_w=reshape(features_w,1,[]);
     if (length(features)<Lmax)
         features=[features , zeros(1,Lmax-length(features))];
     end
-    
+    if (length(features_w)<Lmax)
+        features_w=[features_w , zeros(1,Lmax-length(features_w))];
+    end
 end

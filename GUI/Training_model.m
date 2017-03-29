@@ -22,7 +22,7 @@ function varargout = Training_model(varargin)
 
 % Edit the above text to modify the response to help Training_model
 
-% Last Modified by GUIDE v2.5 13-Mar-2017 12:32:50
+% Last Modified by GUIDE v2.5 28-Mar-2017 10:47:40
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -88,7 +88,7 @@ function button_record_Callback(hObject, eventdata, handles)
 % hObject    handle to button_record (see GCBO)
 %% addpath
 
-global segments Signal Limits Init fs word name test_number features data flag; 
+global segments Signal Limits Init fs word name test_number features features_w data flag; 
 flag=0;
 addpath('../Vocal_Activity_Detection_Algorithm');
 addpath('../Feature_Extraction');
@@ -107,11 +107,12 @@ set(handles.textbox_instructions,'String','End of recording');
 pause(0.5);
 set(handles.textbox_instructions,'String','Begin analysis');
 set(handles.textbox_number_segment,'String',num2str(length(segments)));
-data=repmat(struct('gender',[],'name',[],'word',[],'test',[],'nature',[],'phoneme',[],'feature',[],'segments',[],'classe',[]),1,length(segments));
+data=repmat(struct('gender',[],'name',[],'word',[],'test',[],'nature',[],'phoneme',[],'feature',[],'feature_w',[],'segments',[],'classe',[]),1,length(segments));
 
 features=zeros(length(segments),150*39);
+features_w=zeros(length(segments),150*39);
 for i=1:length(segments)
-    features(i,:)=SetFeactureExtraction(cell2mat(segments(i)),fs,15,5);
+    [features(i,:),features_w(i,:)]=SetFeactureExtraction(cell2mat(segments(i)),fs,15,5);
 end
 set(handles.textbox_segment_data,'String',num2str(1));
 %%
@@ -132,8 +133,7 @@ set(handles.textbox_segment_data,'String',num2str(1));
         set(P, 'Color', [0.9 0.0 0.0]);
         axis([0 time(end) min(Signal) max(Signal)]);
         sound(segments{i}, fs);
-        set(handles.textbox_click,'Visible','On');
-        pause ;
+        pause(2) ;
     end
     clc
     hold off;
@@ -625,8 +625,8 @@ function button_data_Callback(hObject, eventdata, handles)
     set(handles.textbox_instructions,'String','Signal backup is in progress');
     pause(0.5);
     
-    a=strcat('../data_saved/all_speech/',name,'_test_',test_number,'_',strjoin(word),'.wav');
-    fn=fullfile('../data_saved/all_speech/');
+    a=strcat('../Data/sound/all_speech/',name,'_test_',test_number,'_',strjoin(word),'.wav');
+    fn=fullfile('../Data/sound/all_speech/');
     if ~exist(fn,'dir')
         mkdir(fn);
     end
@@ -637,58 +637,84 @@ function button_data_Callback(hObject, eventdata, handles)
     pause(1);
     for i=1:length(segments)
         local_feature=data(i).feature;
+        local_feature_w=data(i).feature_w;
         local_classe=data(i).classe;
         local_gender=data(i).gender;
         switch data(i).nature
             case 'Voice'
-        a=strcat('../data_saved/',data(i).name,'/',strjoin(data(i).word),'/',data(i).phoneme,'/',data(i).name,'_test_',data(i).test,'_',data(i).phoneme,'.wav');
+        a=strcat('../Data/sound/',data(i).name,'/',strjoin(data(i).word),'/',data(i).phoneme,'/',data(i).name,'_test_',data(i).test,'_',data(i).phoneme,'.wav');
         %% check folder
-        fn=fullfile(strcat('../data_saved/',data(i).name,'/',strjoin(data(i).word),'/',data(i).phoneme));
-        if ~exist(fn,'dir')
+        fn=fullfile(strcat('../Data/sound/',data(i).name,'/',strjoin(data(i).word),'/',data(i).phoneme));
+        if ~exist(fn)
             mkdir(fn) ;
         end
         
         %% save
-        audiowrite(a,cell2mat(data(i).segments),fs,'BitsPerSample',16);
+        audiowrite([a],cell2mat(data(i).segments),fs,'BitsPerSample',16);
         
         %% save segments
-        b=strcat('../features_saved/',data(i).name,'/',strjoin(data(i).word),'/',data(i).phoneme,'/',data(i).name,'_test_',data(i).test,'_',data(i).phoneme,'.mat');
-        c=strcat('../features_saved/ALL/',data(i).name,'_test_',data(i).test,'_',data(i).phoneme,'.mat');
+        b=strcat('../Data/features/features_saved/',data(i).name,'/',strjoin(data(i).word),'/',data(i).phoneme,'/',data(i).name,'_test_',data(i).test,'_',data(i).phoneme,'.mat');
+        c=strcat('../Data/features/features_saved/ALL/',data(i).name,'_test_',data(i).test,'_',data(i).phoneme,'.mat');
+        e=strcat('../Data/features/features_filtered/',data(i).name,'/',strjoin(data(i).word),'/',data(i).phoneme,'/',data(i).name,'_test_',data(i).test,'_',data(i).phoneme,'.mat');
+        f=strcat('../Data/features/features_filtered/ALL/',data(i).name,'_test_',data(i).test,'_',data(i).phoneme,'.mat');
         %% check if folders exist
-        fn=fullfile(strcat('../features_saved/',data(i).name,'/',strjoin(data(i).word),'/',data(i).phoneme));
+        fn=fullfile(strcat('../Data/features/features_saved/',data(i).name,'/',strjoin(data(i).word),'/',data(i).phoneme));
         if ~exist(fn,'dir')
             mkdir (fn);
         end
-        fn=fullfile(strcat('../features_saved/ALL'));
+        fn=fullfile(strcat('../Data/features/features_saved/ALL'));
+        if ~exist(fn,'dir')
+            mkdir (fn);
+        end
+        fn=fullfile(strcat('../Data/features/features_filtered/',data(i).name,'/',strjoin(data(i).word),'/',data(i).phoneme));
+        if ~exist(fn,'dir')
+            mkdir (fn);
+        end
+        fn=fullfile(strcat('../Data/features/features_filtered/ALL'));
         if ~exist(fn,'dir')
             mkdir (fn);
         end
         %% back up
         save([b],'local_feature','local_classe','local_gender');
         save([c],'local_feature','local_classe','local_gender');
+        save([e],'local_feature_w','local_classe','local_gender');
+        save([f],'local_feature_w','local_classe','local_gender');
             case 'Noise'
-        a=strcat('../data_saved/Noise/',data(i).phoneme,'/',name,'_test_',test_number,'_',data(i).phoneme,'.wav');
+        a=strcat('../Data/sound/',data(i).name,'/Noise/',data(i).phoneme,'/',name,'_test_',test_number,'_',data(i).phoneme,'.wav');
         %% check folder
-        fn=fullfile(strcat('../data_saved/Noise/',data(i).phoneme),'dir');
-        if ~exist(fn,'dir')
+        fn=fullfile(strcat('../Data/sound/',data(i).name,'/Noise/',data(i).phoneme));
+        if ~exist(fn)
             mkdir (fn) ;
         end
         %% save 
         audiowrite(a,cell2mat(data(i).segments),fs,'BitsPerSample',16);
-        b=strcat('../features_saved/Noise/',data(i).phoneme,'/',name,'_test_',test_number,'_',data(i).phoneme,'.mat');
-        c=strcat('../features_saved/ALL/',data(i).name,'_test_',data(i).test,'_',data(i).phoneme,'.mat');
+        b=strcat('../Data/features/features_saved/',data(i).name,'/Noise/',data(i).phoneme,'/',name,'_test_',test_number,'_',strjoin(data(i).word),'_',data(i).phoneme,'.mat');
+        c=strcat('../Data/features/features_saved/ALL/',data(i).name,'_test_',data(i).test,'_',strjoin(data(i).word),'_',data(i).phoneme,'.mat');
+        e=strcat('../Data/features/features_filtered/',data(i).name,'/Noise/',data(i).phoneme,'/',name,'_test_',test_number,'_',strjoin(data(i).word),'_',data(i).phoneme,'.mat');
+        f=strcat('../Data/features/features_filtered/ALL/',data(i).name,'_test_',data(i).test,'_',strjoin(data(i).word),'_',data(i).phoneme,'.mat');
+       
         %% check if folders exist
-        fn=fullfile(strcat('../features_saved/Noise/',data(i).phoneme));
-        if ~exist(fn,'dir')
+        fn=fullfile(strcat('../Data/features/features_saved/',data(i).name,'/Noise/',data(i).phoneme));
+        if ~exist(fn)
             mkdir (fn) ;
         end
-        fn =fullfile(strcat('../features_saved/ALL'));
-        if ~exist(fn,'dir')
+        fn =fullfile(strcat('../Data/features/features_saved/ALL'));
+        if ~exist(fn)
+            mkdir(fn);
+        end
+        fn=fullfile(strcat('../Data/features/features_filtered/',data(i).name,'/Noise/',data(i).phoneme));
+        if ~exist(fn)
+            mkdir (fn) ;
+        end
+        fn =fullfile(strcat('../Data/features/features_filtered/ALL'));
+        if ~exist(fn)
             mkdir(fn);
         end
         %% back up
-        save([b],'local_feature','local_classe');
-        save([c],'local_feature','local_classe');
+        save([b],'local_feature','local_classe','local_gender');
+        save([c],'local_feature','local_classe','local_gender');
+        save([e],'local_feature_w','local_classe','local_gender');
+        save([f],'local_feature_w','local_classe','local_gender');
         end 
         set(handles.textbox_instructions,'String',strcat('Segments~',num2str(i),' done'));
         pause(0.5);
@@ -791,10 +817,10 @@ function menu_voice_noise_Callback(hObject, eventdata, handles)
             switch worde
                 case 'BACKWARD'
                     set(handles.menu_label,'Value',1);
-                    set(handles.menu_label,'String',{'BACK';'WARD';'BACKWARD';'OTHER'});
+                    set(handles.menu_label,'String',{'BACK';'WARD';'DE';'BACKWARD';'OTHER'});
                 case 'FORWARD'
                     set(handles.menu_label,'Value',1);
-                    set(handles.menu_label,'String',{'FOR';'WARD';'FORWARD';'OTHER'});
+                    set(handles.menu_label,'String',{'FOR';'WARD';'DE';'FORWARD';'OTHER'});
                 case 'GOTO'
                     set(handles.menu_label,'Value',1);
                     set(handles.menu_label,'String',{'GO';'TO';'GOTO';'OTHER'});
@@ -911,7 +937,7 @@ function button_back_data_Callback(hObject, eventdata, handles)
 % --- Executes on button press in button_back_data.
 function button_next_data_Callback(hObject, eventdata, handles)
 % hObject    handle to button_back_data (see GCBO)
-    global segments name word test_number data features ;
+    global segments name word test_number data features features_w ;
     pop_s=get(handles.menu_voice_noise,'String');
     pop_v=get(handles.menu_voice_noise,'Value');
     noise_voice=strjoin(pop_s(pop_v));
@@ -994,6 +1020,7 @@ function button_next_data_Callback(hObject, eventdata, handles)
     data(curent).nature=noise_voice;
     data(curent).phoneme=phoneme;
     data(curent).feature=features(curent,:);
+    data(curent).feature_w=features_w(curent,:);
     data(curent).segments=segments(curent);
     data(curent).classe=classe;
 
@@ -1031,3 +1058,11 @@ function textbox_name_CreateFcn(hObject, eventdata, handles)
 if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
     set(hObject,'BackgroundColor','white');
 end
+
+
+% --- Executes on button press in button_leave.
+function button_leave_Callback(hObject, eventdata, handles)
+% hObject    handle to button_leave (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+    close all;

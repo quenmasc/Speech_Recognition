@@ -5,14 +5,14 @@ function espace=SupportVectorMachine()
     clc ;
     
     %% import data
-    imageDir = fullfile('../features_saved/ALL/');
+    imageDir = fullfile('../Data/features/features_filtered/ALL/');
     filenames = dir(fullfile(imageDir, '*.mat'));
-    features=zeros(numel(filenames),7800);
+    features=zeros(numel(filenames),5850);
     Output=zeros(numel(filenames),1);
         for i=1:numel(filenames)
             path=strcat(filenames(i).folder,'/',filenames(i).name);
             im=load(path); 
-            features(i,:)=im.local_feature;
+            features(i,:)=im.local_feature_w;
             Output(i)=im.local_classe;
         end
         keyboard;
