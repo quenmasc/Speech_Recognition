@@ -51,4 +51,7 @@
 \contentsline {subparagraph}{Algorithme utilisant le Spectral centroid et le STE( Short time Energy)}{12}{subparagraph*.30}
 \contentsline {paragraph}{}{13}{paragraph*.33}
 \contentsline {paragraph}{Notre algorithme}{14}{paragraph*.34}
-\contentsline {section}{R\'ef\'erences}{16}{figure.caption.36}
+\contentsline {paragraph}{Signal avec un SNR de $-30dB$}{15}{paragraph*.37}
+\contentsline {subparagraph}{Algorithme utilisant le Spectral centroid et le STE( Short time Energy)}{15}{subparagraph*.39}
+\contentsline {paragraph}{}{16}{paragraph*.42}
+\contentsline {section}{R\'ef\'erences}{17}{paragraph*.42}

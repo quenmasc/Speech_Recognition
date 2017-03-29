@@ -278,9 +278,34 @@ Nous avions évoqué un peu plus haut, le fait que nous utilisons un signal dit de
 Comme précédemment, nous allons symbolisé les différents morceaux comme nous l'avons fait tout au long du rapport afin d'en simplifier la lecture. Néanmoins, vous pouvez constater une détection de segments assez fiable. On remarque aussi que le mot "Mode" (cf~\figurename~\ref{figure_1}) en deux syllabes. Il est vrai que les légendes des figures selon "x" ne sont pas toutes les mêmes, néanmoins, on conçoit un alignement.
 \begin{figure}[!h]
 \centering
-\includegraphics[width=12cm]{test_1__2_us.eps}
+\includegraphics[width=8cm]{test_1__2_us.eps}
 \caption{Segmentation du signal par notre algorithme}
 \end{figure}
+\newpage
+\paragraph{Signal avec un SNR de $-30dB$}
+Nous remarquons que dans des conditions optimales, l'ensemble des algorithmes est capable de détecter les présences vocales du signal. Nous allons donc rajouter du bruit pour voir comment les algorithmes se comportent avec différents SNR\footnote{Signal Noise Ratio : Rapport de Signal à Bruit}. Tous les SNR sont calculés à l'aide de la fonction Matlab $snr.m$. Le bruit est un bruit blanc gaussien généré à l'aide de la fonction $wgn.m$ de Matlab. On obtient donc la représentation temporelle suivante :
+\begin{figure}[!h]
+\centering
+\includegraphics[width=8cm]{position_noise.eps}
+\caption{Signal avec bruit blanc gaussien}
+\label{figure_2}
+\end{figure}
+\subparagraph{Algorithme utilisant le Spectral centroid et le STE( Short time Energy)}
+Après avoir utilisé notre "morceau" bruité cette fois-ci en argument, nous obtenons le résultat suivant :
+\begin{figure}[!h]
+\centering
+\includegraphics[width=10cm]{test_noise_ec.eps}
+\caption{Résultat de l'algorithme testé avec notre "morceau" bruité}
+\label{noise_ec}
+\end{figure}
+La segmentation du "morceau" bruité est la suivante. Vous pourrez assez vite constater que la largeur des segments à considérement augmentés. De même que l'introduction de nouveaux segments mais de "bruit". 
+\begin{figure}[!h]
+\centering
+\includegraphics[width=10cm]{test_noise_2_ec.eps}
+\caption{Segmentation du "morceau" bruité avec marqueurs pour situer les mots}
+\end{figure}
+\paragraph{}
+Il est vrai qu'il y a beaucoup de couleurs différentes et que la figure n'est pas forcément très lisible. néanmoins, afin de vous aider à vous repérer, vous pouvez toujours vous appuyez des segments grisés et bordeaux de la ~\figurename~\ref{noise_ec}.\footnote{Les figures sont de même dimension sur ce rapport.}
 \newpage
 \clearpage
 \bibliographystyle{plain} 
