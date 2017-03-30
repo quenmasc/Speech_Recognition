@@ -268,7 +268,7 @@ Les figures de l'algorithme n'étant pas forcément concrète sur le découpage (sau
 \caption{Résultat de l'algorithme testé avec notre "morceau"}
 \end{figure}
 \paragraph{} Etant donné que le découpage des segments n'était pas le même que celui présenté, nous avons labellisé les segments pour plus de compréhension. Comme vous pouvez le constater, le mot "mode" a été décomposé en syllabes. Ceci est dû au fenêtrage et au décalage très réduits.
-\paragraph{Notre algorithme}
+\subparagraph{Notre algorithme}
 Nous avions évoqué un peu plus haut, le fait que nous utilisons un signal dit de bruit de fond. Dans notre cas, nous allons utiliser la fin du signal (où il n'y a aucune présence vocale à des fins de vecteur de bruit). Dans les conditions normales d'utilisation, ce dernier aurait été directement acquis en amont du traitement. Notre signal servant de référence est réalisé de manière à avoir $1$ seconde d'acquisition. Les courbes suivantes sont les résultats de nos différents paramètres utilisés. Les paramètres sont accompagnés de leur seuil. La dernière courbe symbolise notre vecteur de labels.
 \begin{figure}[!h]
 \centering
@@ -306,6 +306,23 @@ La segmentation du "morceau" bruité est la suivante. Vous pourrez assez vite con
 \end{figure}
 \paragraph{}
 Il est vrai qu'il y a beaucoup de couleurs différentes et que la figure n'est pas forcément très lisible. néanmoins, afin de vous aider à vous repérer, vous pouvez toujours vous appuyez des segments grisés et bordeaux de la ~\figurename~\ref{noise_ec}.\footnote{Les figures sont de même dimension sur ce rapport.}
+\subparagraph{Retour à notre algorithme}
+Le bruit de fond est cette fois-ci un vecteur de bruit blanc gaussien d'une durée d'une seconde. Bien-sûr, il n'est en aucun cas un des tronçons de celui utilisé en addition à notre morceau. Nous obtenons donc le résultat suivant :
+\begin{figure}[!h]
+\centering
+\includegraphics[width=10cm]{test_2_us_noise.eps}
+\caption{Segmentation du "morceau" bruité avec marqueurs pour situer les mots}
+\label{triste}
+\end{figure}
+\paragraph{} Vous pouvez constater que sur la ~\figurename~\ref{triste}, nous n'avons aucun segment introduit par du bruit, néanmoins, la syllabe "de" du mot "mode" n'a pas été détectée. La question est pourquoi ? Pour cela, nous allons analyser les courbes de détection. 
+\begin{figure}[!h]
+\centering
+\includegraphics[width=13cm]{test_2_us_noise_p.eps}
+\caption{Courbes de détection de notre algorithme}
+\end{figure}
+\paragraph{} On remarque sur la courbe "Distance between entropy and noise entropy features and threshold", de fait que le seuil soit fixe, la syllabe "de" n'a pas été détectée. C'est sans doute ne amélioration que nous pourrions apporter par la suite à notre algorithme. De plus, sur la courbe "correlation between MFCC and noise MFCCs features", notre algorithme calculant la distance entre le vecteur bruit et le vecteur de MFCC que l'on calcule à chaque instant est un peu instable au début, malgré que l'on note la présence de "pics". Pour conclure sur cette simulation, nous pouvons déjà argumenté que notre algorithme est robuste au bruit même si on engendre un perte de syllabe dit "non plosives". Quelques améliorations et modifications pourraient assurer la détection de cette syllabe néanmoins. On reste satisfait de notre détection. En effet, un algorithme de détection d'activité vocale ne travaillant jamais seul, il rendra les algorithmes de reconnaissance de la parole plus performant. Le gain de temps à ne pas traiter du "bruit" est donc presque nulle pour notre algorithme comparé aux autres. 
+\paragraph{Notre morceau avec une musique de fond}
+Nous aimons un peu la difficulté, alors nous allons utiliser, comme nous l'avons énoncé dans l'introduction un peu plus, une musique de style "métal"\footnote{La définition de style différant entre les individus, la musique n'est peut-être pas représentative du style "métal" mais d'un style en déclinant.}. La musique utilisée est {\bfseries{Rammvier}} de Rammstein\footnote{Pour nos tests nous avons simplement utilisé un échantillon de $5s$ et une autre seconde pour notre vecteur bruit.}. Le choix de cette musique n'est pas arbitraire et pas seulement par goût. Le spectre de cette musique est assez densément rempli dans la bande passante que nous étudions. De plus, la musique est bien sûr remplie de parole (nous avons donc la présence d'une voix parasite). Le but de cette dernière expérience est donc de vérifier que notre algorithme est robuste contre le bruit musical et les voix dans des trames musicales (dans le cas général, on ne peut empêcher la détection de la voix si elle est bien plus présente que celui du locuteur). 
 \newpage
 \clearpage
 \bibliographystyle{plain} 

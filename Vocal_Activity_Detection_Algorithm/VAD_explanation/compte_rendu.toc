@@ -50,8 +50,12 @@
 \contentsline {subparagraph}{Algorithme utilisant le ZRC (Zero Crossing Rate) et le STE( Short time Energy)}{12}{subparagraph*.29}
 \contentsline {subparagraph}{Algorithme utilisant le Spectral centroid et le STE( Short time Energy)}{12}{subparagraph*.30}
 \contentsline {paragraph}{}{13}{paragraph*.33}
-\contentsline {paragraph}{Notre algorithme}{14}{paragraph*.34}
+\contentsline {subparagraph}{Notre algorithme}{14}{subparagraph*.34}
 \contentsline {paragraph}{Signal avec un SNR de $-30dB$}{15}{paragraph*.37}
 \contentsline {subparagraph}{Algorithme utilisant le Spectral centroid et le STE( Short time Energy)}{15}{subparagraph*.39}
 \contentsline {paragraph}{}{16}{paragraph*.42}
-\contentsline {section}{R\'ef\'erences}{17}{paragraph*.42}
+\contentsline {subparagraph}{Retour \`a notre algorithme}{16}{subparagraph*.43}
+\contentsline {paragraph}{}{17}{paragraph*.45}
+\contentsline {paragraph}{}{18}{paragraph*.47}
+\contentsline {paragraph}{Notre morceau avec une musique de fond}{18}{paragraph*.48}
+\contentsline {section}{R\'ef\'erences}{19}{paragraph*.48}
