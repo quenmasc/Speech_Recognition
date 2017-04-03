@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.10.5)  3 APR 2017 12:20
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.10.5)  3 APR 2017 16:29
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -725,7 +725,7 @@ LaTeX Info: Redefining \nameref on input line 38.
 \openout3 = `compte_rendu.out'.
 
 
-<logo.jpg, id=108, 138.5175pt x 57.5751pt>
+<logo.jpg, id=124, 138.5175pt x 57.5751pt>
 File: logo.jpg Graphic file (type jpg)
  <use logo.jpg>
 Package pdftex.def Info: logo.jpg used on input line 40.
@@ -984,7 +984,7 @@ Package epstopdf Info: Source file: <mode_un_deux_sb.eps>
 ted-to.pdf mode_un_deux_sb.eps>
 (epstopdf)             \includegraphics on input line 251.
 Package epstopdf Info: Output file is already uptodate.
- <mode_un_deux_sb-eps-converted-to.pdf, id=289, 562.1pt x 421.575pt>
+ <mode_un_deux_sb-eps-converted-to.pdf, id=308, 562.1pt x 421.575pt>
 File: mode_un_deux_sb-eps-converted-to.pdf Graphic file (type pdf)
 
 <use mode_un_deux_sb-eps-converted-to.pdf>
@@ -1002,7 +1002,7 @@ Package epstopdf Info: Source file: <test_1_ec.eps>
 (epstopdf)             \includegraphics on input line 261.
 Package epstopdf Info: Output file is already uptodate.
 
-<test_1_ec-eps-converted-to.pdf, id=291, 830.10126pt x 572.1375pt>
+<test_1_ec-eps-converted-to.pdf, id=310, 830.10126pt x 572.1375pt>
 File: test_1_ec-eps-converted-to.pdf Graphic file (type pdf)
 
 <use test_1_ec-eps-converted-to.pdf>
@@ -1020,7 +1020,7 @@ to.pdf test_1_2_ec.eps>
 (epstopdf)             \includegraphics on input line 267.
 Package epstopdf Info: Output file is already uptodate.
 
-<test_1_2_ec-eps-converted-to.pdf, id=293, 562.1pt x 421.575pt>
+<test_1_2_ec-eps-converted-to.pdf, id=312, 562.1pt x 421.575pt>
 File: test_1_2_ec-eps-converted-to.pdf Graphic file (type pdf)
 
 <use test_1_2_ec-eps-converted-to.pdf>
@@ -1066,13 +1066,13 @@ Package epstopdf Info: Source file: <test_1_us.eps>
 (epstopdf)             \includegraphics on input line 275.
 Package epstopdf Info: Output file is already uptodate.
 
-<test_1_us-eps-converted-to.pdf, id=333, 562.1pt x 421.575pt>
+<test_1_us-eps-converted-to.pdf, id=352, 562.1pt x 421.575pt>
 File: test_1_us-eps-converted-to.pdf Graphic file (type pdf)
 
 <use test_1_us-eps-converted-to.pdf>
 Package pdftex.def Info: test_1_us-eps-converted-to.pdf used on input line 275.
 
-(pdftex.def)             Requested size: 398.33858pt x 298.75426pt.
+(pdftex.def)             Requested size: 341.43306pt x 256.07324pt.
 Package epstopdf Info: Source file: <test_1__2_us.eps>
 (epstopdf)                    date: 2017-03-28 17:47:05
 (epstopdf)                    size: 241474 bytes
@@ -1084,13 +1084,13 @@ Package epstopdf Info: Source file: <test_1__2_us.eps>
 (epstopdf)             \includegraphics on input line 281.
 Package epstopdf Info: Output file is already uptodate.
 
-<test_1__2_us-eps-converted-to.pdf, id=335, 562.1pt x 421.575pt>
+<test_1__2_us-eps-converted-to.pdf, id=354, 562.1pt x 421.575pt>
 File: test_1__2_us-eps-converted-to.pdf Graphic file (type pdf)
 
 <use test_1__2_us-eps-converted-to.pdf>
 Package pdftex.def Info: test_1__2_us-eps-converted-to.pdf used on input line 2
 81.
-(pdftex.def)             Requested size: 227.62204pt x 170.71764pt.
+(pdftex.def)             Requested size: 284.52756pt x 213.39221pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
@@ -1125,13 +1125,13 @@ Package epstopdf Info: Source file: <position_noise.eps>
 ed-to.pdf position_noise.eps>
 (epstopdf)             \includegraphics on input line 289.
 Package epstopdf Info: Output file is already uptodate.
-<position_noise-eps-converted-to.pdf, id=351, 562.1pt x 421.575pt>
+<position_noise-eps-converted-to.pdf, id=370, 562.1pt x 421.575pt>
 File: position_noise-eps-converted-to.pdf Graphic file (type pdf)
 
 <use position_noise-eps-converted-to.pdf>
 Package pdftex.def Info: position_noise-eps-converted-to.pdf used on input line
  289.
-(pdftex.def)             Requested size: 227.62204pt x 170.71764pt.
+(pdftex.def)             Requested size: 284.52756pt x 213.39221pt.
 Package epstopdf Info: Source file: <test_noise_ec.eps>
 (epstopdf)                    date: 2017-03-29 09:17:19
 (epstopdf)                    size: 117390 bytes
@@ -1143,7 +1143,7 @@ d-to.pdf test_noise_ec.eps>
 (epstopdf)             \includegraphics on input line 297.
 Package epstopdf Info: Output file is already uptodate.
 
-<test_noise_ec-eps-converted-to.pdf, id=352, 562.1pt x 421.575pt>
+<test_noise_ec-eps-converted-to.pdf, id=371, 562.1pt x 421.575pt>
 File: test_noise_ec-eps-converted-to.pdf Graphic file (type pdf)
 
 <use test_noise_ec-eps-converted-to.pdf>
@@ -1161,23 +1161,16 @@ ted-to.pdf test_noise_2_ec.eps>
 (epstopdf)             \includegraphics on input line 304.
 Package epstopdf Info: Output file is already uptodate.
 
-<test_noise_2_ec-eps-converted-to.pdf, id=353, 562.1pt x 421.575pt>
+<test_noise_2_ec-eps-converted-to.pdf, id=372, 562.1pt x 421.575pt>
 File: test_noise_2_ec-eps-converted-to.pdf Graphic file (type pdf)
 
 <use test_noise_2_ec-eps-converted-to.pdf>
 Package pdftex.def Info: test_noise_2_ec-eps-converted-to.pdf used on input lin
 e 304.
 (pdftex.def)             Requested size: 284.52756pt x 213.39221pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
 File: logo.jpg Graphic file (type jpg)
-<use logo.jpg>
-Package pdftex.def Info: logo.jpg used on input line 309.
+ <use logo.jpg>
+Package pdftex.def Info: logo.jpg used on input line 307.
 (pdftex.def)             Requested size: 138.51715pt x 57.57495pt.
 
 
@@ -1188,47 +1181,9 @@ Package Fancyhdr Warning: \headheight is too small (40.0pt):
 
 [15 <./test_1__2_us-eps-converted-to.pdf> <./position_noise-eps-converted-to.pd
 f>]
-Package epstopdf Info: Source file: <test_2_us_noise.eps>
-(epstopdf)                    date: 2017-04-02 15:52:59
-(epstopdf)                    size: 254863 bytes
-(epstopdf)             Output file: <test_2_us_noise-eps-converted-to.pdf>
-(epstopdf)                    date: 2017-04-02 15:52:59
-(epstopdf)                    size: 92251 bytes
-(epstopdf)             Command: <repstopdf --outfile=test_2_us_noise-eps-conver
-ted-to.pdf test_2_us_noise.eps>
-(epstopdf)             \includegraphics on input line 313.
-Package epstopdf Info: Output file is already uptodate.
- <test_2_us_noise-eps-converted-to.pdf, id=380, 562.1pt x 421.575pt>
-File: test_2_us_noise-eps-converted-to.pdf Graphic file (type pdf)
-
-<use test_2_us_noise-eps-converted-to.pdf>
-Package pdftex.def Info: test_2_us_noise-eps-converted-to.pdf used on input lin
-e 313.
-(pdftex.def)             Requested size: 284.52756pt x 213.39221pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-Package epstopdf Info: Source file: <test_2_us_noise_p.eps>
-(epstopdf)                    date: 2017-04-02 15:52:59
-(epstopdf)                    size: 359424 bytes
-(epstopdf)             Output file: <test_2_us_noise_p-eps-converted-to.pdf>
-(epstopdf)                    date: 2017-04-02 15:52:59
-(epstopdf)                    size: 106020 bytes
-(epstopdf)             Command: <repstopdf --outfile=test_2_us_noise_p-eps-conv
-erted-to.pdf test_2_us_noise_p.eps>
-(epstopdf)             \includegraphics on input line 320.
-Package epstopdf Info: Output file is already uptodate.
-<test_2_us_noise_p-eps-converted-to.pdf, id=382, 562.1pt x 421.575pt>
-File: test_2_us_noise_p-eps-converted-to.pdf Graphic file (type pdf)
-
-<use test_2_us_noise_p-eps-converted-to.pdf>
-Package pdftex.def Info: test_2_us_noise_p-eps-converted-to.pdf used on input l
-ine 320.
-(pdftex.def)             Requested size: 369.88582pt x 277.41052pt.
 File: logo.jpg Graphic file (type jpg)
  <use logo.jpg>
-Package pdftex.def Info: logo.jpg used on input line 323.
+Package pdftex.def Info: logo.jpg used on input line 309.
 (pdftex.def)             Requested size: 138.51715pt x 57.57495pt.
 
 
@@ -1239,9 +1194,48 @@ Package Fancyhdr Warning: \headheight is too small (40.0pt):
 
 [16 <./test_noise_ec-eps-converted-to.pdf> <./test_noise_2_ec-eps-converted-to.
 pdf>]
+Package epstopdf Info: Source file: <test_2_us_noise.eps>
+(epstopdf)                    date: 2017-04-02 15:52:59
+(epstopdf)                    size: 254863 bytes
+(epstopdf)             Output file: <test_2_us_noise-eps-converted-to.pdf>
+(epstopdf)                    date: 2017-04-02 15:52:59
+(epstopdf)                    size: 92251 bytes
+(epstopdf)             Command: <repstopdf --outfile=test_2_us_noise-eps-conver
+ted-to.pdf test_2_us_noise.eps>
+(epstopdf)             \includegraphics on input line 313.
+Package epstopdf Info: Output file is already uptodate.
+ <test_2_us_noise-eps-converted-to.pdf, id=421, 562.1pt x 421.575pt>
+File: test_2_us_noise-eps-converted-to.pdf Graphic file (type pdf)
+
+<use test_2_us_noise-eps-converted-to.pdf>
+Package pdftex.def Info: test_2_us_noise-eps-converted-to.pdf used on input lin
+e 313.
+(pdftex.def)             Requested size: 284.52756pt x 213.39221pt.
+Package epstopdf Info: Source file: <test_2_us_noise_p.eps>
+(epstopdf)                    date: 2017-04-02 15:52:59
+(epstopdf)                    size: 359424 bytes
+(epstopdf)             Output file: <test_2_us_noise_p-eps-converted-to.pdf>
+(epstopdf)                    date: 2017-04-02 15:52:59
+(epstopdf)                    size: 106020 bytes
+(epstopdf)             Command: <repstopdf --outfile=test_2_us_noise_p-eps-conv
+erted-to.pdf test_2_us_noise_p.eps>
+(epstopdf)             \includegraphics on input line 320.
+Package epstopdf Info: Output file is already uptodate.
+
+<test_2_us_noise_p-eps-converted-to.pdf, id=423, 562.1pt x 421.575pt>
+File: test_2_us_noise_p-eps-converted-to.pdf Graphic file (type pdf)
+
+<use test_2_us_noise_p-eps-converted-to.pdf>
+Package pdftex.def Info: test_2_us_noise_p-eps-converted-to.pdf used on input l
+ine 320.
+(pdftex.def)             Requested size: 341.43306pt x 256.07324pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
 File: logo.jpg Graphic file (type jpg)
- <use logo.jpg>
-Package pdftex.def Info: logo.jpg used on input line 324.
+<use logo.jpg>
+Package pdftex.def Info: logo.jpg used on input line 326.
 (pdftex.def)             Requested size: 138.51715pt x 57.57495pt.
 
 
@@ -1250,11 +1244,53 @@ Package Fancyhdr Warning: \headheight is too small (40.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[17 <./test_2_us_noise-eps-converted-to.pdf> <./test_2_us_noise_p-eps-converted
--to.pdf>]
+[17 <./test_2_us_noise-eps-converted-to.pdf>]
+Package epstopdf Info: Source file: <test_3_sc.eps>
+(epstopdf)                    date: 2017-04-03 15:38:34
+(epstopdf)                    size: 261257 bytes
+(epstopdf)             Output file: <test_3_sc-eps-converted-to.pdf>
+(epstopdf)                    date: 2017-04-03 15:40:56
+(epstopdf)                    size: 88755 bytes
+(epstopdf)             Command: <repstopdf --outfile=test_3_sc-eps-converted-to
+.pdf test_3_sc.eps>
+(epstopdf)             \includegraphics on input line 331.
+Package epstopdf Info: Output file is already uptodate.
+
+<test_3_sc-eps-converted-to.pdf, id=446, 562.1pt x 421.575pt>
+File: test_3_sc-eps-converted-to.pdf Graphic file (type pdf)
+
+<use test_3_sc-eps-converted-to.pdf>
+Package pdftex.def Info: test_3_sc-eps-converted-to.pdf used on input line 331.
+
+(pdftex.def)             Requested size: 284.52756pt x 213.39221pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+Package epstopdf Info: Source file: <test_3_2_sc.eps>
+(epstopdf)                    date: 2017-04-03 15:38:51
+(epstopdf)                    size: 151208 bytes
+(epstopdf)             Output file: <test_3_2_sc-eps-converted-to.pdf>
+(epstopdf)                    date: 2017-04-03 15:44:02
+(epstopdf)                    size: 144185 bytes
+(epstopdf)             Command: <repstopdf --outfile=test_3_2_sc-eps-converted-
+to.pdf test_3_2_sc.eps>
+(epstopdf)             \includegraphics on input line 338.
+Package epstopdf Info: Output file is already uptodate.
+<test_3_2_sc-eps-converted-to.pdf, id=447, 562.1pt x 421.575pt>
+File: test_3_2_sc-eps-converted-to.pdf Graphic file (type pdf)
+
+<use test_3_2_sc-eps-converted-to.pdf>
+Package pdftex.def Info: test_3_2_sc-eps-converted-to.pdf used on input line 33
+8.
+(pdftex.def)             Requested size: 284.52756pt x 213.39221pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
 File: logo.jpg Graphic file (type jpg)
- <use logo.jpg>
-Package pdftex.def Info: logo.jpg used on input line 330.
+<use logo.jpg>
+Package pdftex.def Info: logo.jpg used on input line 343.
 (pdftex.def)             Requested size: 138.51715pt x 57.57495pt.
 
 
@@ -1263,10 +1299,28 @@ Package Fancyhdr Warning: \headheight is too small (40.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[18]
+[18 <./test_2_us_noise_p-eps-converted-to.pdf>]
+Package epstopdf Info: Source file: <test_3_us.eps>
+(epstopdf)                    date: 2017-04-03 15:24:14
+(epstopdf)                    size: 249631 bytes
+(epstopdf)             Output file: <test_3_us-eps-converted-to.pdf>
+(epstopdf)                    date: 2017-04-03 15:52:29
+(epstopdf)                    size: 90627 bytes
+(epstopdf)             Command: <repstopdf --outfile=test_3_us-eps-converted-to
+.pdf test_3_us.eps>
+(epstopdf)             \includegraphics on input line 347.
+Package epstopdf Info: Output file is already uptodate.
+
+<test_3_us-eps-converted-to.pdf, id=470, 562.1pt x 421.575pt>
+File: test_3_us-eps-converted-to.pdf Graphic file (type pdf)
+
+<use test_3_us-eps-converted-to.pdf>
+Package pdftex.def Info: test_3_us-eps-converted-to.pdf used on input line 347.
+
+(pdftex.def)             Requested size: 284.52756pt x 213.39221pt.
 File: logo.jpg Graphic file (type jpg)
  <use logo.jpg>
-Package pdftex.def Info: logo.jpg used on input line 330.
+Package pdftex.def Info: logo.jpg used on input line 351.
 (pdftex.def)             Requested size: 138.51715pt x 57.57495pt.
 
 
@@ -1275,7 +1329,46 @@ Package Fancyhdr Warning: \headheight is too small (40.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[19] (./compte_rendu.bbl
+[19 <./test_3_sc-eps-converted-to.pdf> <./test_3_2_sc-eps-converted-to.pdf>]
+File: logo.jpg Graphic file (type jpg)
+
+<use logo.jpg>
+Package pdftex.def Info: logo.jpg used on input line 354.
+(pdftex.def)             Requested size: 138.51715pt x 57.57495pt.
+
+
+Package Fancyhdr Warning: \headheight is too small (40.0pt): 
+ Make it at least 55.0499pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[20 <./test_3_us-eps-converted-to.pdf>]
+
+LaTeX Warning: Command \textregistered invalid in math mode on input line 357.
+
+
+LaTeX Warning: Command \textcircled invalid in math mode on input line 357.
+
+
+LaTeX Warning: Command \textcircled invalid in math mode on input line 357.
+
+
+Overfull \hbox (30.80066pt too wide) in paragraph at lines 361--370
+[] [][] [] 
+ []
+
+File: logo.jpg Graphic file (type jpg)
+<use logo.jpg>
+Package pdftex.def Info: logo.jpg used on input line 371.
+(pdftex.def)             Requested size: 138.51715pt x 57.57495pt.
+
+
+Package Fancyhdr Warning: \headheight is too small (40.0pt): 
+ Make it at least 55.0499pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[21] (./compte_rendu.bbl
 LaTeX Font Info:    Try loading font information for T1+cmtt on input line 6.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/base/t1cmtt.fd
@@ -1316,7 +1409,7 @@ Underfull \hbox (badness 1496) in paragraph at lines 53--60
 AED: lastpage setting LastPage
 File: logo.jpg Graphic file (type jpg)
 <use logo.jpg>
-Package pdftex.def Info: logo.jpg used on input line 334.
+Package pdftex.def Info: logo.jpg used on input line 375.
 (pdftex.def)             Requested size: 138.51715pt x 57.57495pt.
 
 
@@ -1325,14 +1418,14 @@ Package Fancyhdr Warning: \headheight is too small (40.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[20
+[22
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 334.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 334.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 375.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 375.
  (./compte_rendu.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 334.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 334.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 375.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 375.
 
 
 Package rerunfilecheck Warning: File `compte_rendu.out' has changed.
@@ -1340,53 +1433,47 @@ Package rerunfilecheck Warning: File `compte_rendu.out' has changed.
 (rerunfilecheck)                or use package `bookmark'.
 
 Package rerunfilecheck Info: Checksums for `compte_rendu.out':
-(rerunfilecheck)             Before: A5D7A91B62E0FD7CE367996588A350BD;2200
-(rerunfilecheck)             After:  1B3514359F439297AEFC9528660EE117;2260.
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 334.
+(rerunfilecheck)             Before: 0E8FE2FEF13EAE7A4A414A239D9BEA93;2466
+(rerunfilecheck)             After:  14957A9D59CD3093DEDD8813C5C1B1E8;2466.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 375.
  ) 
 Here is how much of TeX's memory you used:
- 12623 strings out of 493089
- 186672 string characters out of 6134842
+ 12660 strings out of 493089
+ 187445 string characters out of 6134842
  313415 words of memory out of 5000000
- 15684 multiletter control sequences out of 15000+600000
+ 15704 multiletter control sequences out of 15000+600000
  24793 words of font info for 64 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 42i,18n,75p,1347b,497s stack positions out of 5000i,500n,10000p,200000b,80000s
-pdfTeX warning (dest): name{subparagraph*.46} has been referenced but does no
-t exist, replaced by a fixed one
-
-{/usr/local/texlive/2015/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}</
-usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></u
-sr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></us
-r/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/
-local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/lo
-cal/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/loca
-l/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/
-texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/tex
-live/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texliv
-e/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2
-015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/20
-15/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2015
-/texmf-dist/fonts/type1/public/cm-super/sfbx1095.pfb></usr/local/texlive/2015/t
-exmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2015/tex
-mf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2015/texmf
--dist/fonts/type1/public/cm-super/sfcc1095.pfb></usr/local/texlive/2015/texmf-d
-ist/fonts/type1/public/cm-super/sfcc1440.pfb></usr/local/texlive/2015/texmf-dis
-t/fonts/type1/public/cm-super/sfrm0800.pfb></usr/local/texlive/2015/texmf-dist/
-fonts/type1/public/cm-super/sfrm0900.pfb></usr/local/texlive/2015/texmf-dist/fo
-nts/type1/public/cm-super/sfrm1095.pfb></usr/local/texlive/2015/texmf-dist/font
-s/type1/public/cm-super/sfti1095.pfb></usr/local/texlive/2015/texmf-dist/fonts/
-type1/public/cm-super/sftt1095.pfb></usr/local/texlive/2015/texmf-dist/fonts/ty
-pe1/public/cm-super/sfxc1095.pfb></usr/local/texlive/2015/texmf-dist/fonts/type
-1/public/cm-super/sfxc1200.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/
-public/cm-super/sfxc2488.pfb>
-Output written on compte_rendu.pdf (22 pages, 1683889 bytes).
+ 42i,18n,75p,1339b,497s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/local/texlive/2015/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}
+</usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><
+/usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></
+usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></us
+r/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/
+local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/lo
+cal/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/loca
+l/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/t
+exlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texl
+ive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive
+/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/
+2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/20
+15/texmf-dist/fonts/type1/public/cm-super/sfbx1095.pfb></usr/local/texlive/2015
+/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2015/t
+exmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2015/tex
+mf-dist/fonts/type1/public/cm-super/sfcc1095.pfb></usr/local/texlive/2015/texmf
+-dist/fonts/type1/public/cm-super/sfcc1440.pfb></usr/local/texlive/2015/texmf-d
+ist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/local/texlive/2015/texmf-dis
+t/fonts/type1/public/cm-super/sfrm0900.pfb></usr/local/texlive/2015/texmf-dist/
+fonts/type1/public/cm-super/sfrm1095.pfb></usr/local/texlive/2015/texmf-dist/fo
+nts/type1/public/cm-super/sfti1095.pfb></usr/local/texlive/2015/texmf-dist/font
+s/type1/public/cm-super/sftt1095.pfb></usr/local/texlive/2015/texmf-dist/fonts/
+type1/public/cm-super/sfxc1095.pfb></usr/local/texlive/2015/texmf-dist/fonts/ty
+pe1/public/cm-super/sfxc1200.pfb></usr/local/texlive/2015/texmf-dist/fonts/type
+1/public/cm-super/sfxc2488.pfb>
+Output written on compte_rendu.pdf (24 pages, 2004227 bytes).
 PDF statistics:
- 569 PDF objects out of 1000 (max. 8388607)
- 484 compressed objects within 5 object streams
- 136 named destinations out of 1000 (max. 500000)
- 264 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 637 PDF objects out of 1000 (max. 8388607)
+ 538 compressed objects within 6 object streams
+ 150 named destinations out of 1000 (max. 500000)
+ 311 words of extra memory for PDF output out of 10000 (max. 10000000)
 
