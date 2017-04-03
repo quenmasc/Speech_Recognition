@@ -7,7 +7,7 @@ function [r,s]=Speech_recognition(Mdl_classe,Mdl_short,Mdl_long)
     [segments,~,~,fs]=Vocal_algorithm_dectection(Init,2,16000);
     labelsave=[];
     for i=1:length(segments)
-    [features,~]=SetFeactureExtraction(cell2mat(segments(i)),fs,15,5);
+    [~,features]=SetFeactureExtraction(cell2mat(segments(i)),fs,15,5);
     [label,score] = predict(Mdl_classe,features);
     if (label==1)
         new_feature=features(1,1:3000);
