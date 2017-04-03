@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.10.5)  3 APR 2017 11:51
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.10.5)  3 APR 2017 12:20
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -725,7 +725,7 @@ LaTeX Info: Redefining \nameref on input line 38.
 \openout3 = `compte_rendu.out'.
 
 
-<logo.jpg, id=92, 138.5175pt x 57.5751pt>
+<logo.jpg, id=108, 138.5175pt x 57.5751pt>
 File: logo.jpg Graphic file (type jpg)
  <use logo.jpg>
 Package pdftex.def Info: logo.jpg used on input line 40.
@@ -984,7 +984,7 @@ Package epstopdf Info: Source file: <mode_un_deux_sb.eps>
 ted-to.pdf mode_un_deux_sb.eps>
 (epstopdf)             \includegraphics on input line 251.
 Package epstopdf Info: Output file is already uptodate.
- <mode_un_deux_sb-eps-converted-to.pdf, id=270, 562.1pt x 421.575pt>
+ <mode_un_deux_sb-eps-converted-to.pdf, id=289, 562.1pt x 421.575pt>
 File: mode_un_deux_sb-eps-converted-to.pdf Graphic file (type pdf)
 
 <use mode_un_deux_sb-eps-converted-to.pdf>
@@ -1002,7 +1002,7 @@ Package epstopdf Info: Source file: <test_1_ec.eps>
 (epstopdf)             \includegraphics on input line 261.
 Package epstopdf Info: Output file is already uptodate.
 
-<test_1_ec-eps-converted-to.pdf, id=272, 830.10126pt x 572.1375pt>
+<test_1_ec-eps-converted-to.pdf, id=291, 830.10126pt x 572.1375pt>
 File: test_1_ec-eps-converted-to.pdf Graphic file (type pdf)
 
 <use test_1_ec-eps-converted-to.pdf>
@@ -1020,7 +1020,7 @@ to.pdf test_1_2_ec.eps>
 (epstopdf)             \includegraphics on input line 267.
 Package epstopdf Info: Output file is already uptodate.
 
-<test_1_2_ec-eps-converted-to.pdf, id=274, 562.1pt x 421.575pt>
+<test_1_2_ec-eps-converted-to.pdf, id=293, 562.1pt x 421.575pt>
 File: test_1_2_ec-eps-converted-to.pdf Graphic file (type pdf)
 
 <use test_1_2_ec-eps-converted-to.pdf>
@@ -1043,6 +1043,18 @@ Package Fancyhdr Warning: \headheight is too small (40.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [12 <./mode_un_deux_sb-eps-converted-to.pdf>]
+File: logo.jpg Graphic file (type jpg)
+ <use logo.jpg>
+Package pdftex.def Info: logo.jpg used on input line 271.
+(pdftex.def)             Requested size: 138.51715pt x 57.57495pt.
+
+
+Package Fancyhdr Warning: \headheight is too small (40.0pt): 
+ Make it at least 55.0499pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[13 <./test_1_ec-eps-converted-to.pdf> <./test_1_2_ec-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <test_1_us.eps>
 (epstopdf)                    date: 2017-03-28 17:32:12
 (epstopdf)                    size: 330772 bytes
@@ -1054,7 +1066,7 @@ Package epstopdf Info: Source file: <test_1_us.eps>
 (epstopdf)             \includegraphics on input line 275.
 Package epstopdf Info: Output file is already uptodate.
 
-<test_1_us-eps-converted-to.pdf, id=295, 562.1pt x 421.575pt>
+<test_1_us-eps-converted-to.pdf, id=333, 562.1pt x 421.575pt>
 File: test_1_us-eps-converted-to.pdf Graphic file (type pdf)
 
 <use test_1_us-eps-converted-to.pdf>
@@ -1072,25 +1084,14 @@ Package epstopdf Info: Source file: <test_1__2_us.eps>
 (epstopdf)             \includegraphics on input line 281.
 Package epstopdf Info: Output file is already uptodate.
 
-<test_1__2_us-eps-converted-to.pdf, id=297, 562.1pt x 421.575pt>
+<test_1__2_us-eps-converted-to.pdf, id=335, 562.1pt x 421.575pt>
 File: test_1__2_us-eps-converted-to.pdf Graphic file (type pdf)
 
 <use test_1__2_us-eps-converted-to.pdf>
 Package pdftex.def Info: test_1__2_us-eps-converted-to.pdf used on input line 2
 81.
 (pdftex.def)             Requested size: 227.62204pt x 170.71764pt.
-File: logo.jpg Graphic file (type jpg)
- <use logo.jpg>
-Package pdftex.def Info: logo.jpg used on input line 284.
-(pdftex.def)             Requested size: 138.51715pt x 57.57495pt.
 
-
-Package Fancyhdr Warning: \headheight is too small (40.0pt): 
- Make it at least 55.0499pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[13 <./test_1_ec-eps-converted-to.pdf> <./test_1_2_ec-eps-converted-to.pdf>]
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
@@ -1106,6 +1107,14 @@ Package Fancyhdr Warning: \headheight is too small (40.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [14 <./test_1_us-eps-converted-to.pdf>]
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 285.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 285.
+
 Package epstopdf Info: Source file: <position_noise.eps>
 (epstopdf)                    date: 2017-03-29 09:24:50
 (epstopdf)                    size: 257694 bytes
@@ -1116,8 +1125,7 @@ Package epstopdf Info: Source file: <position_noise.eps>
 ed-to.pdf position_noise.eps>
 (epstopdf)             \includegraphics on input line 289.
 Package epstopdf Info: Output file is already uptodate.
-
-<position_noise-eps-converted-to.pdf, id=333, 562.1pt x 421.575pt>
+<position_noise-eps-converted-to.pdf, id=351, 562.1pt x 421.575pt>
 File: position_noise-eps-converted-to.pdf Graphic file (type pdf)
 
 <use position_noise-eps-converted-to.pdf>
@@ -1135,7 +1143,7 @@ d-to.pdf test_noise_ec.eps>
 (epstopdf)             \includegraphics on input line 297.
 Package epstopdf Info: Output file is already uptodate.
 
-<test_noise_ec-eps-converted-to.pdf, id=334, 562.1pt x 421.575pt>
+<test_noise_ec-eps-converted-to.pdf, id=352, 562.1pt x 421.575pt>
 File: test_noise_ec-eps-converted-to.pdf Graphic file (type pdf)
 
 <use test_noise_ec-eps-converted-to.pdf>
@@ -1153,7 +1161,7 @@ ted-to.pdf test_noise_2_ec.eps>
 (epstopdf)             \includegraphics on input line 304.
 Package epstopdf Info: Output file is already uptodate.
 
-<test_noise_2_ec-eps-converted-to.pdf, id=335, 562.1pt x 421.575pt>
+<test_noise_2_ec-eps-converted-to.pdf, id=353, 562.1pt x 421.575pt>
 File: test_noise_2_ec-eps-converted-to.pdf Graphic file (type pdf)
 
 <use test_noise_2_ec-eps-converted-to.pdf>
@@ -1190,7 +1198,7 @@ Package epstopdf Info: Source file: <test_2_us_noise.eps>
 ted-to.pdf test_2_us_noise.eps>
 (epstopdf)             \includegraphics on input line 313.
 Package epstopdf Info: Output file is already uptodate.
- <test_2_us_noise-eps-converted-to.pdf, id=363, 562.1pt x 421.575pt>
+ <test_2_us_noise-eps-converted-to.pdf, id=380, 562.1pt x 421.575pt>
 File: test_2_us_noise-eps-converted-to.pdf Graphic file (type pdf)
 
 <use test_2_us_noise-eps-converted-to.pdf>
@@ -1211,7 +1219,7 @@ Package epstopdf Info: Source file: <test_2_us_noise_p.eps>
 erted-to.pdf test_2_us_noise_p.eps>
 (epstopdf)             \includegraphics on input line 320.
 Package epstopdf Info: Output file is already uptodate.
-<test_2_us_noise_p-eps-converted-to.pdf, id=365, 562.1pt x 421.575pt>
+<test_2_us_noise_p-eps-converted-to.pdf, id=382, 562.1pt x 421.575pt>
 File: test_2_us_noise_p-eps-converted-to.pdf Graphic file (type pdf)
 
 <use test_2_us_noise_p-eps-converted-to.pdf>
@@ -1246,7 +1254,7 @@ Package Fancyhdr Warning: \headheight is too small (40.0pt):
 -to.pdf>]
 File: logo.jpg Graphic file (type jpg)
  <use logo.jpg>
-Package pdftex.def Info: logo.jpg used on input line 328.
+Package pdftex.def Info: logo.jpg used on input line 330.
 (pdftex.def)             Requested size: 138.51715pt x 57.57495pt.
 
 
@@ -1255,7 +1263,19 @@ Package Fancyhdr Warning: \headheight is too small (40.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[18] (./compte_rendu.bbl
+[18]
+File: logo.jpg Graphic file (type jpg)
+ <use logo.jpg>
+Package pdftex.def Info: logo.jpg used on input line 330.
+(pdftex.def)             Requested size: 138.51715pt x 57.57495pt.
+
+
+Package Fancyhdr Warning: \headheight is too small (40.0pt): 
+ Make it at least 55.0499pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[19] (./compte_rendu.bbl
 LaTeX Font Info:    Try loading font information for T1+cmtt on input line 6.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/base/t1cmtt.fd
@@ -1296,7 +1316,7 @@ Underfull \hbox (badness 1496) in paragraph at lines 53--60
 AED: lastpage setting LastPage
 File: logo.jpg Graphic file (type jpg)
 <use logo.jpg>
-Package pdftex.def Info: logo.jpg used on input line 332.
+Package pdftex.def Info: logo.jpg used on input line 334.
 (pdftex.def)             Requested size: 138.51715pt x 57.57495pt.
 
 
@@ -1305,14 +1325,14 @@ Package Fancyhdr Warning: \headheight is too small (40.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[19
+[20
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 332.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 332.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 334.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 334.
  (./compte_rendu.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 332.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 332.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 334.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 334.
 
 
 Package rerunfilecheck Warning: File `compte_rendu.out' has changed.
@@ -1320,47 +1340,53 @@ Package rerunfilecheck Warning: File `compte_rendu.out' has changed.
 (rerunfilecheck)                or use package `bookmark'.
 
 Package rerunfilecheck Info: Checksums for `compte_rendu.out':
-(rerunfilecheck)             Before: 28BCAB43E44C3FD868790F4E7F00BE6D;1801
-(rerunfilecheck)             After:  4F11200D96685C275B8CE55BAC374706;1804.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 332.
+(rerunfilecheck)             Before: A5D7A91B62E0FD7CE367996588A350BD;2200
+(rerunfilecheck)             After:  1B3514359F439297AEFC9528660EE117;2260.
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 334.
  ) 
 Here is how much of TeX's memory you used:
- 12622 strings out of 493089
- 186658 string characters out of 6134842
+ 12623 strings out of 493089
+ 186672 string characters out of 6134842
  313415 words of memory out of 5000000
- 15685 multiletter control sequences out of 15000+600000
+ 15684 multiletter control sequences out of 15000+600000
  24793 words of font info for 64 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 42i,18n,75p,1226b,497s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texlive/2015/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}
-</usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><
-/usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></
-usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></us
-r/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/
-local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/lo
-cal/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/loca
-l/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/t
-exlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texl
-ive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive
-/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/
-2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/20
-15/texmf-dist/fonts/type1/public/cm-super/sfbx1095.pfb></usr/local/texlive/2015
-/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2015/t
-exmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2015/tex
-mf-dist/fonts/type1/public/cm-super/sfcc1095.pfb></usr/local/texlive/2015/texmf
--dist/fonts/type1/public/cm-super/sfcc1440.pfb></usr/local/texlive/2015/texmf-d
-ist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/local/texlive/2015/texmf-dis
-t/fonts/type1/public/cm-super/sfrm0900.pfb></usr/local/texlive/2015/texmf-dist/
-fonts/type1/public/cm-super/sfrm1095.pfb></usr/local/texlive/2015/texmf-dist/fo
-nts/type1/public/cm-super/sfti1095.pfb></usr/local/texlive/2015/texmf-dist/font
-s/type1/public/cm-super/sftt1095.pfb></usr/local/texlive/2015/texmf-dist/fonts/
-type1/public/cm-super/sfxc1095.pfb></usr/local/texlive/2015/texmf-dist/fonts/ty
-pe1/public/cm-super/sfxc1200.pfb></usr/local/texlive/2015/texmf-dist/fonts/type
-1/public/cm-super/sfxc2488.pfb>
-Output written on compte_rendu.pdf (21 pages, 1680126 bytes).
+ 42i,18n,75p,1347b,497s stack positions out of 5000i,500n,10000p,200000b,80000s
+pdfTeX warning (dest): name{subparagraph*.46} has been referenced but does no
+t exist, replaced by a fixed one
+
+{/usr/local/texlive/2015/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}</
+usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></u
+sr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></us
+r/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/
+local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/lo
+cal/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/loca
+l/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/
+texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/tex
+live/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texliv
+e/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2
+015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/20
+15/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2015
+/texmf-dist/fonts/type1/public/cm-super/sfbx1095.pfb></usr/local/texlive/2015/t
+exmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2015/tex
+mf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2015/texmf
+-dist/fonts/type1/public/cm-super/sfcc1095.pfb></usr/local/texlive/2015/texmf-d
+ist/fonts/type1/public/cm-super/sfcc1440.pfb></usr/local/texlive/2015/texmf-dis
+t/fonts/type1/public/cm-super/sfrm0800.pfb></usr/local/texlive/2015/texmf-dist/
+fonts/type1/public/cm-super/sfrm0900.pfb></usr/local/texlive/2015/texmf-dist/fo
+nts/type1/public/cm-super/sfrm1095.pfb></usr/local/texlive/2015/texmf-dist/font
+s/type1/public/cm-super/sfti1095.pfb></usr/local/texlive/2015/texmf-dist/fonts/
+type1/public/cm-super/sftt1095.pfb></usr/local/texlive/2015/texmf-dist/fonts/ty
+pe1/public/cm-super/sfxc1095.pfb></usr/local/texlive/2015/texmf-dist/fonts/type
+1/public/cm-super/sfxc1200.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/
+public/cm-super/sfxc2488.pfb>
+Output written on compte_rendu.pdf (22 pages, 1683889 bytes).
 PDF statistics:
- 548 PDF objects out of 1000 (max. 8388607)
- 464 compressed objects within 5 object streams
- 134 named destinations out of 1000 (max. 500000)
- 232 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 569 PDF objects out of 1000 (max. 8388607)
+ 484 compressed objects within 5 object streams
+ 136 named destinations out of 1000 (max. 500000)
+ 264 words of extra memory for PDF output out of 10000 (max. 10000000)
 

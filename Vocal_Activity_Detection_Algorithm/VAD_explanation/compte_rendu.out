@@ -18,5 +18,10 @@
 \BOOKMARK [2][-]{subsection.3.4}{Conclusion}{section.3}% 18
 \BOOKMARK [1][-]{section.4}{Tests et comparaisons}{}% 19
 \BOOKMARK [2][-]{subsection.4.1}{Pr\351sentation des algorithmes \351valu\351s}{section.4}% 20
-\BOOKMARK [3][-]{subsubsection.4.1.1}{Robustesse au bruit}{subsection.4.1}% 21
-\BOOKMARK [1][-]{subparagraph*.50}{R\351f\351rences}{}% 22
+\BOOKMARK [2][-]{subsection.4.2}{Robustesse au bruit}{section.4}% 21
+\BOOKMARK [3][-]{subsubsection.4.2.1}{Donn\351es des tests}{subsection.4.2}% 22
+\BOOKMARK [3][-]{subsubsection.4.2.2}{Signal avec pr\351sence de voix et peu ou pas de bruit \(SNR \351l\351v\351\)}{subsection.4.2}% 23
+\BOOKMARK [3][-]{subsubsection.4.2.3}{Signal avec un SNR de -30dB}{subsection.4.2}% 24
+\BOOKMARK [3][-]{subsubsection.4.2.4}{Signal avec un musique de fond - SNR -30dB}{subsection.4.2}% 25
+\BOOKMARK [2][-]{subsection.4.3}{Performances}{section.4}% 26
+\BOOKMARK [1][-]{subsection.4.3}{R\351f\351rences}{}% 27

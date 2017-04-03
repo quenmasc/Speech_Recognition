@@ -234,9 +234,9 @@ Nous allons évaluer différents algorithmes à savoir :
 	\item Robustesse au bruit : nous chercherons à ajouter progressivement du bruit dans nos tests  en baissant le SNR (Signal Noise Ratio\footnote{Taux du rapport signal à bruit}).
 \end{itemize}
 \paragraph{} Nous savons que nous partons dès le départ avec un désavantage. En effet, nous utilisons que des méthodes fréquentielles qui ont une complexité de calcul élevé. De plus, notre algorithme n'est pas optimisé car nous répétons certaines opérations plusieurs fois, notamment la plus gourmande, la Discrete Fourier Transform \footnote{Transformée de Fourier Discrète}. 
-\subsubsection{Robustesse au bruit} 
+\subsection{Robustesse au bruit} 
 Notre première tâche avant de parler de performances en terme de temps d'exécution est de tester leur robustesse face aux bruits. En d'autres termes, sachant que nous allons travailler dans des environnements différents, il faut veiller à ce que l'environnement de travail n'empiète pas sur la reconnaissance vocale. Pour cela, nous allons réaliser plusieurs test sur un fichier audio contenant de la voix. On veillera dans un premier à ce qu'il est pas ou peu de bruit de fond. Puis nous en rajouterons progressivement. Enfin, le test ultime sera dans un environnement musical, nous mettrons en fond, une trame musicale (disons d'un style "métal"\footnote{Le style métal ne représente par forcément le style englobant du morceau que nous choisirons. Néanmoins, nous vous donnons le style métal pour que vous puissiez vous représenter le bruit généré par ce style de musique}). Le but de chaque algorithme est sur cinq tests \footnote{Le nombre de tests est pris aléatoirement et de manière impaire} d'avoir le plus de trame avec présence vocale et le moins avec du bruit environnant. 
-\paragraph{Données des tests}
+\subsubsection{Données des tests}
 Les données suivantes seront utilisées pour tous les test. En cas de changement, nous les rappelerons :
 \begin{enumerate}
 	\item Fréquence d'échantillonnage : $16~kHz$
@@ -244,7 +244,7 @@ Les données suivantes seront utilisées pour tous les test. En cas de changement,
 	\item Taille des fenêtres : $15~ms$
 	\item Décalage entre les fenêtres : $5~ms$
 \end{enumerate}
-\paragraph{Signal avec présence de voix et peu ou pas de bruit (SNR élévé)}
+\subsubsection{Signal avec présence de voix et peu ou pas de bruit (SNR élévé)}
 Pour commencer, nous allons illustrer le signal que nous allons utiliser. Il est assez simpliste, dure environ $5s$ et dans un premier temps, le SNR est très élevé. La figure ci-dessous (\figurename~\ref{figure_1}) est la représentation temporelle du signal avec des marqueurs indiquant la présence des mots "mode", "un et "deux". À titre d'information, le signal est échantillonné à $16kHz$ et quantitifé sur $16bits$. 
 \begin{figure}[!h]
 \centering
@@ -253,8 +253,8 @@ Pour commencer, nous allons illustrer le signal que nous allons utiliser. Il est
 \label{figure_1}
 \end{figure}
 \paragraph{} Nous allons maintenant tester ce signal avec l'algorithme que nous proposons et ceux que nous avons soumis à titre comparatif. 
-\subparagraph{Algorithme utilisant le ZRC (Zero Crossing Rate) et le STE( Short time Energy)}\footnote{ZRC : taux de passage par zéro ; STE :  énergie à court-terme}
-\subparagraph{Algorithme utilisant le Spectral centroid et le STE( Short time Energy)}
+\paragraph{Algorithme utilisant le ZRC (Zero Crossing Rate) et le STE( Short time Energy)}\footnote{ZRC : taux de passage par zéro ; STE :  énergie à court-terme}
+\paragraph{Algorithme utilisant le Spectral centroid et le STE( Short time Energy)}
 Après avoir utilisé notre "morceau" en argument, nous obtenons le résultat suivant :
 \begin{figure}[!h]
 \centering
@@ -268,7 +268,7 @@ Les figures de l'algorithme n'étant pas forcément concrète sur le découpage (sau
 \caption{Résultat de l'algorithme testé avec notre "morceau"}
 \end{figure}
 \paragraph{} Etant donné que le découpage des segments n'était pas le même que celui présenté, nous avons labellisé les segments pour plus de compréhension. Comme vous pouvez le constater, le mot "mode" a été décomposé en syllabes. Ceci est dû au fenêtrage et au décalage très réduits.
-\subparagraph{Notre algorithme}
+\paragraph{Notre algorithme}
 Nous avions évoqué un peu plus haut, le fait que nous utilisons un signal dit de bruit de fond. Dans notre cas, nous allons utiliser la fin du signal (où il n'y a aucune présence vocale à des fins de vecteur de bruit). Dans les conditions normales d'utilisation, ce dernier aurait été directement acquis en amont du traitement. Notre signal servant de référence est réalisé de manière à avoir $1$ seconde d'acquisition. Les courbes suivantes sont les résultats de nos différents paramètres utilisés. Les paramètres sont accompagnés de leur seuil. La dernière courbe symbolise notre vecteur de labels.
 \begin{figure}[!h]
 \centering
@@ -282,7 +282,7 @@ Comme précédemment, nous allons symbolisé les différents morceaux comme nous l'a
 \caption{Segmentation du signal par notre algorithme}
 \end{figure}
 \newpage
-\paragraph{Signal avec un SNR de $-30dB$}
+\subsubsection{Signal avec un SNR de $-30dB$}
 Nous remarquons que dans des conditions optimales, l'ensemble des algorithmes est capable de détecter les présences vocales du signal. Nous allons donc rajouter du bruit pour voir comment les algorithmes se comportent avec différents SNR\footnote{Signal Noise Ratio : Rapport de Signal à Bruit}. Tous les SNR sont calculés à l'aide de la fonction Matlab $snr.m$. Le bruit est un bruit blanc gaussien généré à l'aide de la fonction $wgn.m$ de Matlab. On obtient donc la représentation temporelle suivante :
 \begin{figure}[!h]
 \centering
@@ -290,7 +290,7 @@ Nous remarquons que dans des conditions optimales, l'ensemble des algorithmes es
 \caption{Signal avec bruit blanc gaussien}
 \label{figure_2}
 \end{figure}
-\subparagraph{Algorithme utilisant le Spectral centroid et le STE( Short time Energy)}
+\paragraph{Algorithme utilisant le Spectral centroid et le STE( Short time Energy)}
 Après avoir utilisé notre "morceau" bruité cette fois-ci en argument, nous obtenons le résultat suivant :
 \begin{figure}[!h]
 \centering
@@ -306,7 +306,7 @@ La segmentation du "morceau" bruité est la suivante. Vous pourrez assez vite con
 \end{figure}
 \paragraph{}
 Il est vrai qu'il y a beaucoup de couleurs différentes et que la figure n'est pas forcément très lisible. néanmoins, afin de vous aider à vous repérer, vous pouvez toujours vous appuyez des segments grisés et bordeaux de la ~\figurename~\ref{noise_ec}.\footnote{Les figures sont de même dimension sur ce rapport.}
-\subparagraph{Retour à notre algorithme}
+\paragraph{Retour à notre algorithme}
 Le bruit de fond est cette fois-ci un vecteur de bruit blanc gaussien d'une durée d'une seconde. Bien-sûr, il n'est en aucun cas un des tronçons de celui utilisé en addition à notre morceau. Nous obtenons donc le résultat suivant :
 \begin{figure}[!h]
 \centering
@@ -321,10 +321,12 @@ Le bruit de fond est cette fois-ci un vecteur de bruit blanc gaussien d'une duré
 \caption{Courbes de détection de notre algorithme}
 \end{figure}
 \paragraph{} On remarque sur la courbe "Distance between entropy and noise entropy features and threshold", de fait que le seuil soit fixe, la syllabe "de" n'a pas été détectée. C'est sans doute ne amélioration que nous pourrions apporter par la suite à notre algorithme. De plus, sur la courbe "correlation between MFCC and noise MFCCs features", notre algorithme calculant la distance entre le vecteur bruit et le vecteur de MFCC que l'on calcule à chaque instant est un peu instable au début, malgré que l'on note la présence de "pics". Pour conclure sur cette simulation, nous pouvons déjà argumenté que notre algorithme est robuste au bruit même si on engendre un perte de syllabe dit "non plosives". Quelques améliorations et modifications pourraient assurer la détection de cette syllabe néanmoins. On reste satisfait de notre détection. En effet, un algorithme de détection d'activité vocale ne travaillant jamais seul, il rendra les algorithmes de reconnaissance de la parole plus performant. Le gain de temps à ne pas traiter du "bruit" est donc presque nulle pour notre algorithme comparé aux autres. 
-\paragraph{Notre morceau avec une musique de fond}
+\subsubsection{Signal avec un musique de fond - SNR -30dB}
 Nous aimons un peu la difficulté, alors nous allons utiliser, comme nous l'avons énoncé dans l'introduction un peu plus, une musique de style "métal"\footnote{La définition de style différant entre les individus, la musique n'est peut-être pas représentative du style "métal" mais d'un style en déclinant.}. La musique utilisée est {\bfseries{Rammvier}} de Rammstein\footnote{Pour nos tests nous avons simplement utilisé un échantillon de $5s$ et une autre seconde pour notre vecteur bruit.}. Le choix de cette musique n'est pas arbitraire et pas seulement par goût. Le spectre de cette musique est assez densément rempli dans la bande passante que nous étudions. De plus, la musique est bien sûr remplie de parole (nous avons donc la présence d'une voix parasite). Le but de cette dernière expérience est donc de vérifier que notre algorithme est robuste contre le bruit musical et les voix dans des trames musicales (dans le cas général, on ne peut empêcher la détection de la voix si elle est bien plus présente que celui du locuteur). 
 \paragraph{} La musique prélevée n'est néanmoins pas à une fréquence d'échantillonnage de $16~kHz$. Il faut donc sous-échantillonner les morceaux choisis. Pour cela, afin d'éviter tout repliement du signal, on commence par appliqué un passe-bas à $8~kHz$ (théorème de Shannon). Puis, une fois cette opération réalisée, nous pouvons sous-échantillonner nos morceaux et les ajouter à notre "morceau". 
-\subparagraph{}
+\subsection{Performances}
+Nous en avons parlé un peu plus haut, mais outre la robustesse, il faut être performant. Rien ne sert d'avoir un algorithme qui fait peu d'erreur mais qui prend dix fois plus de temps. Il est donc important de comparer la vitesse d'exécution des algorithmes proposés au notre. Bien-sûr, on sait d'or-et-déjà que notre algorithme est plus lent que ceux présentés. Comment le savoir avant même de réaliser les tests de chronos ? Tout simplement car nos méthodes n'emploient que des caractéristiques fréquentielles. De part la complexité des calculs engendrés, nous n'aurons donc de meilleurs temps d'exécution. Néanmoins, si nous sommes en dessous des deux ou trois fois leur temps, nous pourrons considérer notre algorithme performant au vue de sa robustesse au bruit. Nous générons en effet moins de segments parasites qui ralentiront le traitement par la suite. Enfin, nous savon que notre algorithme est grandement améliorable notamment en terme de répétition. Nous avons, après analyse, constaté que nous répétions certaines opérations, notamment les transformées de Fourier Discrète plusieurs fois (quatre fois dans notre cas, deux pour le calcul de l'entropie, deux autres pour les MFCCs). Nous pourrions gagner un temps considérable. L'algorithme évoluera à cet effet lorsque nous l'implémenterons en C++.
+
 \newpage
 \clearpage
 \bibliographystyle{plain} 
