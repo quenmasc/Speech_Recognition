@@ -1,4 +1,4 @@
-function espace=SupportVectorMachine()
+function [Mdl_short, Mdl_long, Mdl_classe]=SupportVectorMachine()
     %% clear , close , clear console
     close all;
     clear ; 
@@ -35,5 +35,5 @@ disp('Second SVM done');
 [Mdl_long,opt_long] = fitcecoc(features(Classe==2,:),Output(Classe==2),'Learners',t,'OptimizeHyperparameters','auto');
 
 
-espace=[Mdl_short, Mdl_long, Mdl_classe];
+
 end
