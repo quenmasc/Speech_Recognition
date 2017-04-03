@@ -1,4 +1,4 @@
-function r=Speech_recognition(Mdl_classe,Mdl_short,Mdl_long)
+function [r,s]=Speech_recognition(Mdl_classe,Mdl_short,Mdl_long)
     %% addpath
     addpath('../Ressources');
     addpath('../Vocal_Activity_Detection_Algorithm');
@@ -6,6 +6,7 @@ function r=Speech_recognition(Mdl_classe,Mdl_short,Mdl_long)
     Init=environment_analysis();
     [segments,~,~,fs]=Vocal_algorithm_dectection(Init,2,16000);
     labelsave=[];
+    scoresave=[];
     for i=1:length(segments)
     [features,~]=SetFeactureExtraction(cell2mat(segments(i)),fs,15,5);
     [label,score] = predict(Mdl_classe,features);
@@ -16,7 +17,9 @@ function r=Speech_recognition(Mdl_classe,Mdl_short,Mdl_long)
         [label,score] = predict(Mdl_long,features);
     end
     labelsave=[labelsave,label];
+    scoresave=[scoresave,score];
     end
 
     r=labelsave;
+    s=scoresave
 end
