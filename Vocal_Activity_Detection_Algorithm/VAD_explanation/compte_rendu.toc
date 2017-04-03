@@ -58,4 +58,6 @@
 \contentsline {paragraph}{}{17}{paragraph*.45}
 \contentsline {paragraph}{}{18}{paragraph*.47}
 \contentsline {paragraph}{Notre morceau avec une musique de fond}{18}{paragraph*.48}
-\contentsline {section}{R\'ef\'erences}{19}{paragraph*.48}
+\contentsline {paragraph}{}{18}{paragraph*.49}
+\contentsline {subparagraph}{}{18}{subparagraph*.50}
+\contentsline {section}{R\'ef\'erences}{19}{subparagraph*.50}
