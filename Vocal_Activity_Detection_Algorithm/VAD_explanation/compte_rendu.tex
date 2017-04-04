@@ -26,8 +26,31 @@
 \usepackage{url}
 \usepackage{array}
 \usepackage[dvipsnames]{xcolor}
+\usepackage{multicol}
+\usepackage{calc}% http://ctan.org/pkg/calc
+\usepackage[showframe]{geometry}% http://ctan.org/pkg/geometry
+\titleclass{\subsubsubsection}{straight}[\subsection]
+\newcounter{subsubsubsection}[subsubsection]
 
+\renewcommand\thesubsubsubsection{\thesubsubsection.\arabic{subsubsubsection}}
 
+\titleformat{\subsubsubsection}
+  {\normalfont\normalsize\bfseries}{\thesubsubsubsection}{1em}{}
+\titlespacing*{\subsubsubsection}
+{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+
+\makeatletter
+\def\toclevel@subsubsubsection{4}
+\def\l@subsubsubsection{\@dottedtocline{4}{7em}{4em}}
+\makeatother
+
+\makeatletter
+\@addtoreset{subsubsubsection}{section}
+\@addtoreset{subsubsubsection}{subsection}
+\makeatother
+
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
 
 \title{}
 \date{}
@@ -37,21 +60,22 @@
 \definecolor{ulaval_jaune}{RGB}{254,203,47}
 \begin{document}
  
-\pageDeGarde{\textsc{Vocal Activity Algorithm }}{\Huge{\textsc{ Module commande de la parole}}}{{\large {\bfseries{\textsc{Development and integration of a voice command for users  with speech disabilities (dystrophy, paralysis, etc.) on the JACO robotic arm}}}}}{}
+\pageDeGarde{\textsc{Vocal Activity Detection Algorithm }}{\Huge{\textsc{ Module commande de la parole}}}{{\large {\bfseries{\textsc{Development and integration of a voice command for users  with speech disabilities (dystrophy, paralysis, etc.) on the JACO robotic arm}}}}}{}
 \newpage
 \pageMATIERE{}
 \renewcommand{\contentsname}{Table des matières}
 \tableofcontents
 \newpage
-
-
+\pageMATIERE{}
+\listoffigures
+\newpage
 \pageTHEME
 \setcounter{page}{1}
 \section*{Résumé}
 L'objectif de ce rapport est de confronter les performances de mon algorithme de Détection d'Activité de la Voix dans une trame audio (DAV ou Vocal Activity Detection en anglais). Le DAV est un algorithme  qui vise à extraite d'une trame audio tous les tronçons où il y a présence de voix et cherche à accélérer le processus de reconnaissance de la parole. En effet, en ne se concentrant que sur les tronçons de voix, on ne cherche pas à reconnaitre des silences entre des mots, ... mais que des mots, phonèmes, ... (cela dépend de la manière dont est réalisé l'algorithme de reconnaissance de la parole). 
-\paragraph{} Actuellement, plusieurs méthodes sont utilisées pour réaliser cette opération de détection de flux de parole dans différents domaines (temporels et fréquentiels). Le domaine utilisé va bien sûr impacter sur la rapidité de l'algorithme. Le domaine temporel ne nécessitant pas de calcul complexe, il rendra notre algorithme plus rapide néanmoins il sera plus sensible au bruit. Le domaine fréquentiel est quant à lui moins sensible au bruit mais est plus gourmand en calcul. Les méthodes les plus connues dans le domaine temporel sont l'énergie à court terme combinée aux taux de passage à zéro (Short time Energy and Zero Crossing Rate) et dans le domaine fréquentiel : l'Entropie (Spectral Entropy), le Spectral Centroïd  (qui est une sorte d'indicateur du "centre de masse" du spectre) mais aussi les Mel Feature Cepstrum Coefficents (MFCC).
-\paragraph{} Mon partis pris a été de choisir de travailler dans le domaine fréquentiel essentiellement afin d'avoir un algorithme très robuste au bruit et de combiné l'Entropy au MFCC. De plus, même si mes deux méthodes sont très peu sensible au bruit, elles perdent un peu de leur immunité à partir d'un certain SNR (Signal Noise Ratio ou Rapport de Signal à Bruit en français). De fait, afin de pouvoir travailler dans des environnements assujettis à des SNR très faible, j'ai donc généré une fonction d'initialisation qui récupère l'empreinte du bruit environnant et s'en sers de vecteurs modèles. Les vecteurs extraits des deux méthodes sont donc comparés à ces modèles de bruit par distance euclidienne ou par corrélation pour chaque trame. Les vecteurs modèles sont mis à jour à chaque trame pour suivre l'évolution des éléments en entrées.
-\paragraph{} L'étude comparative de mon modèle se fera par confrontation à quatre modèles et avec des contraintes de bruits. 
+\paragraph*{} Actuellement, plusieurs méthodes sont utilisées pour réaliser cette opération de détection de flux de parole dans différents domaines (temporels et fréquentiels). Le domaine utilisé va bien sûr impacter sur la rapidité de l'algorithme. Le domaine temporel ne nécessitant pas de calcul complexe, il rendra notre algorithme plus rapide néanmoins il sera plus sensible au bruit. Le domaine fréquentiel est quant à lui moins sensible au bruit mais est plus gourmand en calcul. Les méthodes les plus connues dans le domaine temporel sont l'énergie à court terme combinée aux taux de passage à zéro (Short time Energy and Zero Crossing Rate) et dans le domaine fréquentiel : l'Entropie (Spectral Entropy), le Spectral Centroïd  (qui est une sorte d'indicateur du "centre de masse" du spectre) mais aussi les Mel Feature Cepstrum Coefficents (MFCC).
+\paragraph*{} Mon partis pris a été de choisir de travailler dans le domaine fréquentiel essentiellement afin d'avoir un algorithme très robuste au bruit et de combiné l'Entropy au MFCC. De plus, même si mes deux méthodes sont très peu sensible au bruit, elles perdent un peu de leur immunité à partir d'un certain SNR (Signal Noise Ratio ou Rapport de Signal à Bruit en français). De fait, afin de pouvoir travailler dans des environnements assujettis à des SNR très faible, j'ai donc généré une fonction d'initialisation qui récupère l'empreinte du bruit environnant et s'en sers de vecteurs modèles. Les vecteurs extraits des deux méthodes sont donc comparés à ces modèles de bruit par distance euclidienne ou par corrélation pour chaque trame. Les vecteurs modèles sont mis à jour à chaque trame pour suivre l'évolution des éléments en entrées.
+\paragraph*{} L'étude comparative de mon modèle se fera par confrontation à quatre modèles et avec des contraintes de bruits. 
 \newpage
 \section{Introduction}
 Ce rapport s'organise de la façon suivante. Tout d'abord quelques notions théoriques nécessaires à la bonne compréhension du sujet seront introduites. Un état de l'art non exhaustif de la détection de l'activité vocale sera présenté. Ensuite, les différents travaux réalisés seront décrits. Ces travaux reposent essentiellement sur les Mel Feature Cepstrum Coefficient (MFCC) et l'Entropie, dans l'objectif de rejeter toutes les trames audio non utiles. Les performances du VAD des méthodes proposées seront exposées puis comparées à des méthodes de références. Ce sera alors l'occasion de soulever des difficultés liées aux différentes méthodes mais aussi des améliorations qui pourraient y être éventuellement apportés. 
@@ -95,28 +119,28 @@ Nous ne pouvons pas parler d'Entropie spectrale sans parler auparavant de l'entr
 H(x)=\sum_{k}p(x_k).log_2[P(x_k)]
 \end{equation}
 où $x={x_k}_{0 \leq k\leq N-1}$ est une série temporelle, fréquentielle ou autre et où $P(k)$ est la probabilité d'un certain état $x_k$. 
-\paragraph{Travaux de Shen J, Hung J et Lee J \cite{entropie}}
+\subsubsubsection{Travaux de Shen J, Hung J et Lee J \cite{entropie}}
 Shen J., Hung J. et Lee J. ont été les premiers a utilisé l'entropie dans le cadre de la détection de la parole. Ils ont démontré que l'entropie d'un flux de parole diffère de celui d'un flux sans parole. En effet, leur étude a montré que la structure de la voix reflète d'une organisation que l'on ne retrouve pas dans la structure spectrale du silence.
-\paragraph{L'entropie spectrale}
+\subsubsubsection{L'entropie spectrale}
 L'entropie de Shannon mesurant la quantité d'information contenue dans un signal aléatoire, il est plus d'usage d'utiliser l'entropie spectrale : la structure harmonique d'un segment de voix n'apparaissant que dans son spectrogramme. L'entropie spectrale est définit tout d'abord par la transformée de Fourier à court terme (Short time Fourier Transform) :
 \begin{equation}
 	S(k,l)=\sum_{n=1}^N h(n)s(n-l)\exp{\frac{-j2\pi kn}{N}} ~\text{avec} ~0 \leq k \leq K-1 \text{et} ~K=N
 \end{equation}
 $S(k,l)$ représente l'amplitude de la $k^{ième}$ composante fréquentielle, pour la $l^{ième}$ trame d'analyse. $s(n)$ est l'amplitude du signal au temps $n$. $N$, le nombre de points considérés pour la transformée de Fourier. $h(n)$ est la fenêtre d'analyse (généralement, une fenêtre de hamming).\\
-\paragraph{Energie spectrale} On définit l'énergie spectrale de la manière suivante :
+\paragraph*{Energie spectrale} On définit l'énergie spectrale de la manière suivante :
 \begin{equation}
 S_{energy}(k,l)=|S(k,l)|^2~\text{avec}~1 \leq k \leq \frac{N}{2}
 \end{equation}
-\paragraph{P(k,l)} La probabilité associée à chaque composante spectrale est obtenue en normalisant :
+\paragraph*{P(k,l)} La probabilité associée à chaque composante spectrale est obtenue en normalisant :
 \begin{equation}
 P(k,l)=\frac{S_{energy}(k,l)}{\sum_{i=1}^{\frac{N}{2}} S_{energy}(i,l) }~\text{avec}~1 \leq i \leq \frac{N}{2}~\text{et}\sum_iP(i,l)=1~\text{pour tout $l$}.
 \end{equation}
-\paragraph{Entropie Spectrale} L'entropie spectrale s'appuie sur l'entropie de Shannon :
+\paragraph*{Entropie Spectrale} L'entropie spectrale s'appuie sur l'entropie de Shannon :
 \begin{equation}
 	H(l)=\sum_{i=1}^{\frac{N}{2}}P(i,l).\log_2|P(i,|)|
 \end{equation}	
 Il est plus souvent d'usage de considérer l'opposé de l'entropie pour obtenir des profils analogues à ceux de l'intensité.
-\paragraph{Limitation} Une des limitations de l'entropie spectrale exposé par Ouzounov \cite{entropy} est que l'entropie d'une trame sans parole bruitée par un bruit blanc coloré peut-être équivalente à celle d'une trame avec parole mais bruitée.
+\subsubsubsection{Limitation} Une des limitations de l'entropie spectrale exposé par Ouzounov \cite{entropy} est que l'entropie d'une trame sans parole bruitée par un bruit blanc coloré peut-être équivalente à celle d'une trame avec parole mais bruitée.
 \subsubsection{Spectral Centroïd}
 Le "centroïde spectral" $C_i$ de la $i^{ième}$ trame est défini comme le centre de gravité de son spectre.
 \begin{equation}
@@ -128,31 +152,31 @@ Ces explications sont issues de l'article de Theodoros Giannakopoulos \cite{cent
 \subsubsection{Mel Feature Cepstral Coefficients (MFCC)}
 Les explications qui suivent sont issues et pour la plupart recopier du site $practicalcryptography.com$ \cite{MFCC}.
 
-\paragraph{} Les Mel Features Cepstral Coefficients (MFCCs) sont des caractéristiques majoritairement utilisées en reconnaissance de parole automatique. Les MFCCS ont été introduites par Davis and Mermelstein dans les années 80, et ont été "l'état de l'art" depuis. Avant la mise en place des MFCC, Les coefficients de prédiction linéaire (LPC) et les coefficients cepstaux de prédilection linéaire (LPCC)  constituaient la caractéristique principale de reconnaissance automatique de la parole (ASR), en particulier avec les classificateurs HMM . 
-\paragraph{Etape pour déterminer les MFCCs}
+\paragraph*{} Les Mel Features Cepstral Coefficients (MFCCs) sont des caractéristiques majoritairement utilisées en reconnaissance de parole automatique. Les MFCCS ont été introduites par Davis and Mermelstein dans les années 80, et ont été "l'état de l'art" depuis. Avant la mise en place des MFCC, Les coefficients de prédiction linéaire (LPC) et les coefficients cepstaux de prédilection linéaire (LPCC)  constituaient la caractéristique principale de reconnaissance automatique de la parole (ASR), en particulier avec les classificateurs HMM . 
+\subsubsubsection{Etape pour déterminer les MFCCs}
 Pour déterminer les MFCCs, ll faut commencer, comme tout au long de notre étude, par sectionner le signal en courte trame se recouvrant les unes aux autres (overlapping). Pour chaque trame, on calcule l'estimation du périodogramme du spectre de puissance (en d'autres termes, on regarde la distribution de notre périodogramme). Ensuite, on applique un banc de filtres Mel aux spectres de puissances, somme de l'énergie dans chaque filtre. On prend le logarithme de toutes les énergies du banc de filtre. Puis la transformée en cosinus inverse (DCT). On ne garde que les 12 premiers coefficients en omettant le premier. 
 \newpage
 \section{Travaux réalisés}
 Cette partie va aborder du travail réalisé sur l'algorithme de détection vocale (VAD). Une grande partie est inspirée de méthodes et modèles existants. En ce qui concerne le modèle de bruit de fond avec mise à jour à chaque trame, il est extrait des travaux Hongzhi Wang et Yuchao Xu, Meijing Li \cite{background}. J'ai donc transposé leur travaux à l'entropie afin de la rendre plus robuste au bruit. Nous avions parler d'une des limitations de l'entropie un peu plus que nous avons cherché à combler par cette méthode.
 \subsection{Fonctionnement général de l'algorithme}
 Avant de rentrer des explications plus approfondis sur les méthodes utilisées ainsi que leurs outils, nous allons expliquer globalement le fonctionnement de notre algorithme. \\
-\paragraph{} Tout d'abord, une première fonction $recorder.m$ \cite{matlab} permet l'acquisition de donnée par la carte son de mon laptop et de sauvegarder des données dans des veccteurs. Deux acquisition sont réalisées : 
+\paragraph*{} Tout d'abord, une première fonction $recorder.m$ \cite{matlab} permet l'acquisition de donnée par la carte son de mon laptop et de sauvegarder des données dans des veccteurs. Deux acquisition sont réalisées : 
 \begin{itemize}
 	\item Acquisition du bruit environnant
 	\item Acquisition d'une trame de voix durant 3s (le temps est ici arbitraire. D'autant plus, que par la suite nous chercherons à être en temps réel).
 \end{itemize}
 Une fois ces deux acquisitions opérées, nous utilisons celle de bruit de fond afin de générer un vecteur $MFCCs_{noise}$. Pour cela, nous "découpons" le signal acquis en plusieurs trames de $15 \milli \second$ avec un recouvrement de $10 \milli \second$ afin de respecter l'hypothèse du caractère stationnaire exprimé un peu plus haut. Ces trames (ou fenêtres) sont ensuite envoyées à un algorithme : $ short_time_Fourier_transform.m$ pour réaliser une transformée de Fourier (l'appellation de la fonction est un peu faussée car nous sommes déjà dans un cas de court terme). Enfin, on extrait les Mel Feature Cepstral Coefficients du signal de bruit de fond (toutes les trames) que nous moyennons. Ce vecteur est donc la moyenne des coefficients cepstraux du bruit (en considérant que seule du bruit de fond est présent dans cette acquisition). On opère similairement pour l'entropie, en calculant la valeur moyenne de l'entropie pour le signal de bruit de fond (on réalise la moyenne sur l'ensemble des trames). 
-\paragraph{} Pour l'acquisition d'une trame de voix, on réalise aussi le "découpage" en trame avec chevauchement. Pour chaque trame, on calcule l'entropie et les coefficients cepstaux. On compare le vecteur de coefficients cepstraux et la valeur de l'entropie de chaque trame à respectivement, le vecteur de bruit de fond de la moyenne des coefficients cepstraux et à la valeur moyenne du bruit de fond de l'entropie. On utilise pour cela, respectivement, la corrélation et la distance euclidienne. 
-\paragraph{} On applique ensuite des seuils pour chacune des deux variables évoluant au cours du temps afin d'être le plus pertinent possible. Chaque trame qui est au dessus du seuil est labellisée d'un "un" sinon elle l'est d'un "zéro". Le vecteur contenant les labels est ensuite envoyé à une fonction permettant de corriger les valeurs aberrantes (par exemple un "un" perdu au milieu de "zéro" et vis-versa. L'algorithme corrige jusqu'à plusieurs paquets de valeurs aberrantes en fonction des paramètres qu'on lui rentre en argument). Pour cela, on s'appuie du poids des labels au nombres paires entourant chaque label considéré. 
-\paragraph{} Une fois l'opération de correction de label réalisée, nous n'avons plus qu'à extraire les segments (en ms et non en trame comme nous avions précédemment) en considérant nos labels de "un" comme de la voix et les autres comme du silence, du bruit et des parasites sur le signal. Enfin, un dernier algorithme tri les segments récupérés. En effet, dans la littérature, chaque phonème dure un certain temps (selon la langue, le plus petit dure un $20 ms$ et le plus long, souvent voisé, dure $100 ms$). Dans notre cas, on suppose que notre algorithme reconnait un ensemble de phonème, soit une syllabe. Dans ce cas, on considère donc qu'en dessous de $80 ms$, on rejette le segment considéré. (LITTERATURE -REF ?)
-\paragraph{Finalité} Nous obtenons donc de l'acquisition d'un signal de trois secondes (choix arbitraires), un ensemble de segments contenant de la parole dans la majeur partie des cas (en effet, des bruits peuvent-être présents). Nous conclurons sur les manières d'améliorer notre algorithme. Néanmoins, cela ralentira notre algorithme sachant qu'il est déjà plus lent que ceux utilisés dans la littérature (on travaille avec des transformées de Fourier sur $257 points$ pour chaque trame de $15ms$. La complexité des calculs est donc élevée). Nous allons développer par la suite les méthodes utilisées pour les différentes phases de l'algorithme de Détection d'activité vocale (on rappelle qu'il est composé d'un ensemble de sous-algorithmes).
+\paragraph*{} Pour l'acquisition d'une trame de voix, on réalise aussi le "découpage" en trame avec chevauchement. Pour chaque trame, on calcule l'entropie et les coefficients cepstaux. On compare le vecteur de coefficients cepstraux et la valeur de l'entropie de chaque trame à respectivement, le vecteur de bruit de fond de la moyenne des coefficients cepstraux et à la valeur moyenne du bruit de fond de l'entropie. On utilise pour cela, respectivement, la corrélation et la distance euclidienne. 
+\paragraph*{} On applique ensuite des seuils pour chacune des deux variables évoluant au cours du temps afin d'être le plus pertinent possible. Chaque trame qui est au dessus du seuil est labellisée d'un "un" sinon elle l'est d'un "zéro". Le vecteur contenant les labels est ensuite envoyé à une fonction permettant de corriger les valeurs aberrantes (par exemple un "un" perdu au milieu de "zéro" et vis-versa. L'algorithme corrige jusqu'à plusieurs paquets de valeurs aberrantes en fonction des paramètres qu'on lui rentre en argument). Pour cela, on s'appuie du poids des labels au nombres paires entourant chaque label considéré. 
+\paragraph*{} Une fois l'opération de correction de label réalisée, nous n'avons plus qu'à extraire les segments (en ms et non en trame comme nous avions précédemment) en considérant nos labels de "un" comme de la voix et les autres comme du silence, du bruit et des parasites sur le signal. Enfin, un dernier algorithme tri les segments récupérés. En effet, dans la littérature, chaque phonème dure un certain temps (selon la langue, le plus petit dure un $20 ms$ et le plus long, souvent voisé, dure $100 ms$). Dans notre cas, on suppose que notre algorithme reconnait un ensemble de phonème, soit une syllabe. Dans ce cas, on considère donc qu'en dessous de $80 ms$, on rejette le segment considéré. (LITTERATURE -REF ?)
+\paragraph*{Finalité} Nous obtenons donc de l'acquisition d'un signal de trois secondes (choix arbitraires), un ensemble de segments contenant de la parole dans la majeur partie des cas (en effet, des bruits peuvent-être présents). Nous conclurons sur les manières d'améliorer notre algorithme. Néanmoins, cela ralentira notre algorithme sachant qu'il est déjà plus lent que ceux utilisés dans la littérature (on travaille avec des transformées de Fourier sur $257 points$ pour chaque trame de $15ms$. La complexité des calculs est donc élevée). Nous allons développer par la suite les méthodes utilisées pour les différentes phases de l'algorithme de Détection d'activité vocale (on rappelle qu'il est composé d'un ensemble de sous-algorithmes).
 
-\subsection{La distance ou corrélation entre des vecteurs de bruit de fond et celui de chaque trame} L'article de Hongzhi Wang et Yuchao Xu, Meijing Li propose d'extraire les Mel Features Cepstral Coefficients (MFCCs) d'un signal vocal pour chaque trame en considérant les dix (10) premières trames comme des trames de bruit d'arrière plan. En réalisant la moyenne de ces vecteurs, on obtient un vecteur de $MFCC_{bruité}$. Ce vecteur va permettre de réaliser la Corrélation des MFCC de chaque nouvelle trame avec lui même (dans l'article, ils utilisent aussi la distance euclidienne, qui se révèle être moins performante).Le vecteur de $MFCC_{bruité}$ est mis à jour à chaque trame :
+\subsection{La distance ou corrélation entre des vecteurs de bruit de fond et celui de chaque trame} L'article de Hongzhi Wang et Yuchao Xu, Meijing Li \cite{background} propose d'extraire les Mel Features Cepstral Coefficients (MFCCs) d'un signal vocal pour chaque trame en considérant les dix (10) premières trames comme des trames de bruit d'arrière plan. En réalisant la moyenne de ces vecteurs, on obtient un vecteur de $MFCC_{bruité}$. Ce vecteur va permettre de réaliser la Corrélation des MFCC de chaque nouvelle trame avec lui même (dans l'article, ils utilisent aussi la distance euclidienne, qui se révèle être moins performante).Le vecteur de $MFCC_{bruité}$ est mis à jour à chaque trame :
 \begin{equation}
 	\underline{cno}=\underline{c}.p+(1-p).\underline{c}
 \end{equation}
 où $ \underline{cno}$ est le vecteur de $MFCC_{bruité}$, $c$ sont les coefficients de chaque nouvelle trame et $p$ est proche de 1. Le fait que $p$ doit-être proche de $1$ permet de garantir que le vecteur de MFCC bruité reste constitué de bruit de fond principalement malgré l'introduction de coefficients de parole à chaque nouvelle trame.
-\paragraph{} Nous nous sommes donc appuyé de ces travaux pour construire notre algorithme de détection vocale. Nous avons aussi appliqué le principe de corrélation à l'entropie spectrale, toujours dans le soucis de rendre notre algorithme le plus robuste au bruit. 
+\paragraph*{} Nous nous sommes donc appuyé de ces travaux pour construire notre algorithme de détection vocale. Nous avons aussi appliqué le principe de corrélation à l'entropie spectrale, toujours dans le soucis de rendre notre algorithme le plus robuste au bruit. 
 \subsection{Détermination des seuils}
 La détermination des seuils a été la partie la plus difficile à mettre en oeuvre, non pas que les algorithmes sont complexes, mais qu'une mauvaise méthode entraine la suppression des trames voulues. 
 Ma première idée fut d'utiliser la distribution des valeurs obtenues. Cette distribution étant obtenue après avoir supprimé toutes les valeurs au-dessus de la moyenne du signal. Le but étant de récupérer la plus petites variations possibles du signal après analyse (Entropie et/ou MFCCs). Néanmoins, cette méthode bien qu'efficace était constante au court du temps ou du moins sur l'analyse d'un buffer d'échantillon. Il y avait donc des pertes et l'introduction de bruit après seuillage. 
@@ -179,15 +203,15 @@ Pour avoir un seuil pertinent et précis, on réalise une mise à jour ce seuil. La
 	\end{equation}
 	Comme durant la mise à jour du vecteur bruit, on cherche à avoir une valeur de $p$ proche de $1$ (un) afin que la mise à jour ne soit pas polluée par une trame de voix. Cela rendrait nos seuil inutile car il ne considérerait plus les trames de voix ou alors celle avec des intensités plus élevées que celle considérée.
 \end{itemize}
-\paragraph{Amélioration possible du seuil} On pourrait, tout comme le seuil des MFCCs, considérer une fonction sigmoïde particulière pour calculer le seuil optimal à chaque trame. Pour le moment, celle-là n'a pas été développée car les résultats étaient satisfaisants. 
+\paragraph*{}{Amélioration possible du seuil} On pourrait, tout comme le seuil des MFCCs, considérer une fonction sigmoïde particulière pour calculer le seuil optimal à chaque trame. Pour le moment, celle-là n'a pas été développée car les résultats étaient satisfaisants. 
 \subsubsection{Segmentation et correction des labels}
 Nous en avions un peu parlé plus haut, une fois nos seuils identifiés, il faut labéliser chaque trame. Chaque label est soit un "1" soit un "0" ("0" correspondant à une trame sous le seuil). On réalise cette opération pour les deux paramètres que nous utilisions. Nous combinons nos résultats obtenus pour labéliser chaque trame (nous avons donc un "et" logique entre les deux vecteurs de labels obtenus). 
-\paragraph{Correction des "uns" et "zéros" isolés} Notre vecteur de labels récupéré, ils arrivent que des "zéros" et des "uns" se retrouvent isolés dans une combinaison, respectivement, de "uns" et des "zéros". Afin de corriger ces "erreurs", on va chercher à évaluer le poids des labels entourant le label considéré. En soit, on balaye tous les labels afin de tous les vérifier. Les poids des labels entourant chaque label doit-être paire pour éviter des générer des nouvelles erreurs ou déplacer des labels (on a donc un nombre impaire des labels à évaluer pour trancher sur la valeur du label que l'on considère). On évalue donc le nombre de "un" et de "zéro", ce qui détermine si notre label est un "un" ou un "zéro". Mes propos ci-dessus n'étant pas forcément claire, illustrons mes propos avec un exemple :
+\subsubsubsection{Correction des "uns" et "zéros" isolés} Notre vecteur de labels récupéré, ils arrivent que des "zéros" et des "uns" se retrouvent isolés dans une combinaison, respectivement, de "uns" et des "zéros". Afin de corriger ces "erreurs", on va chercher à évaluer le poids des labels entourant le label considéré. En soit, on balaye tous les labels afin de tous les vérifier. Les poids des labels entourant chaque label doit-être paire pour éviter des générer des nouvelles erreurs ou déplacer des labels (on a donc un nombre impaire des labels à évaluer pour trancher sur la valeur du label que l'on considère). On évalue donc le nombre de "un" et de "zéro", ce qui détermine si notre label est un "un" ou un "zéro". Mes propos ci-dessus n'étant pas forcément claire, illustrons mes propos avec un exemple :
 \begin{enumerate}
 	\item Considérons un vecteur de labels : $[ 1~1~0~0~1~1~1]$ et poids de 3 labels de part et d'autres du label que l'on évalue. On cherche à savoir si les "zéros" de ce vecteur de "uns" ne sont pas des erreurs. On se positionne sur le premier "zéro", on prend 3 labels à gauche et à droite (les premières valeurs n'ayant pas ou peu de labels sur leur gauche, on ne considère que le poids à d'autres en y intégrant au fur et à mesure les labels à gauche). On évalue donc le vecteur : $[ 1~1~{\color{red}0~0}~1~1]$. On constate qu'il y a 4 "un" pour 2 "zéro". Le label "zéro" considéré est en faite un "un" (car il y a plus de poids de "un" que de "zéro"). Finalement, en évaluant l'ensemble du vecteur de label, on a : $[ 1~1~{\color{red}1~1}~1~1~1]$. Notre vecteur est donc corrigé. 
 \end{enumerate}
 Aucune littérature n'a été utilisée pour traiter de ce problème, simplement des constats sur un grand nombre d'exemple. Le résultat obtenu est concluant, même si des améliorations sont tout à fait envisageable. Notamment sur le poids à considérer qui pourrait ne pas être fixe par exemple. On pourrait considérer que le poids devient plus grand quand, pendant un lapse de labels, ces derniers sont inchangeants. De fait, on pourrait corriger des "zéros"' ou "uns" isolés sur un plus grand poids. 
-\paragraph{Segmentation}\footnote{L'idée s'appuit sur le principe des bufferisation que l'on utilise couramment en temps réel pour stocker nos données que l'on acquisitionne. Notamment en ce qui concerne les appelations "head" et "tail"}
+\subsubsubsection{Segmentation}\footnote{L'idée s'appuit sur le principe des bufferisation que l'on utilise couramment en temps réel pour stocker nos données que l'on acquisitionne. Notamment en ce qui concerne les appelations "head" et "tail"}
 Une fois le vecteur de labels corrigé, il nous reste plus qu'à extraire les segments où il y a de l'activité vocale. Pour cela, on considère un "head" et "tail". Le "head" caractérise le premier label "un" qui précède un "zéro" du vecteur et le "tail", le dernier "un" qui précède un groupe de "un" et est suivi d'un "zéro". Il peut y avoir plusieurs "head" et "tail" sur le signal acquisitionné. Le "head" est le premier marqueur, le "tail" lui n'apparait dès lors qu'un "head" est marqué sur le vecteur de labels. On extrait pour chaque "head" et "tail", leurs limites (la valeur de leur échantillon). Par exemple :
 \begin{enumerate}
 	\item On considère un vecteur de label : $[0~0~0~0~1~1~1~1~0~0~0]$ ({\bfseries{nb:}} la taille du vecteur est plus conséquente dans l'algorithme). On balaye toutes les valeurs du vecteur jusqu'au premier "head" (un "un" qui est précédé d'un "zéro"). On place donc le "head" sur le "un" qui représente le cinquième échantillon de notre vecteur ($[0~0~0~0~{\color{red}1}~1~1~1~0~0~0]$, ici en rouge). Puis on continue l'analyse mais cette fois-ci pour trouver le "tail". Ici le "tail" est le "un" qui représente le huitième échantillon du vecteur  ($[0~0~0~0~1~1~1~{\color{blue}1}~0~0~0]$, ici en bleu). Le "head" et le "tail" délimite donc le segment suivant : $[0~0~0~0~{\color{BurntOrange}1~1~1~1}~0~0~0]$.
@@ -214,8 +238,8 @@ Pour calculer l'échantillon du "tail", l'opération est similaire, mais il faut v
 	Sample=Limits(head).step_{ms}+ window_{ms}
 \end{equation}
 où $window_{ms}$ est la fenêtre d'étude considérée. \\
-\paragraph{} Les échantillons des "heads" et "tails" sont renvoyés dans un vecteur que l'on concatenate\footnote{Mots anglais : enchainement des vecteurs en soit} avec ceux déjà retournés. On obtient finalement une matrice. On n'a plus qu'à extraire les segments en s'appuyant de la matrice précédemment trouvée pour l'ensemble du signal.
-\paragraph{Post traitement des segments}
+\paragraph*{} Les échantillons des "heads" et "tails" sont renvoyés dans un vecteur que l'on concatenate\footnote{Mots anglais : enchainement des vecteurs en soit} avec ceux déjà retournés. On obtient finalement une matrice. On n'a plus qu'à extraire les segments en s'appuyant de la matrice précédemment trouvée pour l'ensemble du signal.
+\subsubsubsection{Post traitement des segments}
 Nous avions déjà commencé à développer l'idée un peu plus haut, nous allons continuer ici. Ce qu'il faut retenir c'est que malgré notre correction des labels un peu plus haut, des erreurs subsistent. Vous nous direz : "Mais alors quel fut l'avantage de corriger les labels un peu plus haut ?". Tout simplement, la fonction de correction des labels permet de corriger des labels isolés. Néanmoins, elle ne prend pas en compte le fait que les segments doivent-être d'une certaine taille pour pouvoir être assimilé à une activité vocale. En effet, la durée est quelque chose que nous n'avions pas évoqué, mais c'est un paramètre important à prendre en compte. Un phonème peut durer entre $20ms$ et $100ms$, une syllabe $100ms$ à minima. Aucune contrainte n'a été faite sur la longueur (en sample) de nos segments. Il se peut que ceux-ci ne durent qu'une centaine d'échantillons ($i.e$ moins de 5ms à $16~000Hz$). Il faut donc les rejeter car ne caractérise par une activité vocale. Pour cela, nous avons choisi de rejeter tous les segments représentants moins de $50ms$ en estimant qu'on ne peut avoir une activité vocale dans ce lapse de temps. Les autres segments sont quant à eux conservés. 
 \subsection{Conclusion} Après avoir discuté des nos choix méthodiques et les algorithme mis en oeuvre, nous allons maintenant discuter des performances de notre algorithme de détection d'activité vocale en le comparant à des algorithmes. 
 \newpage
@@ -224,17 +248,17 @@ Dans cette partie, nous allons comparer notre algorithme à ceux de la littératur
 \subsection{Présentation des algorithmes évalués}
 Nous allons évaluer différents algorithmes à savoir :
 \begin{itemize}
-	\item Un algorithme basé sur la détection de l'énergie et du taux de passage par zéro. Les seuils sont fixés de manière manuelle dans une plage prédéfinie \cite{end}.
+	\item Un algorithme basé sur la détection de l'énergie et du taux de passage par zéro. Les seuils sont fixés de manière manuelle dans une plage prédéfinie \cite{end}. (à venir ...)
 	\item Un algorithme basé sur la détection de l'énergie ainsi que le centroïde spectrale ("centre de gravité").\cite{silence} Les seuils sont définis par détection des maximas locaux de leur histogramme. Pour des explications un peu plus précise, nous vous invitons à lire son article\cite{centroid}.
 	\item Un algorithme basé sur la détection de l'entropie spectrale (dont nous avons parlé un peu plus haut). Le seuil est défini par une formule liant la moyenne à l'écart-type. Cet algorithme a été réalisé par mes soins en s'inspirant des plusieurs articles. \cite{entropy_1}\cite{entropie}. Cet algorithme utilise des fonctions communes à notre algorithme.
 	
 \end{itemize}
-\paragraph{} Plusieurs tests seront opérés :
+\paragraph*{} Plusieurs tests seront opérés :
 \begin{itemize}
 	\item Performances : Rapidité de la détection de l'algorithme.
 	\item Robustesse au bruit : nous chercherons à ajouter progressivement du bruit dans nos tests  en baissant le SNR (Signal Noise Ratio\footnote{Taux du rapport signal à bruit}).
 \end{itemize}
-\paragraph{} Nous savons que nous partons dès le départ avec un désavantage. En effet, nous utilisons que des méthodes fréquentielles qui ont une complexité de calcul élevé. De plus, notre algorithme n'est pas optimisé car nous répétons certaines opérations plusieurs fois, notamment la plus gourmande, la Discrete Fourier Transform \footnote{Transformée de Fourier Discrète}. 
+\paragraph*{} Nous savons que nous partons dès le départ avec un désavantage. En effet, nous utilisons que des méthodes fréquentielles qui ont une complexité de calcul élevé. De plus, notre algorithme n'est pas optimisé car nous répétons certaines opérations plusieurs fois, notamment la plus gourmande, la Discrete Fourier Transform \footnote{Transformée de Fourier Discrète}. 
 \subsection{Robustesse au bruit} 
 Notre première tâche avant de parler de performances en terme de temps d'exécution est de tester leur robustesse face aux bruits. En d'autres termes, sachant que nous allons travailler dans des environnements différents, il faut veiller à ce que l'environnement de travail n'empiète pas sur la reconnaissance vocale. Pour cela, nous allons réaliser plusieurs test sur un fichier audio contenant de la voix. On veillera dans un premier à ce qu'il est pas ou peu de bruit de fond. Puis nous en rajouterons progressivement. Enfin, le test ultime sera dans un environnement musical, nous mettrons en fond, une trame musicale (disons d'un style "métal"\footnote{Le style métal ne représente par forcément le style englobant du morceau que nous choisirons. Néanmoins, nous vous donnons le style métal pour que vous puissiez vous représenter le bruit généré par ce style de musique}). Le but de chaque algorithme est sur cinq tests \footnote{Le nombre de tests est pris aléatoirement et de manière impaire} d'avoir le plus de trame avec présence vocale et le moins avec du bruit environnant. 
 \subsubsection{Données des tests}
@@ -253,127 +277,240 @@ Pour commencer, nous allons illustrer le signal que nous allons utiliser. Il est
 \caption{Représentation temporelle du signal utilisé}
 \label{figure_1}
 \end{figure}
-\paragraph{} Nous allons maintenant tester ce signal avec l'algorithme que nous proposons et ceux que nous avons soumis à titre comparatif. 
-\paragraph{Algorithme utilisant le ZRC (Zero Crossing Rate) et le STE( Short time Energy)}\footnote{ZRC : taux de passage par zéro ; STE :  énergie à court-terme}
-\paragraph{Algorithme utilisant le Spectral centroid et le STE( Short time Energy)}
-Après avoir utilisé notre "morceau" en argument, nous obtenons le résultat suivant :
-\begin{figure}[!h]
-\centering
-\includegraphics[width=10cm]{test_1_ec.eps}
-\caption{Résultat de l'algorithme testé avec notre "morceau"}
-\end{figure}
+\paragraph*{} Nous allons maintenant tester ce signal avec l'algorithme que nous proposons et ceux que nous avons soumis à titre comparatif. 
+\newpage
+
+\subsubsubsection{Algorithme utilisant le Spectral centroid et le STE( Short time Energy)}
+Nous allons exposer les résultats de la segmentation [\figurename~\ref{spectral} - b] et les courbes de l'entropie et son seuil de détection [\figurename~\ref{spectral} - a] ci-contre.
 Les figures de l'algorithme n'étant pas forcément concrète sur le découpage (sauf si l'on sait que la partie grisée est la partie rejetée et les parties bordeaux sont celles conservées), nous avons utilisé les données retournées par l'algorithme pour vous présenter une figure similaire à ~\figurename~\ref{figure_1}.
-\begin{figure}[!h]
-\centering
-\includegraphics[width=10cm]{test_1_2_ec.eps}
-\caption{Résultat de l'algorithme testé avec notre "morceau"}
-\end{figure}
-\paragraph{} Etant donné que le découpage des segments n'était pas le même que celui présenté, nous avons labellisé les segments pour plus de compréhension. Comme vous pouvez le constater, le mot "mode" a été décomposé en syllabes. Ceci est dû au fenêtrage et au décalage très réduits.
-\paragraph{Algorithme utilisant l'entropie spectrale}
+\paragraph*{} Etant donné que le découpage des segments n'était pas le même que celui présenté, nous avons labellisé les segments pour plus de compréhension. Comme vous pouvez le constater, le mot "mode" a été décomposé en syllabes. Cette décomposition est sans doute dû au fenêtrage et au décalage très courts
+%%%%
+\begin{figure}[h!]
+\begin{minipage}{0.5\textwidth} 
+\includegraphics[width=\textwidth]{test_1_ec.eps}
+
+\end{minipage}
+\begin{minipage}{0.5\textwidth} 
+\includegraphics[width=\textwidth]{test_1_2_ec.eps}
+
+\end{minipage}
+\setlength{\unitlength}{1in}
+\begin{picture}(0,0)(0,0)
+\put(0.2,0.1){\makebox(0,0){\textbf{(a)}}}
+\put(3.22,0.1){\makebox(0,0){\textbf{(b)}}}
+\end{picture} \vspace{-0.17cm}
+\caption{Détection d'activité vocale utilisant le centroïde spectrale et l'énergie à court terme: (a) Energie à court terme , centroide spectrale et leur seuil de détection ; (b) Segmentation finale du Signal "Mode un deux" }
+\label{spectral}
+\end{figure} 
+%%%
+
+\subsubsubsection{Algorithme utilisant l'entropie spectrale}
 En utilisant l'entropie spectrale avec un seuil définit ainsi :
 \begin{equation}
 	threshold=\frac{1}{N}\sum_{k=1}^N x_k + 3 .\sqrt{\frac{1}{N-1}\sum_{i=1}^N|x_i -\mu|}
 \end{equation}
-où $N$ désigne le nombre d'éléments considérés (dans notre cas, les 10 premières trames supposés être du bruit), on obtient la segmentation suivante :
-\begin{figure}[!h]
-\centering
-\includegraphics[width=10cm]{entropy_test_1.eps}
-\caption{Segmentation de notre morceau}
-\label{entr}
-\end{figure}
-\paragraph{} On peut aisément constater (\figurename~\ref{entr}) qu'il n'y a aucune erreur de segmentation même si les segments sont plus larges que ceux  l'algorithme précédent. En s'appuyant de la ~\figurename~\ref{ci}, nous observons que l'entropie spectrale dessine parfaitement l'activité vocale.
-\begin{figure}[!h]
-\centering
-\includegraphics[width=10cm]{entropy_2_test_1.eps}
-\caption{Entropie et threshold}
-\label{ci}
-\end{figure}
+où $N$ désigne le nombre d'éléments considérés (dans notre cas, les 10 premières trames supposés être du bruit).
+%%%%
+\begin{figure}[h!]
+\begin{minipage}{0.5\textwidth} 
+\includegraphics[width=\textwidth]{entropy_2_test_1.eps}
+\label{cr}
+\end{minipage}
+\begin{minipage}{0.5\textwidth} 
+\includegraphics[width=\textwidth]{entropy_test_1.eps}
+\label{res}
+\end{minipage}
+\setlength{\unitlength}{1in}
+\begin{picture}(0,0)(0,0)
+\put(0.2,0.1){\makebox(0,0){\textbf{(a)}}}
+\put(3.22,0.1){\makebox(0,0){\textbf{(b)}}}
+\end{picture} \vspace{-0.17cm}
+\caption{Détection d'activité vocale utilisant l'entropie spectrale : (a) Entropie spectrale et son seuil de détection du Signal vocale; (b) Segmentation finale du Signal "Mode un deux" }
+\label{entropy_1}
+\end{figure} 
+%%%
+\paragraph*{} On peut aisément constater [\figurename~\ref{entropy_1} - a] qu'il n'y a aucune erreur de segmentation même si les segments sont plus larges que ceux  l'algorithme précédent. Nous observons aussi que l'entropie spectrale dessine parfaitement l'activité vocale de manière distincte.  [\figurename~\ref{entropy_1} - b]
 
+\subsubsubsection{Notre algorithme}
+Nous avions évoqué un peu plus haut, le fait que nous utilisons un signal dit de bruit de fond. Dans notre cas, nous allons utiliser la fin du signal (où il n'y a aucune présence vocale à des fins de vecteur de bruit). Dans les conditions normales d'utilisation, ce dernier aurait été directement enregistré en amont du traitement. Notre signal servant de référence est réalisé de manière à avoir $1$ seconde d'acquisition (on peut bien sûr le. réduire si besoin est). Les courbes suivantes sont les résultats de nos différents paramètres utilisés. Les paramètres sont accompagnés de leur seuil [\figurename~\ref{us_1} - a]. La dernière courbe symbolise notre vecteur de labels.
+\paragraph*{}
+Comme précédemment, nous allons symbolisé les différents morceaux comme nous l'avons fait tout au long du rapport afin d'en simplifier la lecture. Néanmoins, vous pouvez constater une détection de segments est très fiable [\figurename~\ref{us_1} - b]. Nos résultats sont concordants avec ceux précédents [\figurename~\ref{figure_1}], [\figurename~\ref{entropy_1} - a], [\figurename~\ref{spectral} - b]. Dans un premier lieu, on pourrait croire que notre algorithme, bien plus complexe en terme de calculs, n'apporte rien à la littérature existante sur le sujet, si ce n'est d'être plus lent. Cependant, nous allons par la suite constater qu'il se révèle plus robuste au bruit que ceux que nous présentons.
+%%%%
+\begin{figure}[h!]
+\begin{minipage}{0.5\textwidth} 
+\includegraphics[width=\textwidth]{test_1_us.eps}
+\label{cr}
+\end{minipage}
+\begin{minipage}{0.5\textwidth} 
+\includegraphics[width=\textwidth]{test_1__2_us.eps}
+\label{res}
+\end{minipage}
+\setlength{\unitlength}{1in}
+\begin{picture}(0,0)(0,0)
+\put(0.2,0.1){\makebox(0,0){\textbf{(a)}}}
+\put(3.22,0.1){\makebox(0,0){\textbf{(b)}}}
+\end{picture} \vspace{-0.17cm}
+\caption{Notre algorithme de détection d'activité vocale  : (a) Distance entre le vecteur de coefficient spectraux de chaque trame et le vecteur de coefficient de bruit de fond ; Distance entre la valeur de l'entropie spectrale de chaque trame et la valeur de l'entropie correspondant au bruit de fond ; (b) Segmentation initiale et finale du Signal "Mode un deux" }
+\label{us_1}
+\end{figure} 
+%%%
 
-
-\paragraph{Notre algorithme}
-Nous avions évoqué un peu plus haut, le fait que nous utilisons un signal dit de bruit de fond. Dans notre cas, nous allons utiliser la fin du signal (où il n'y a aucune présence vocale à des fins de vecteur de bruit). Dans les conditions normales d'utilisation, ce dernier aurait été directement acquis en amont du traitement. Notre signal servant de référence est réalisé de manière à avoir $1$ seconde d'acquisition. Les courbes suivantes sont les résultats de nos différents paramètres utilisés. Les paramètres sont accompagnés de leur seuil. La dernière courbe symbolise notre vecteur de labels.
-\begin{figure}[!h]
-\centering
-\includegraphics[width=12cm]{test_1_us.eps}
-\caption{Paramètres de détection de notre algorithme}
-\end{figure}
-Comme précédemment, nous allons symbolisé les différents morceaux comme nous l'avons fait tout au long du rapport afin d'en simplifier la lecture. Néanmoins, vous pouvez constater une détection de segments assez fiable. On remarque aussi que le mot "Mode" (cf~\figurename~\ref{figure_1}) en deux syllabes. Il est vrai que les légendes des figures selon "x" ne sont pas toutes les mêmes, néanmoins, on conçoit un alignement.
-\begin{figure}[!h]
-\centering
-\includegraphics[width=10cm]{test_1__2_us.eps}
-\caption{Segmentation du signal par notre algorithme}
-\end{figure}
 \newpage
 \subsubsection{Signal avec un SNR de $-30dB$}
-Nous remarquons que dans des conditions optimales, l'ensemble des algorithmes est capable de détecter les présences vocales du signal. Nous allons donc rajouter du bruit pour voir comment les algorithmes se comportent avec différents SNR\footnote{Signal Noise Ratio : Rapport de Signal à Bruit}. Tous les SNR sont calculés à l'aide de la fonction Matlab $snr.m$. Le bruit est un bruit blanc gaussien généré à l'aide de la fonction $wgn.m$ de Matlab. On obtient donc la représentation temporelle suivante :
+Nous remarquons que dans des conditions optimales, l'ensemble des algorithmes est capable de détecter les présences vocales du signal. Nous allons donc rajouter du bruit pour voir comment les algorithmes se comportent avec différents SNR\footnote{Signal Noise Ratio : Rapport de Signal à Bruit}. Tous les SNR sont calculés à l'aide de la fonction Matlab $snr.m$. Le bruit est un bruit blanc gaussien généré à l'aide de la fonction $wgn.m$ de Matlab. La ~\figurename~\ref{figure_1} est représenté dans un environnement bruyant symbolisant celui que nous utiliserons pour la suite de notre étude de cas [\figurename~\ref{figure_2}].
 \begin{figure}[!h]
 \centering
-\includegraphics[width=10cm]{position_noise.eps}
+\includegraphics[width=8cm]{position_noise.eps}
 \caption{Signal avec bruit blanc gaussien}
 \label{figure_2}
 \end{figure}
-\paragraph{Algorithme utilisant le Spectral centroid et le STE( Short time Energy)}
-Après avoir utilisé notre "morceau" bruité cette fois-ci en argument, nous obtenons le résultat suivant :
-\begin{figure}[!h]
-\centering
-\includegraphics[width=10cm]{test_noise_ec.eps}
-\caption{Résultat de l'algorithme testé avec notre "morceau" bruité}
-\label{noise_ec}
-\end{figure}
-La segmentation du "morceau" bruité est la suivante. Vous pourrez assez vite constater que la largeur des segments à considérement augmentés. De même que l'introduction de nouveaux segments mais de "bruit". 
-\begin{figure}[!h]
-\centering
-\includegraphics[width=10cm]{test_noise_2_ec.eps}
-\caption{Segmentation du "morceau" bruité avec marqueurs pour situer les mots}
-\end{figure}
-\paragraph{}
-Il est vrai qu'il y a beaucoup de couleurs différentes et que la figure n'est pas forcément très lisible. néanmoins, afin de vous aider à vous repérer, vous pouvez toujours vous appuyez des segments grisés et bordeaux de la ~\figurename~\ref{noise_ec}.\footnote{Les figures sont de même dimension sur ce rapport.}
-\paragraph{Retour à notre algorithme}
-Le bruit de fond est cette fois-ci un vecteur de bruit blanc gaussien d'une durée d'une seconde. Bien-sûr, il n'est en aucun cas un des tronçons de celui utilisé en addition à notre morceau. Nous obtenons donc le résultat suivant :
-\begin{figure}[!h]
-\centering
-\includegraphics[width=10cm]{test_2_us_noise.eps}
-\caption{Segmentation du "morceau" bruité avec marqueurs pour situer les mots}
-\label{triste}
-\end{figure}
-\paragraph{} Vous pouvez constater que sur la ~\figurename~\ref{triste}, nous n'avons aucun segment introduit par du bruit, néanmoins, la syllabe "de" du mot "mode" n'a pas été détectée. La question est pourquoi ? Pour cela, nous allons analyser les courbes de détection. 
-\begin{figure}[!h]
-\centering
-\includegraphics[width=12cm]{test_2_us_noise_p.eps}
-\caption{Courbes de détection de notre algorithme}
-\end{figure}
-\paragraph{} On remarque sur la courbe "Distance between entropy and noise entropy features and threshold", de fait que le seuil soit fixe, la syllabe "de" n'a pas été détectée. C'est sans doute ne amélioration que nous pourrions apporter par la suite à notre algorithme. De plus, sur la courbe "correlation between MFCC and noise MFCCs features", notre algorithme calculant la distance entre le vecteur bruit et le vecteur de MFCC que l'on calcule à chaque instant est un peu instable au début, malgré que l'on note la présence de "pics". Pour conclure sur cette simulation, nous pouvons déjà argumenté que notre algorithme est robuste au bruit même si on engendre un perte de syllabe dit "non plosives". Quelques améliorations et modifications pourraient assurer la détection de cette syllabe néanmoins. On reste satisfait de notre détection. En effet, un algorithme de détection d'activité vocale ne travaillant jamais seul, il rendra les algorithmes de reconnaissance de la parole plus performant. Le gain de temps à ne pas traiter du "bruit" est donc presque nulle pour notre algorithme comparé aux autres. 
+\subsubsubsection{Algorithme utilisant le Spectral centroid et le STE( Short time Energy)}
+Nous pouvons nous rendre compte que la segmentation du signal (signal bien évidemment bruité) est plus difficile [\figurename~\ref{sc_ste} - b]. Plus difficile non pas dans le sens que l'algorithme a du mal à détecter mais qu'il détecte le bruit environnant en plus des segments de voix.
+\paragraph*{}
+Il est vrai qu'il y a beaucoup de couleurs différentes pour représenter les différents segments détectés [\figurename~\ref{sc_ste} - b], rendant l'exploitation de la figure compliquée. Afin d'y voir un peu plus clair, la [\figurename~\ref{sc_ste} - a] en plus d'afficher les courbes de l'énergie et du centroide, trace aussi la segmentation obtenue [courbe 3]. Les parties grisées représentent les segments rejetées et celles bordeaux, les segments conservés (présence de voix).
+%%%
+\begin{figure}[h!]
+\begin{minipage}{0.5\textwidth} 
+\includegraphics[width=\textwidth]{test_noise_ec.eps}
+\label{cr}
+\end{minipage}
+\begin{minipage}{0.5\textwidth} 
+\includegraphics[width=\textwidth]{test_noise_2_ec.eps}
+\label{res}
+\end{minipage}
+\setlength{\unitlength}{1in}
+\begin{picture}(0,0)(0,0)
+\put(0.2,0.1){\makebox(0,0){\textbf{(a)}}}
+\put(3.22,0.1){\makebox(0,0){\textbf{(b)}}}
+\end{picture} \vspace{-0.17cm}
+\caption{Algorithme utilisant le centroide spectral et l'énergie à court terme : (a) Energie à court terme , centroide spectrale et leur seuil de détection; (b) Segmentation  finale du Signal "Mode un deux" }
+\label{sc_ste}
+\end{figure} 
+%%%
+\subsubsubsection{Algorithme utilisant l'entropie spectrale}
+Le résultat diffère légèrement par rapport à la trame audio sans bruit  [\figurename~\ref{entropy_1}]. En effet, les segments sont moins étendus  [\figurename~\ref{entropy_2} - a] mais aussi, on voit que le phonème "de" s'est légèrement effacé (il est très étroit. Un de nos algorithmes de correction de segments l'a supprimé mais il devrait être présent. Cela montre aussi l'équilibre à avoir dans nos algorithmes. Une correction sera sans doute à amener pour avoir des résultats plus précis). On peut souligner que l'entropie spectrale est assez efficace dans un environnement bruyant/bruité [\figurename~\ref{entropy_2} - b]. Les segments de voix sont dessinés franchement même s'il on constate un léger offset comparé à l'entropie spectrale dans un environnement non bruyant [\figurename~\ref{entropy_2} - a].
+%%%
+\begin{figure}[h!]
+\begin{minipage}{0.5\textwidth} 
+\includegraphics[width=\textwidth]{entropy_1_test_2.eps}
+\label{cr}
+\end{minipage}
+\begin{minipage}{0.5\textwidth} 
+\includegraphics[width=\textwidth]{entropy_test_2.eps}
+\label{res}
+\end{minipage}
+\setlength{\unitlength}{1in}
+\begin{picture}(0,0)(0,0)
+\put(0.2,0.1){\makebox(0,0){\textbf{(a)}}}
+\put(3.22,0.1){\makebox(0,0){\textbf{(b)}}}
+\end{picture} \vspace{-0.17cm}
+\caption{Algorithme utilisant l'entropie spectrale : (a) Entropie spectrale et son seuil de détection ; (b) Segmentation  finale du Signal "Mode un deux" }
+\label{entropy_2}
+\end{figure} 
+
+%%%
+\newpage
+\subsubsubsection{Retour à notre algorithme}
+Le bruit de fond est cette fois-ci un vecteur de bruit blanc gaussien d'une durée d'une seconde. Bien-sûr, il n'est en aucun cas un des tronçons de celui utilisé en addition à notre morceau. 
+\paragraph*{} Vous pouvez constater que nous n'avons aucun segment introduit par du bruit [\figurename~\ref{us_2} - b], néanmoins, la syllabe "de" du mot "mode" n'a pas été détectée. La question est pourquoi ? Pour cela, nous allons analyser les courbes de détection [\figurename~\ref{us_2} - a]. On remarque sur la courbe "Distance between entropy and noise entropy features and threshold", de fait que le seuil soit fixe, la syllabe "de" n'a pas été détectée. C'est sans doute ne amélioration que nous pourrions apporter par la suite à notre algorithme. De plus, sur la courbe "correlation between MFCC and noise MFCCs features", notre algorithme calculant la distance entre le vecteur bruit et le vecteur de MFCC que l'on calcule à chaque instant est un peu instable au début, malgré que l'on note la présence de "pics". Pour conclure sur cette simulation, nous pouvons déjà argumenté que notre algorithme est robuste au bruit même si on engendre un perte de syllabe dit "non plosives". Quelques améliorations et modifications pourraient assurer la détection de cette syllabe néanmoins. On reste satisfait de notre détection. En effet, un algorithme de détection d'activité vocale ne travaillant jamais seul, il rendra les algorithmes de reconnaissance de la parole plus performant. Le gain de temps à ne pas traiter du "bruit" est donc presque nulle pour notre algorithme comparé à celui utilisant l'énergie à court terme. 
+%%%
+\begin{figure}[h!]
+\begin{minipage}{0.5\textwidth} 
+\includegraphics[width=\textwidth]{test_2_us_noise_p.eps}
+\label{cr}
+\end{minipage}
+\begin{minipage}{0.5\textwidth} 
+\includegraphics[width=\textwidth]{test_2_us_noise.eps}
+\label{res}
+\end{minipage}
+\setlength{\unitlength}{1in}
+\begin{picture}(0,0)(0,0)
+\put(0.2,0.1){\makebox(0,0){\textbf{(a)}}}
+\put(3.22,0.1){\makebox(0,0){\textbf{(b)}}}
+\end{picture} \vspace{-0.17cm}
+\caption{Notre algorithme de détection d'activité vocale  : (a) Distance entre le vecteur de coefficient spectraux de chaque trame et le vecteur de coefficient de bruit de fond ; Distance entre la valeur de l'entropie spectrale de chaque trame et la valeur de l'entropie correspondant au bruit de fond ; (b) Segmentation initiale et finale du Signal "Mode un deux" }
+\label{us_2}
+\end{figure} 
+
+%%%
+\newpage
+
 \subsubsection{Signal avec un musique de fond - SNR -13dB}
 Nous aimons un peu la difficulté, alors nous allons utiliser, comme nous l'avons énoncé dans l'introduction un peu plus, une musique de style "métal"\footnote{La définition de style différant entre les individus, la musique n'est peut-être pas représentative du style "métal" mais d'un style en déclinant.}. La musique utilisée est {\bfseries{Rammvier}} de Rammstein\footnote{Pour nos tests nous avons simplement utilisé un échantillon de $5s$ et une autre seconde pour notre vecteur bruit.}. Le choix de cette musique n'est pas arbitraire et pas seulement par goût. Le spectre de cette musique est assez densément rempli dans la bande passante que nous étudions. De plus, la musique est bien sûr remplie de parole (nous avons donc la présence d'une voix parasite). Le but de cette dernière expérience est donc de vérifier que notre algorithme est robuste contre le bruit musical et les voix dans des trames musicales (dans le cas général, on ne peut empêcher la détection de la voix si elle est bien plus présente que celui du locuteur). 
-\paragraph{} La musique prélevée n'est néanmoins pas à une fréquence d'échantillonnage de $16~kHz$. Il faut donc sous-échantillonner les morceaux choisis. Pour cela, afin d'éviter tout repliement du signal, on commence par appliqué un passe-bas à $8~kHz$ (théorème de Shannon). Puis, une fois cette opération réalisée, nous pouvons sous-échantillonner nos morceaux et les ajouter à notre "morceau". 
-\paragraph{Algorithme utilisant le Spectral centroid et le STE( Short time Energy)}
-Les résultats sont exposés sur la ~\figurename~\ref{aie}. Afin d'avoir un meilleur aperçu de la segmentation, nous vous donnons, comme précédemment le Signal "bordeaux" qui représente les zones où l'algorithme détecte une présence de voix et "grisé" les zones rejetées ~\figurename~\ref{aie_2}.
-\begin{figure}[!h]
-\centering
-\includegraphics[width=10cm]{test_3_sc.eps}
-\caption{Segmentation du Signal}
-\label{aie}
-\end{figure}
+\paragraph*{} La musique prélevée n'est néanmoins pas à une fréquence d'échantillonnage de $16~kHz$. Il faut donc sous-échantillonner les morceaux choisis. Pour cela, afin d'éviter tout repliement du signal, on commence par appliqué un passe-bas à $8~kHz$ (théorème de Shannon). Puis, une fois cette opération réalisée, nous pouvons sous-échantillonner nos morceaux et les ajouter à notre "morceau". 
+\subsubsubsection{Algorithme utilisant le Spectral centroid et le STE( Short time Energy)}
+De part la confusion générée par la segmentation de l'algorithme [\figurename~\ref{sc_2} - b], nous allons aussi nous appuyer des courbes permettant la détection des segments ainsi que des parties grisées et bordeaux traduisant notre segmentation  [\figurename~\ref{sc_2} - a].
+%%%
+\begin{figure}[h!]
+\begin{minipage}{0.5\textwidth} 
+\includegraphics[width=\textwidth]{test_3_sc.eps}
+\label{cr}
+\end{minipage}
+\begin{minipage}{0.5\textwidth} 
+\includegraphics[width=\textwidth]{test_3_2_sc.eps}
+\label{res}
+\end{minipage}
+\setlength{\unitlength}{1in}
+\begin{picture}(0,0)(0,0)
+\put(0.2,0.1){\makebox(0,0){\textbf{(a)}}}
+\put(3.22,0.1){\makebox(0,0){\textbf{(b)}}}
+\end{picture} \vspace{-0.17cm}
+\caption{Détection d'activité vocale utilisant le centroïde spectrale et l'énergie à court terme: (a) Energie à court terme , centroide spectrale et leur seuil de détection ; (b) Segmentation finale du Signal "Mode un deux" }
+\label{sc_2}
+\end{figure} 
 
-\begin{figure}[!h]
-\centering
-\includegraphics[width=10cm]{test_3_2_sc.eps}
-\caption{Segmentation du Signal et courbes de détection}
-\label{aie_2}
-\end{figure}
-\paragraph{} On remarque, comme précédemment, que dès qu'il y a un SNR (taux de signal à bruit) trop faible, l'algorithme renvoie beaucoup de segments où il n'y a que de "bruit" et omet certains segments de voix, notamment "de" (du mot "mode"). On peut donc aisément dire que l'algorithme est peu robuste au bruit. 
-\paragraph{Notre algorithme}
-Malheureusement pour nous, nous arrivons au même constat que précédemment. Même si nous détectons peu ou pas de "bruit", nous n'avons toujours pas le segment contenant le phonème plosive "de"~\figurename~\ref{nous}. Nous avons tout de même l'introduction d'un segment de bruit, ce qui n'est pas considérable. 
-\begin{figure}[!h]
-\centering
-\includegraphics[width=10cm]{test_3_us.eps}
-\caption{Segmentation du Signal }
-\label{nous}
-\end{figure}
+%%%
+
+\paragraph*{} On remarque, comme précédemment [\figurename~\ref{sc_ste} - b], que dès qu'il y a un SNR (taux de signal à bruit) trop faible, l'algorithme renvoie beaucoup de segments où il n'y a que de "bruit" et omet certains segments de voix, notamment "de" (du mot "mode"). On peut donc conclure que l'algorithme est peu robuste au bruit. 
+\subsubsubsection{Algorithme utilisant l'entropie spectrale}
+Nous l'avions souligné un peu plus haut, nous utilisons des algorithmes propres à notre algorithme pour afficher la segmentation (notamment sont découpage). De fait les petits segments sont rejetés (du moins ceux qui ne respectent pas la condition sur leur longueur). Le résultat expose la détection d'un seul segment [\figurename~\ref{entropy_3} - b]. Néanmoins, on peut constater sur la courbe de l'entropie spectrale et son seuil de détection [\figurename~\ref{entropy_3} - a] détecte d'autres segments notamment le mot "deux", pas entièrement mais partiellement tout comme un bout du mot "un" (bien que ce soit un phonème de fin). De plus, en analysant les résultats que nous proposons  [\figurename~\ref{entropy_3} - a ; Courbe 1], l'entropie spectrale est assez perturbée par un environnement musicale comparé à un environnement bruyant [\figurename~\ref{entropy_2} - a ; Courbe 1] où on avait seulement un offset. Ici, des dents de scies font leur apparition, signe que l'entropie ne devient plus assez robuste et précise. Le seuil utilisé traditionnellement expose ses limites ici. En effet, le bruit de fond étant élevé et c'est avec ce bruit de fond qu'il défini son niveau. Des segments sont donc omis de fait.
+%%%
+\begin{figure}[h!]
+\begin{minipage}{0.5\textwidth} 
+\includegraphics[width=\textwidth]{entropy_2_test_3.eps}
+\label{cr}
+\end{minipage}
+\begin{minipage}{0.5\textwidth} 
+\includegraphics[width=\textwidth]{entropy_test_3.eps}
+\label{res}
+\end{minipage}
+\setlength{\unitlength}{1in}
+\begin{picture}(0,0)(0,0)
+\put(0.2,0.1){\makebox(0,0){\textbf{(a)}}}
+\put(3.22,0.1){\makebox(0,0){\textbf{(b)}}}
+\end{picture} \vspace{-0.17cm}
+\caption{Algorithme utilisant l'entropie spectrale : (a) Entropie spectrale et son seuil de détection ; (b) Segmentation  finale du Signal "Mode un deux" }
+\label{entropy_3}
+\end{figure} 
+
+%%%
+\newpage
+\subsubsubsection{Notre algorithme}
+Nous avons toujours le même problème que précédemment [\figurename~\ref{us_2} - b], le segment "de" n'est pas détecté et nous introduisons même un segment de bruit [\figurename~\ref{us_3} - b]. De plus, on se rend compte de l'importance de traité les segments avec une des fonctions de notre algorithme que nous avons exposé ci-dessus. Sans cette fonction déterminant si la longueur du segments est suffisantes, nous aurions introduit beaucoup de segments de bruits [\figurename~\ref{us_3} - a ; Courbe 4]. En effet, même si la corrélation entre le vecteur de coefficients cepstraux de chaque trame avec celui contenant les coefficients de bruit de fond reste assez robuste à un environnement musicale, l'entropie se retrouver elle un peu moins précise [\figurename~\ref{us_3} - a ; Courbe 3]. D'après l'article de Hongzhi Wang et Yuchao Xu, Meijing Li \cite{background}, la corrélation serait plus précise que la distance euclidienne que nous utilisons pour l'entropie. Des modifications seraient donc à faire pour utiliser l'entropie. Nous pourrions ainsi vérifier si cette méthode rendrait plus précis ce critère que nous utilisons (distance euclidienne entre la valeur de l'entropie de chaque trame et celle du bruit de fond). En comparaison si l'on exploite notre première critère de détection [\figurename~\ref{us_3} - a ; Courbe 1], on remarque celui-ci à seulement introduit un léger offset et reste globalement précis.
+%%%
+\begin{figure}[h!]
+\begin{minipage}{0.5\textwidth} 
+\includegraphics[width=\textwidth]{test_3_2_us.eps}
+\label{cr}
+\end{minipage}
+\begin{minipage}{0.5\textwidth} 
+\includegraphics[width=\textwidth]{test_3_us.eps}
+\label{res}
+\end{minipage}
+\setlength{\unitlength}{1in}
+\begin{picture}(0,0)(0,0)
+\put(0.2,0.1){\makebox(0,0){\textbf{(a)}}}
+\put(3.22,0.1){\makebox(0,0){\textbf{(b)}}}
+\end{picture} \vspace{-0.17cm}
+\caption{Notre algorithme de détection d'activité vocale  : (a) Distance entre le vecteur de coefficient spectraux de chaque trame et le vecteur de coefficient de bruit de fond ; Distance entre la valeur de l'entropie spectrale de chaque trame et la valeur de l'entropie correspondant au bruit de fond ; (b) Segmentation initiale et finale du Signal "Mode un deux" }
+\label{us_3}
+\end{figure} 
+
+%%%
+\newpage
 \subsubsection{Conclusion}
 On peut conclure cette partie concernant la robustesse aux bruits en énonçant que notre algorithme est très robuste au bruit comparé à ceux présentés. On voit très rapidement que le bruit "parasite" la détection de segments de voix. Ce n'est pas le cas pour notre algorithme même si des phonèmes ne sont pas détectés. Il faut donc par la suite veiller à bien superviser notre algorithme de reconnaissance de la parole\footnote{On parle ici de l'algorithme global et non le VAD présenté ici.}. En d'autres termes, il devra considérer des segments manquants selon le bruit qu'il détecte ou non. De plus, comme notre algorithme détecte des segments de voix (à quelques erreurs près), nos algorithmes en aval pourront donner des résultats plus précis. En effet, ils ne seront pas pollués par des données erronées (ou contenant de "bruit" qui n'ont aucune utilités). 
-\paragraph{} Après avoir veillé à respecter le cahier des charges concernant la robustesse au bruit, il s'agit de nous intéresser aux performances de notre algorithme. 
+\paragraph*{} Après avoir veillé à respecter le cahier des charges concernant la robustesse au bruit, il s'agit de nous intéresser aux performances de notre algorithme. 
 \newpage
 \subsection{Performances}
 Nous en avons parlé un peu plus haut, mais outre la robustesse, il faut être performant. Rien ne sert d'avoir un algorithme qui fait peu d'erreur mais qui prend cent fois plus de temps. Il est donc important de comparer la vitesse d'exécution des algorithmes proposés au notre. Bien-sûr, on sait d'or-et-déjà que notre algorithme est plus lent que ceux présentés. Comment le savoir avant même de réaliser les tests de chronos ? Tout simplement car nos méthodes n'emploient que des caractéristiques fréquentielles. De part la complexité des calculs engendrés, nous n'aurons donc de meilleurs temps d'exécution. Néanmoins, si nous sommes en dessous de vingt fois leur temps, nous pourrons considérer notre algorithme performant au vue de sa robustesse au bruit. Nous générons en effet moins de segments parasites qui ralentiront le traitement par la suite. Enfin, nous savon que notre algorithme est grandement améliorable notamment en terme de répétition. Nous avons, après analyse, constaté que nous répétions certaines opérations, notamment les transformées de Fourier Discrète plusieurs fois (quatre fois dans notre cas, deux pour le calcul de l'entropie, deux autres pour les MFCCs). Nous pourrions gagner un temps considérable. L'algorithme évoluera à cet effet lorsque nous l'implémenterons en C++.
@@ -381,18 +518,22 @@ Nous en avons parlé un peu plus haut, mais outre la robustesse, il faut être per
 \subsubsection{Résultat}
 Nous nous tâcherons de commenter les résultats après les avoir exposés ci-dessous.
 \paragraph{}
-\begin{tabular}{|c|c|c|c|c|}
+\begin{tabular}{|l|c|c|c|c|}
    \hline 
-   Algorithme & Temps moyen & Temps min & Temps max & Ratio \\
+   {\bfseries{Algorithme}} & Temps moyen & Temps min & Temps max & Ratio \\
    \hline \hline
    Notre algorithme& 0.802 & 0.7708 & 0.8803 & 41 \\
+   \hline
+   Algorithme utilisant l'entropie spectrale & 0.65 & 0.58 & 0.71 & 33 \\
    \hline
    Algorithme utilisant le Spectral centroid et le STE & 0.0195 & 0.0184 & 0.0216 & 1\\
    \hline
 \end{tabular}
-\paragraph{} Nous ne sommes pas peu fier des performances de notre algorithme même si le temps d'exécution pour des trames de $5s$ est assez conséquent (40 fois plus lent que le plus rapide). Néanmoins, nous pouvons au moins réduire ce temps de moitié si ce n'est plus. Enfin, nous venons de mener une opération de détection sur une trame en temps non-réel. Peut-être est-il plus performant en temps réel ? Nous veillerons lors de notre implémentation en C++ à réduire le temps d'exécution de l'algorithme que nous vous avons présenté. Nous pensons qu'un réduction au tiers serait un bel enjeu. Cela permettrait de se qualifier de performant au vue de la complexité des calculs que nous employons. Une optimisation temps réel est aussi possible.
+\paragraph*{} Nous ne sommes pas peu fier des performances de notre algorithme même si le temps d'exécution pour des trames de $5s$ est assez conséquent (40 fois plus lent que le plus rapide). Néanmoins, nous pouvons au moins réduire ce temps de moitié si ce n'est plus. Enfin, nous venons de mener une opération de détection sur une trame en temps non-réel. Peut-être est-il plus performant en temps réel ? Nous veillerons lors de notre implémentation en C++ à réduire le temps d'exécution de l'algorithme que nous vous avons présenté. Nous pensons qu'un réduction au tiers serait un bel enjeu. Cela permettrait de se qualifier de performant au vue de la complexité des calculs que nous employons. Une optimisation temps réel est aussi possible.
+\paragraph*{} L'algorithme utilisant l'entropie spectrale utilisant certaines de nos fonctions dont la transformée de Fourier à court terme, son temps d'exécution se trouve sans doute élevé à cet effet. Il faudra donc optimiser cette fonction. Pour information, le spectral centroid utilise aussi une transformée de Fourier ($fft.m$ sur Matlab$^{\textregistered}$) néanmoins elle semble plus optimisée que la notre.
 \newpage
 \clearpage
 \bibliographystyle{plain} 
 \bibliography{biblio.bib} 
+
 \end{document}

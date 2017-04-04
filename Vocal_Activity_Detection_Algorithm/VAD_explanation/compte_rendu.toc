@@ -1,7 +1,4 @@
 \select@language {french}
-\contentsline {paragraph}{}{1}{paragraph*.1}
-\contentsline {paragraph}{}{1}{paragraph*.2}
-\contentsline {paragraph}{}{1}{paragraph*.3}
 \contentsline {section}{\numberline {1}Introduction}{2}{section.1}
 \contentsline {section}{\numberline {2}Notions th\'eoriques}{3}{section.2}
 \contentsline {subsection}{\numberline {2.1}Traitement \`a court-terme du signal vocal}{3}{subsection.2.1}
@@ -10,65 +7,42 @@
 \contentsline {subsubsection}{\numberline {2.2.2}Taux de passage par z\'ero (Zero Crossing Rate, ZRC)}{3}{subsubsection.2.2.2}
 \contentsline {subsection}{\numberline {2.3}Domaine fr\'equentiel}{4}{subsection.2.3}
 \contentsline {subsubsection}{\numberline {2.3.1}Entropie Spectrale}{4}{subsubsection.2.3.1}
-\contentsline {paragraph}{Travaux de Shen J, Hung J et Lee J \cite {entropie}}{4}{paragraph*.4}
-\contentsline {paragraph}{L'entropie spectrale}{4}{paragraph*.5}
-\contentsline {paragraph}{Energie spectrale}{4}{paragraph*.6}
-\contentsline {paragraph}{P(k,l)}{4}{paragraph*.7}
-\contentsline {paragraph}{Entropie Spectrale}{4}{paragraph*.8}
-\contentsline {paragraph}{Limitation}{5}{paragraph*.9}
+\contentsline {subsubsubsection}{\numberline {2.3.1.1}Travaux de Shen J, Hung J et Lee J \cite {entropie}}{4}{subsubsubsection.2.3.1}
+\contentsline {subsubsubsection}{\numberline {2.3.1.2}L'entropie spectrale}{4}{subsubsubsection.2.3.2}
+\contentsline {subsubsubsection}{\numberline {2.3.1.3}Limitation}{5}{subsubsubsection.2.3.3}
 \contentsline {subsubsection}{\numberline {2.3.2}Spectral Centro\IeC {\"\i }d}{5}{subsubsection.2.3.2}
 \contentsline {subsubsection}{\numberline {2.3.3}Mel Feature Cepstral Coefficients (MFCC)}{5}{subsubsection.2.3.3}
-\contentsline {paragraph}{}{5}{paragraph*.10}
-\contentsline {paragraph}{Etape pour d\'eterminer les MFCCs}{5}{paragraph*.11}
+\contentsline {subsubsubsection}{\numberline {2.3.3.1}Etape pour d\'eterminer les MFCCs}{5}{subsubsubsection.2.3.1}
 \contentsline {section}{\numberline {3}Travaux r\'ealis\'es}{6}{section.3}
 \contentsline {subsection}{\numberline {3.1}Fonctionnement g\'en\'eral de l'algorithme}{6}{subsection.3.1}
-\contentsline {paragraph}{}{6}{paragraph*.12}
-\contentsline {paragraph}{}{6}{paragraph*.13}
-\contentsline {paragraph}{}{6}{paragraph*.14}
-\contentsline {paragraph}{}{6}{paragraph*.15}
-\contentsline {paragraph}{Finalit\'e}{7}{paragraph*.16}
 \contentsline {subsection}{\numberline {3.2}La distance ou corr\'elation entre des vecteurs de bruit de fond et celui de chaque trame}{7}{subsection.3.2}
-\contentsline {paragraph}{}{7}{paragraph*.17}
 \contentsline {subsection}{\numberline {3.3}D\'etermination des seuils}{7}{subsection.3.3}
 \contentsline {subsubsection}{\numberline {3.3.1}Seuil pour les MFCCs}{8}{subsubsection.3.3.1}
 \contentsline {subsubsection}{\numberline {3.3.2}Seuil pour l'entropie spectrale}{8}{subsubsection.3.3.2}
-\contentsline {paragraph}{Am\'elioration possible du seuil}{8}{paragraph*.18}
 \contentsline {subsubsection}{\numberline {3.3.3}Segmentation et correction des labels}{9}{subsubsection.3.3.3}
-\contentsline {paragraph}{Correction des "uns" et "z\'eros" isol\'es}{9}{paragraph*.19}
-\contentsline {paragraph}{Segmentation}{9}{paragraph*.20}
-\contentsline {paragraph}{}{10}{paragraph*.21}
-\contentsline {paragraph}{Post traitement des segments}{10}{paragraph*.22}
+\contentsline {subsubsubsection}{\numberline {3.3.3.1}Correction des "uns" et "z\'eros" isol\'es}{9}{subsubsubsection.3.3.1}
+\contentsline {subsubsubsection}{\numberline {3.3.3.2}Segmentation}{9}{subsubsubsection.3.3.2}
+\contentsline {subsubsubsection}{\numberline {3.3.3.3}Post traitement des segments}{10}{subsubsubsection.3.3.3}
 \contentsline {subsection}{\numberline {3.4}Conclusion}{10}{subsection.3.4}
 \contentsline {section}{\numberline {4}Tests et comparaisons}{11}{section.4}
 \contentsline {subsection}{\numberline {4.1}Pr\'esentation des algorithmes \'evalu\'es}{11}{subsection.4.1}
-\contentsline {paragraph}{}{11}{paragraph*.23}
-\contentsline {paragraph}{}{11}{paragraph*.24}
 \contentsline {subsection}{\numberline {4.2}Robustesse au bruit}{11}{subsection.4.2}
 \contentsline {subsubsection}{\numberline {4.2.1}Donn\'ees des tests}{12}{subsubsection.4.2.1}
 \contentsline {subsubsection}{\numberline {4.2.2}Signal avec pr\'esence de voix et peu ou pas de bruit (SNR \'el\'ev\'e)}{12}{subsubsection.4.2.2}
-\contentsline {paragraph}{}{12}{paragraph*.26}
-\contentsline {paragraph}{Algorithme utilisant le ZRC (Zero Crossing Rate) et le STE( Short time Energy)}{12}{paragraph*.27}
-\contentsline {paragraph}{Algorithme utilisant le Spectral centroid et le STE( Short time Energy)}{12}{paragraph*.28}
-\contentsline {paragraph}{}{13}{paragraph*.31}
-\contentsline {paragraph}{Algorithme utilisant l'entropie spectrale}{13}{paragraph*.32}
-\contentsline {paragraph}{}{14}{paragraph*.34}
-\contentsline {paragraph}{Notre algorithme}{15}{paragraph*.36}
-\contentsline {subsubsection}{\numberline {4.2.3}Signal avec un SNR de $-30dB$}{16}{subsubsection.4.2.3}
-\contentsline {paragraph}{Algorithme utilisant le Spectral centroid et le STE( Short time Energy)}{17}{paragraph*.40}
-\contentsline {paragraph}{}{17}{paragraph*.43}
-\contentsline {paragraph}{Retour \`a notre algorithme}{18}{paragraph*.44}
-\contentsline {paragraph}{}{18}{paragraph*.46}
-\contentsline {paragraph}{}{18}{paragraph*.48}
-\contentsline {subsubsection}{\numberline {4.2.4}Signal avec un musique de fond - SNR -13dB}{19}{subsubsection.4.2.4}
-\contentsline {paragraph}{}{19}{paragraph*.49}
-\contentsline {paragraph}{Algorithme utilisant le Spectral centroid et le STE( Short time Energy)}{19}{paragraph*.50}
-\contentsline {paragraph}{}{20}{paragraph*.53}
-\contentsline {paragraph}{Notre algorithme}{20}{paragraph*.54}
+\contentsline {subsubsubsection}{\numberline {4.2.2.1}Algorithme utilisant le Spectral centroid et le STE( Short time Energy)}{13}{subsubsubsection.4.2.1}
+\contentsline {subsubsubsection}{\numberline {4.2.2.2}Algorithme utilisant l'entropie spectrale}{13}{subsubsubsection.4.2.2}
+\contentsline {subsubsubsection}{\numberline {4.2.2.3}Notre algorithme}{14}{subsubsubsection.4.2.3}
+\contentsline {subsubsection}{\numberline {4.2.3}Signal avec un SNR de $-30dB$}{15}{subsubsection.4.2.3}
+\contentsline {subsubsubsection}{\numberline {4.2.3.1}Algorithme utilisant le Spectral centroid et le STE( Short time Energy)}{16}{subsubsubsection.4.2.1}
+\contentsline {subsubsubsection}{\numberline {4.2.3.2}Algorithme utilisant l'entropie spectrale}{16}{subsubsubsection.4.2.2}
+\contentsline {subsubsubsection}{\numberline {4.2.3.3}Retour \`a notre algorithme}{17}{subsubsubsection.4.2.3}
+\contentsline {subsubsection}{\numberline {4.2.4}Signal avec un musique de fond - SNR -13dB}{18}{subsubsection.4.2.4}
+\contentsline {subsubsubsection}{\numberline {4.2.4.1}Algorithme utilisant le Spectral centroid et le STE( Short time Energy)}{18}{subsubsubsection.4.2.1}
+\contentsline {subsubsubsection}{\numberline {4.2.4.2}Algorithme utilisant l'entropie spectrale}{19}{subsubsubsection.4.2.2}
+\contentsline {subsubsubsection}{\numberline {4.2.4.3}Notre algorithme}{20}{subsubsubsection.4.2.3}
 \contentsline {subsubsection}{\numberline {4.2.5}Conclusion}{21}{subsubsection.4.2.5}
-\contentsline {paragraph}{}{21}{paragraph*.56}
 \contentsline {subsection}{\numberline {4.3}Performances}{22}{subsection.4.3}
 \contentsline {subsubsection}{\numberline {4.3.1}D\'eroulement}{22}{subsubsection.4.3.1}
 \contentsline {subsubsection}{\numberline {4.3.2}R\'esultat}{22}{subsubsection.4.3.2}
-\contentsline {paragraph}{}{22}{paragraph*.57}
-\contentsline {paragraph}{}{22}{paragraph*.58}
-\contentsline {section}{R\'ef\'erences}{23}{paragraph*.58}
+\contentsline {paragraph}{}{22}{paragraph*.12}
+\contentsline {section}{R\'ef\'erences}{24}{paragraph*.12}

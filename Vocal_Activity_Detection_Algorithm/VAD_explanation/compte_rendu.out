@@ -6,25 +6,42 @@
 \BOOKMARK [3][-]{subsubsection.2.2.2}{Taux de passage par z\351ro \(Zero Crossing Rate, ZRC\)}{subsection.2.2}% 6
 \BOOKMARK [2][-]{subsection.2.3}{Domaine fr\351quentiel}{section.2}% 7
 \BOOKMARK [3][-]{subsubsection.2.3.1}{Entropie Spectrale}{subsection.2.3}% 8
-\BOOKMARK [3][-]{subsubsection.2.3.2}{Spectral Centro\357d}{subsection.2.3}% 9
-\BOOKMARK [3][-]{subsubsection.2.3.3}{Mel Feature Cepstral Coefficients \(MFCC\)}{subsection.2.3}% 10
-\BOOKMARK [1][-]{section.3}{Travaux r\351alis\351s}{}% 11
-\BOOKMARK [2][-]{subsection.3.1}{Fonctionnement g\351n\351ral de l'algorithme}{section.3}% 12
-\BOOKMARK [2][-]{subsection.3.2}{La distance ou corr\351lation entre des vecteurs de bruit de fond et celui de chaque trame}{section.3}% 13
-\BOOKMARK [2][-]{subsection.3.3}{D\351termination des seuils}{section.3}% 14
-\BOOKMARK [3][-]{subsubsection.3.3.1}{Seuil pour les MFCCs}{subsection.3.3}% 15
-\BOOKMARK [3][-]{subsubsection.3.3.2}{Seuil pour l'entropie spectrale}{subsection.3.3}% 16
-\BOOKMARK [3][-]{subsubsection.3.3.3}{Segmentation et correction des labels}{subsection.3.3}% 17
-\BOOKMARK [2][-]{subsection.3.4}{Conclusion}{section.3}% 18
-\BOOKMARK [1][-]{section.4}{Tests et comparaisons}{}% 19
-\BOOKMARK [2][-]{subsection.4.1}{Pr\351sentation des algorithmes \351valu\351s}{section.4}% 20
-\BOOKMARK [2][-]{subsection.4.2}{Robustesse au bruit}{section.4}% 21
-\BOOKMARK [3][-]{subsubsection.4.2.1}{Donn\351es des tests}{subsection.4.2}% 22
-\BOOKMARK [3][-]{subsubsection.4.2.2}{Signal avec pr\351sence de voix et peu ou pas de bruit \(SNR \351l\351v\351\)}{subsection.4.2}% 23
-\BOOKMARK [3][-]{subsubsection.4.2.3}{Signal avec un SNR de -30dB}{subsection.4.2}% 24
-\BOOKMARK [3][-]{subsubsection.4.2.4}{Signal avec un musique de fond - SNR -13dB}{subsection.4.2}% 25
-\BOOKMARK [3][-]{subsubsection.4.2.5}{Conclusion}{subsection.4.2}% 26
-\BOOKMARK [2][-]{subsection.4.3}{Performances}{section.4}% 27
-\BOOKMARK [3][-]{subsubsection.4.3.1}{D\351roulement}{subsection.4.3}% 28
-\BOOKMARK [3][-]{subsubsection.4.3.2}{R\351sultat}{subsection.4.3}% 29
-\BOOKMARK [1][-]{paragraph*.58}{R\351f\351rences}{}% 30
+\BOOKMARK [4][-]{subsubsubsection.2.3.1}{Travaux de Shen J, Hung J et Lee J entropie}{subsubsection.2.3.1}% 9
+\BOOKMARK [4][-]{subsubsubsection.2.3.2}{L'entropie spectrale}{subsubsection.2.3.1}% 10
+\BOOKMARK [4][-]{subsubsubsection.2.3.3}{Limitation}{subsubsection.2.3.1}% 11
+\BOOKMARK [3][-]{subsubsection.2.3.2}{Spectral Centro\357d}{subsection.2.3}% 12
+\BOOKMARK [3][-]{subsubsection.2.3.3}{Mel Feature Cepstral Coefficients \(MFCC\)}{subsection.2.3}% 13
+\BOOKMARK [4][-]{subsubsubsection.2.3.1}{Etape pour d\351terminer les MFCCs}{subsubsection.2.3.3}% 14
+\BOOKMARK [1][-]{section.3}{Travaux r\351alis\351s}{}% 15
+\BOOKMARK [2][-]{subsection.3.1}{Fonctionnement g\351n\351ral de l'algorithme}{section.3}% 16
+\BOOKMARK [2][-]{subsection.3.2}{La distance ou corr\351lation entre des vecteurs de bruit de fond et celui de chaque trame}{section.3}% 17
+\BOOKMARK [2][-]{subsection.3.3}{D\351termination des seuils}{section.3}% 18
+\BOOKMARK [3][-]{subsubsection.3.3.1}{Seuil pour les MFCCs}{subsection.3.3}% 19
+\BOOKMARK [3][-]{subsubsection.3.3.2}{Seuil pour l'entropie spectrale}{subsection.3.3}% 20
+\BOOKMARK [3][-]{subsubsection.3.3.3}{Segmentation et correction des labels}{subsection.3.3}% 21
+\BOOKMARK [4][-]{subsubsubsection.3.3.1}{Correction des "uns" et "z\351ros" isol\351s}{subsubsection.3.3.3}% 22
+\BOOKMARK [4][-]{subsubsubsection.3.3.2}{Segmentation}{subsubsection.3.3.3}% 23
+\BOOKMARK [4][-]{subsubsubsection.3.3.3}{Post traitement des segments}{subsubsection.3.3.3}% 24
+\BOOKMARK [2][-]{subsection.3.4}{Conclusion}{section.3}% 25
+\BOOKMARK [1][-]{section.4}{Tests et comparaisons}{}% 26
+\BOOKMARK [2][-]{subsection.4.1}{Pr\351sentation des algorithmes \351valu\351s}{section.4}% 27
+\BOOKMARK [2][-]{subsection.4.2}{Robustesse au bruit}{section.4}% 28
+\BOOKMARK [3][-]{subsubsection.4.2.1}{Donn\351es des tests}{subsection.4.2}% 29
+\BOOKMARK [3][-]{subsubsection.4.2.2}{Signal avec pr\351sence de voix et peu ou pas de bruit \(SNR \351l\351v\351\)}{subsection.4.2}% 30
+\BOOKMARK [4][-]{subsubsubsection.4.2.1}{Algorithme utilisant le Spectral centroid et le STE\( Short time Energy\)}{subsubsection.4.2.2}% 31
+\BOOKMARK [4][-]{subsubsubsection.4.2.2}{Algorithme utilisant l'entropie spectrale}{subsubsection.4.2.2}% 32
+\BOOKMARK [4][-]{subsubsubsection.4.2.3}{Notre algorithme}{subsubsection.4.2.2}% 33
+\BOOKMARK [3][-]{subsubsection.4.2.3}{Signal avec un SNR de -30dB}{subsection.4.2}% 34
+\BOOKMARK [4][-]{subsubsubsection.4.2.1}{Algorithme utilisant le Spectral centroid et le STE\( Short time Energy\)}{subsubsection.4.2.3}% 35
+\BOOKMARK [4][-]{subsubsubsection.4.2.2}{Algorithme utilisant l'entropie spectrale}{subsubsection.4.2.3}% 36
+\BOOKMARK [4][-]{subsubsubsection.4.2.3}{Retour \340 notre algorithme}{subsubsection.4.2.3}% 37
+\BOOKMARK [3][-]{subsubsection.4.2.4}{Signal avec un musique de fond - SNR -13dB}{subsection.4.2}% 38
+\BOOKMARK [4][-]{subsubsubsection.4.2.1}{Algorithme utilisant le Spectral centroid et le STE\( Short time Energy\)}{subsubsection.4.2.4}% 39
+\BOOKMARK [4][-]{subsubsubsection.4.2.2}{Algorithme utilisant l'entropie spectrale}{subsubsection.4.2.4}% 40
+\BOOKMARK [4][-]{subsubsubsection.4.2.3}{Notre algorithme}{subsubsection.4.2.4}% 41
+\BOOKMARK [3][-]{subsubsection.4.2.5}{Conclusion}{subsection.4.2}% 42
+\BOOKMARK [2][-]{subsection.4.3}{Performances}{section.4}% 43
+\BOOKMARK [3][-]{subsubsection.4.3.1}{D\351roulement}{subsection.4.3}% 44
+\BOOKMARK [3][-]{subsubsection.4.3.2}{R\351sultat}{subsection.4.3}% 45
+\BOOKMARK [4][-]{paragraph*.12}{}{subsubsection.4.3.2}% 46
+\BOOKMARK [1][-]{paragraph*.12}{R\351f\351rences}{}% 47
