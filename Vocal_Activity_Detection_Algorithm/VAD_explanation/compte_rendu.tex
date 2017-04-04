@@ -226,6 +226,7 @@ Nous allons évaluer différents algorithmes à savoir :
 \begin{itemize}
 	\item Un algorithme basé sur la détection de l'énergie et du taux de passage par zéro. Les seuils sont fixés de manière manuelle dans une plage prédéfinie \cite{end}.
 	\item Un algorithme basé sur la détection de l'énergie ainsi que le centroïde spectrale ("centre de gravité").\cite{silence} Les seuils sont définis par détection des maximas locaux de leur histogramme. Pour des explications un peu plus précise, nous vous invitons à lire son article\cite{centroid}.
+	\item Un algorithme basé sur la détection de l'entropie spectrale (dont nous avons parlé un peu plus haut). Le seuil est défini par une formule liant la moyenne à l'écart-type. Cet algorithme a été réalisé par mes soins en s'inspirant des plusieurs articles. \cite{entropy_1}\cite{entropie}. Cet algorithme utilise des fonctions communes à notre algorithme.
 	
 \end{itemize}
 \paragraph{} Plusieurs tests seront opérés :
@@ -248,7 +249,7 @@ Les données suivantes seront utilisées pour tous les test. En cas de changement,
 Pour commencer, nous allons illustrer le signal que nous allons utiliser. Il est assez simpliste, dure environ $5s$ et dans un premier temps, le SNR est très élevé. La figure ci-dessous (\figurename~\ref{figure_1}) est la représentation temporelle du signal avec des marqueurs indiquant la présence des mots "mode", "un et "deux". À titre d'information, le signal est échantillonné à $16kHz$ et quantitifé sur $16bits$. 
 \begin{figure}[!h]
 \centering
-\includegraphics[width=15cm]{mode_un_deux_sb.eps}
+\includegraphics[width=10cm]{mode_un_deux_sb.eps}
 \caption{Représentation temporelle du signal utilisé}
 \label{figure_1}
 \end{figure}
@@ -264,10 +265,32 @@ Après avoir utilisé notre "morceau" en argument, nous obtenons le résultat suiva
 Les figures de l'algorithme n'étant pas forcément concrète sur le découpage (sauf si l'on sait que la partie grisée est la partie rejetée et les parties bordeaux sont celles conservées), nous avons utilisé les données retournées par l'algorithme pour vous présenter une figure similaire à ~\figurename~\ref{figure_1}.
 \begin{figure}[!h]
 \centering
-\includegraphics[width=12cm]{test_1_2_ec.eps}
+\includegraphics[width=10cm]{test_1_2_ec.eps}
 \caption{Résultat de l'algorithme testé avec notre "morceau"}
 \end{figure}
 \paragraph{} Etant donné que le découpage des segments n'était pas le même que celui présenté, nous avons labellisé les segments pour plus de compréhension. Comme vous pouvez le constater, le mot "mode" a été décomposé en syllabes. Ceci est dû au fenêtrage et au décalage très réduits.
+\paragraph{Algorithme utilisant l'entropie spectrale}
+En utilisant l'entropie spectrale avec un seuil définit ainsi :
+\begin{equation}
+	threshold=\frac{1}{N}\sum_{k=1}^N x_k + 3 .\sqrt{\frac{1}{N-1}\sum_{i=1}^N|x_i -\mu|}
+\end{equation}
+où $N$ désigne le nombre d'éléments considérés (dans notre cas, les 10 premières trames supposés être du bruit), on obtient la segmentation suivante :
+\begin{figure}[!h]
+\centering
+\includegraphics[width=10cm]{entropy_test_1.eps}
+\caption{Segmentation de notre morceau}
+\label{entr}
+\end{figure}
+\paragraph{} On peut aisément constater (\figurename~\ref{entr}) qu'il n'y a aucune erreur de segmentation même si les segments sont plus larges que ceux  l'algorithme précédent. En s'appuyant de la ~\figurename~\ref{ci}, nous observons que l'entropie spectrale dessine parfaitement l'activité vocale.
+\begin{figure}[!h]
+\centering
+\includegraphics[width=10cm]{entropy_2_test_1.eps}
+\caption{Entropie et threshold}
+\label{ci}
+\end{figure}
+
+
+
 \paragraph{Notre algorithme}
 Nous avions évoqué un peu plus haut, le fait que nous utilisons un signal dit de bruit de fond. Dans notre cas, nous allons utiliser la fin du signal (où il n'y a aucune présence vocale à des fins de vecteur de bruit). Dans les conditions normales d'utilisation, ce dernier aurait été directement acquis en amont du traitement. Notre signal servant de référence est réalisé de manière à avoir $1$ seconde d'acquisition. Les courbes suivantes sont les résultats de nos différents paramètres utilisés. Les paramètres sont accompagnés de leur seuil. La dernière courbe symbolise notre vecteur de labels.
 \begin{figure}[!h]

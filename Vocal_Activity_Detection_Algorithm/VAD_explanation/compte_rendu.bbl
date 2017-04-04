@@ -42,6 +42,12 @@ Faran Awais~Butt Madiha~Jalil and Ahmed Malik.
   signals.
 \newblock {\em 978-1-4673-5613-8\copyright2013 IEEE}, Mai 2013.
 
+\bibitem{entropy_1}
+Philippe Renevey and Andrzej Drygajlo.
+\newblock Entropy based voice activity detection in very noisy conditions.
+\newblock {\em In Int. Conference on Computer System and Technology}.
+\newblock [Online; Accessed: 2017-03-27].
+
 \bibitem{entropie}
 Hung~J. Shen~J and Lee J.
 \newblock Robust entropy-based endpoint detection for speech recognition in

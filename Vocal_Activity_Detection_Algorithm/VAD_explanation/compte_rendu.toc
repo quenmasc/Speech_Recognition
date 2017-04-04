@@ -44,29 +44,31 @@
 \contentsline {paragraph}{}{11}{paragraph*.23}
 \contentsline {paragraph}{}{11}{paragraph*.24}
 \contentsline {subsection}{\numberline {4.2}Robustesse au bruit}{11}{subsection.4.2}
-\contentsline {subsubsection}{\numberline {4.2.1}Donn\'ees des tests}{11}{subsubsection.4.2.1}
+\contentsline {subsubsection}{\numberline {4.2.1}Donn\'ees des tests}{12}{subsubsection.4.2.1}
 \contentsline {subsubsection}{\numberline {4.2.2}Signal avec pr\'esence de voix et peu ou pas de bruit (SNR \'el\'ev\'e)}{12}{subsubsection.4.2.2}
 \contentsline {paragraph}{}{12}{paragraph*.26}
 \contentsline {paragraph}{Algorithme utilisant le ZRC (Zero Crossing Rate) et le STE( Short time Energy)}{12}{paragraph*.27}
 \contentsline {paragraph}{Algorithme utilisant le Spectral centroid et le STE( Short time Energy)}{12}{paragraph*.28}
 \contentsline {paragraph}{}{13}{paragraph*.31}
-\contentsline {paragraph}{Notre algorithme}{14}{paragraph*.32}
-\contentsline {subsubsection}{\numberline {4.2.3}Signal avec un SNR de $-30dB$}{15}{subsubsection.4.2.3}
-\contentsline {paragraph}{Algorithme utilisant le Spectral centroid et le STE( Short time Energy)}{16}{paragraph*.36}
-\contentsline {paragraph}{}{16}{paragraph*.39}
-\contentsline {paragraph}{Retour \`a notre algorithme}{17}{paragraph*.40}
-\contentsline {paragraph}{}{17}{paragraph*.42}
-\contentsline {paragraph}{}{17}{paragraph*.44}
-\contentsline {subsubsection}{\numberline {4.2.4}Signal avec un musique de fond - SNR -13dB}{18}{subsubsection.4.2.4}
-\contentsline {paragraph}{}{18}{paragraph*.45}
-\contentsline {paragraph}{Algorithme utilisant le Spectral centroid et le STE( Short time Energy)}{18}{paragraph*.46}
+\contentsline {paragraph}{Algorithme utilisant l'entropie spectrale}{13}{paragraph*.32}
+\contentsline {paragraph}{}{14}{paragraph*.34}
+\contentsline {paragraph}{Notre algorithme}{15}{paragraph*.36}
+\contentsline {subsubsection}{\numberline {4.2.3}Signal avec un SNR de $-30dB$}{16}{subsubsection.4.2.3}
+\contentsline {paragraph}{Algorithme utilisant le Spectral centroid et le STE( Short time Energy)}{17}{paragraph*.40}
+\contentsline {paragraph}{}{17}{paragraph*.43}
+\contentsline {paragraph}{Retour \`a notre algorithme}{18}{paragraph*.44}
+\contentsline {paragraph}{}{18}{paragraph*.46}
+\contentsline {paragraph}{}{18}{paragraph*.48}
+\contentsline {subsubsection}{\numberline {4.2.4}Signal avec un musique de fond - SNR -13dB}{19}{subsubsection.4.2.4}
 \contentsline {paragraph}{}{19}{paragraph*.49}
-\contentsline {paragraph}{Notre algorithme}{19}{paragraph*.50}
-\contentsline {subsubsection}{\numberline {4.2.5}Conclusion}{20}{subsubsection.4.2.5}
-\contentsline {paragraph}{}{20}{paragraph*.52}
-\contentsline {subsection}{\numberline {4.3}Performances}{21}{subsection.4.3}
-\contentsline {subsubsection}{\numberline {4.3.1}D\'eroulement}{21}{subsubsection.4.3.1}
-\contentsline {subsubsection}{\numberline {4.3.2}R\'esultat}{21}{subsubsection.4.3.2}
-\contentsline {paragraph}{}{21}{paragraph*.53}
-\contentsline {paragraph}{}{21}{paragraph*.54}
-\contentsline {section}{R\'ef\'erences}{22}{paragraph*.54}
+\contentsline {paragraph}{Algorithme utilisant le Spectral centroid et le STE( Short time Energy)}{19}{paragraph*.50}
+\contentsline {paragraph}{}{20}{paragraph*.53}
+\contentsline {paragraph}{Notre algorithme}{20}{paragraph*.54}
+\contentsline {subsubsection}{\numberline {4.2.5}Conclusion}{21}{subsubsection.4.2.5}
+\contentsline {paragraph}{}{21}{paragraph*.56}
+\contentsline {subsection}{\numberline {4.3}Performances}{22}{subsection.4.3}
+\contentsline {subsubsection}{\numberline {4.3.1}D\'eroulement}{22}{subsubsection.4.3.1}
+\contentsline {subsubsection}{\numberline {4.3.2}R\'esultat}{22}{subsubsection.4.3.2}
+\contentsline {paragraph}{}{22}{paragraph*.57}
+\contentsline {paragraph}{}{22}{paragraph*.58}
+\contentsline {section}{R\'ef\'erences}{23}{paragraph*.58}
