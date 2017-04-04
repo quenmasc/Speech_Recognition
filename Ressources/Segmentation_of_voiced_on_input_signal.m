@@ -50,6 +50,13 @@ function [segments,Limits, Flags, rejection]= Segmentation_of_voiced_on_input_si
     end
     Limits(Limits==0) = [];
     Limits=reshape(Limits,2,[]);
+    for i=1:size(Limits,2)-1
+        if (Limits(1,i+1)-Limits(2,i)<fs*time_rejection)
+            Limits(2,i)=Limits(2,i+1);
+            Limits(1,i+1)=0;
+            Limits(2,i+1)=0;
+        end
+    end
     %% Create segments of voice extraction
     % allocation %
     segments = {zeros(length(Limits))};
