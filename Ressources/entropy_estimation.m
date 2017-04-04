@@ -41,7 +41,7 @@ function [entropy]=entropy_estimation(Signal, window_ms,step_ms, fs, p,entropy_n
         Entropy(w)=euclidean_distance(entropy(w),cno);
        
     end
-    entropy=max(Entropy)-Entropy;
+   % entropy=max(Entropy)-Entropy;
     entropy=medfilt1(entropy./max(entropy),10);
     
 end
