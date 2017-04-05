@@ -52,7 +52,6 @@ function [segments,Limits, Flags, rejection]= Segmentation_of_voiced_on_input_si
     Limits=reshape(Limits,2,[]);
     j=size(Limits,2);
     i=1;
-    keyboard;
     while(i<j)
         if (Limits(1,i+1)-Limits(2,i)<fs*0.200)
             Limits(2,i)=Limits(2,i+1);
