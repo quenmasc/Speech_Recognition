@@ -38,7 +38,6 @@ function [segments,Limits, Flags, rejection]= Segmentation_of_voiced_on_input_si
             end
         end
     end
-    keyboard;
     Limits(Limits==0) = [];
     Limits=reshape(Limits,2,[]);
     
