@@ -817,25 +817,25 @@ function menu_voice_noise_Callback(hObject, eventdata, handles)
             switch worde
                 case 'BACKWARD'
                     set(handles.menu_label,'Value',1);
-                    set(handles.menu_label,'String',{'BACK';'WARD';'DE';'BACKWARD';'OTHER'});
+                    set(handles.menu_label,'String',{'BACKWARD'});
                 case 'FORWARD'
                     set(handles.menu_label,'Value',1);
-                    set(handles.menu_label,'String',{'FOR';'WARD';'DE';'FORWARD';'OTHER'});
+                    set(handles.menu_label,'String',{'FORWARD'});
                 case 'GOTO'
                     set(handles.menu_label,'Value',1);
-                    set(handles.menu_label,'String',{'GO';'TO';'GOTO';'OTHER'});
+                    set(handles.menu_label,'String',{'GOTO'});
                 case 'LEFT'
                     set(handles.menu_label,'Value',1);
-                    set(handles.menu_label,'String',{'LEF';'FT';'LEFT';'OTHER'});
+                    set(handles.menu_label,'String',{'LEFT'});
                 case 'RIGHT'
                     set(handles.menu_label,'Value',1);
-                    set(handles.menu_label,'String',{'RI';'GHT';'RIGHT';'OTHER'});
+                    set(handles.menu_label,'String',{'RIGHT'});
                 case 'READY'
                     set(handles.menu_label,'Value',1);
-                    set(handles.menu_label,'String',{'READ';'DY';'READY';'OTHER'});
+                    set(handles.menu_label,'String',{'READY'});
                 case 'MODE'
                     set(handles.menu_label,'Value',1);
-                    set(handles.menu_label,'String',{'MOD';'DE';'MODE';'OTHER'});    
+                    set(handles.menu_label,'String',{'MODE'});    
                 otherwise 
                     set(handles.menu_label,'Value',1);
                     set(handles.menu_label,'String','Choose');  
@@ -958,52 +958,24 @@ function button_next_data_Callback(hObject, eventdata, handles)
         set(handles.menu_voice_noise,'Value',1);
     end
     switch phoneme
-        case 'BACK'
-            classe=1;
-        case 'WARD'
-            classe=2;
         case 'BACKWARD'
-            classe=3;
-        case 'FOR'
-            classe=4;
+            classe=1;
         case 'FORWARD'
-            classe=5;
-        case 'LEF'
-            classe=6;
-        case 'FT'
-            classe=7;
+            classe=2;
         case 'LEFT'
-            classe=8;
-        case 'RI'
-            classe=9;
-        case 'GHT'
-            classe=10;
+            classe=3;
         case 'RIGHT'
-            classe=11;
-        case 'REA'
-            classe=12;
-        case 'DY'
-            classe=13;
-        case 'READY'
-            classe=14;
-        case 'MOD'
-            classe=15;
-        case 'DE'
-            classe=16;
-        case 'MODE'
-            classe=17;
-        case 'Background noise'
-            classe=18;
-        case 'clip'
-            classe=19;
-        case 'GO'
-            classe=21;
-        case 'TO'
-            classe=22;
+            classe=4;
         case 'GOTO'
-            classe=23;
-        otherwise
-            classe=20;
+            classe=5;
+        case 'READY'
+            classe=6;
+        case 'MODE'
+            classe=7;
+        case 'Background noise'
+            classe=8;
+        case 'clip'
+            classe=8;
     end
     switch fem_mal
         case 'Female'
