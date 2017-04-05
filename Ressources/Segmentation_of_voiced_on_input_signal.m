@@ -40,7 +40,6 @@ function [segments,Limits, Flags, rejection]= Segmentation_of_voiced_on_input_si
     end
     Limits(Limits==0) = [];
     Limits=reshape(Limits,2,[]);
-    
     Vect_test=Limits(2,:)-Limits(1,:);
     for i=1:length(Vect_test)
         if(Vect_test(i)<=fs*time_rejection)
@@ -51,19 +50,21 @@ function [segments,Limits, Flags, rejection]= Segmentation_of_voiced_on_input_si
     end
     Limits(Limits==0) = [];
     Limits=reshape(Limits,2,[]);
-    j=size(Limits,2)-1;
-    for i=1:size(Limits,2)-1
-        if (Limits(1,i+1)-Limits(2,i)<fs*0.300)
+    j=size(Limits,2);
+    i=1;
+    keyboard;
+    while(i<j)
+        if (Limits(1,i+1)-Limits(2,i)<fs*0.200)
             Limits(2,i)=Limits(2,i+1);
             Limits(1,i+1)=0;
             Limits(2,i+1)=0;
             Limits(Limits==0)=[];
             Limits=reshape(Limits,2,[]);
             j=j-1;
+        else
+            i=i+1;
         end
-        if (i>=j)
-            break;
-        end
+        
     end
    
     %% Create segments of voice extraction
