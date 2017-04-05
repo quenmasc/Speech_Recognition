@@ -23,26 +23,27 @@
 \contentsline {subsubsubsection}{\numberline {3.3.3.1}Correction des "uns" et "z\'eros" isol\'es}{9}{subsubsubsection.3.3.1}
 \contentsline {subsubsubsection}{\numberline {3.3.3.2}Segmentation}{9}{subsubsubsection.3.3.2}
 \contentsline {subsubsubsection}{\numberline {3.3.3.3}Post traitement des segments}{10}{subsubsubsection.3.3.3}
-\contentsline {subsection}{\numberline {3.4}Conclusion}{10}{subsection.3.4}
-\contentsline {section}{\numberline {4}Tests et comparaisons}{11}{section.4}
-\contentsline {subsection}{\numberline {4.1}Pr\'esentation des algorithmes \'evalu\'es}{11}{subsection.4.1}
-\contentsline {subsection}{\numberline {4.2}Robustesse au bruit}{11}{subsection.4.2}
-\contentsline {subsubsection}{\numberline {4.2.1}Donn\'ees des tests}{12}{subsubsection.4.2.1}
-\contentsline {subsubsection}{\numberline {4.2.2}Signal avec pr\'esence de voix et peu ou pas de bruit (SNR \'el\'ev\'e)}{12}{subsubsection.4.2.2}
-\contentsline {subsubsubsection}{\numberline {4.2.2.1}Algorithme utilisant le Spectral centroid et le STE( Short time Energy)}{13}{subsubsubsection.4.2.1}
-\contentsline {subsubsubsection}{\numberline {4.2.2.2}Algorithme utilisant l'entropie spectrale}{13}{subsubsubsection.4.2.2}
-\contentsline {subsubsubsection}{\numberline {4.2.2.3}Notre algorithme}{14}{subsubsubsection.4.2.3}
-\contentsline {subsubsection}{\numberline {4.2.3}Signal avec un SNR de $-30dB$}{15}{subsubsection.4.2.3}
-\contentsline {subsubsubsection}{\numberline {4.2.3.1}Algorithme utilisant le Spectral centroid et le STE( Short time Energy)}{16}{subsubsubsection.4.2.1}
-\contentsline {subsubsubsection}{\numberline {4.2.3.2}Algorithme utilisant l'entropie spectrale}{16}{subsubsubsection.4.2.2}
-\contentsline {subsubsubsection}{\numberline {4.2.3.3}Retour \`a notre algorithme}{17}{subsubsubsection.4.2.3}
-\contentsline {subsubsection}{\numberline {4.2.4}Signal avec un musique de fond - SNR -13dB}{18}{subsubsection.4.2.4}
-\contentsline {subsubsubsection}{\numberline {4.2.4.1}Algorithme utilisant le Spectral centroid et le STE( Short time Energy)}{18}{subsubsubsection.4.2.1}
-\contentsline {subsubsubsection}{\numberline {4.2.4.2}Algorithme utilisant l'entropie spectrale}{19}{subsubsubsection.4.2.2}
-\contentsline {subsubsubsection}{\numberline {4.2.4.3}Notre algorithme}{20}{subsubsubsection.4.2.3}
-\contentsline {subsubsection}{\numberline {4.2.5}Conclusion}{21}{subsubsection.4.2.5}
-\contentsline {subsection}{\numberline {4.3}Performances}{22}{subsection.4.3}
-\contentsline {subsubsection}{\numberline {4.3.1}D\'eroulement}{22}{subsubsection.4.3.1}
-\contentsline {subsubsection}{\numberline {4.3.2}R\'esultat}{22}{subsubsection.4.3.2}
-\contentsline {paragraph}{}{22}{paragraph*.12}
-\contentsline {section}{R\'ef\'erences}{24}{paragraph*.12}
+\contentsline {subsection}{\numberline {3.4}Conclusion}{11}{subsection.3.4}
+\contentsline {section}{\numberline {4}Tests et comparaisons}{12}{section.4}
+\contentsline {subsection}{\numberline {4.1}Pr\'esentation des algorithmes \'evalu\'es}{12}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}Robustesse au bruit}{12}{subsection.4.2}
+\contentsline {subsubsection}{\numberline {4.2.1}Donn\'ees des tests}{13}{subsubsection.4.2.1}
+\contentsline {subsubsection}{\numberline {4.2.2}Signal avec pr\'esence de voix et peu ou pas de bruit (SNR \'el\'ev\'e)}{13}{subsubsection.4.2.2}
+\contentsline {subsubsubsection}{\numberline {4.2.2.1}Algorithme utilisant le Spectral centroid et le STE( Short time Energy)}{14}{subsubsubsection.4.2.1}
+\contentsline {subsubsubsection}{\numberline {4.2.2.2}Algorithme utilisant l'entropie spectrale}{14}{subsubsubsection.4.2.2}
+\contentsline {subsubsubsection}{\numberline {4.2.2.3}Notre algorithme}{15}{subsubsubsection.4.2.3}
+\contentsline {subsubsection}{\numberline {4.2.3}Signal avec un SNR de $-30dB$}{16}{subsubsection.4.2.3}
+\contentsline {subsubsubsection}{\numberline {4.2.3.1}Algorithme utilisant le Spectral centroid et le STE( Short time Energy)}{17}{subsubsubsection.4.2.1}
+\contentsline {subsubsubsection}{\numberline {4.2.3.2}Algorithme utilisant l'entropie spectrale}{17}{subsubsubsection.4.2.2}
+\contentsline {subsubsubsection}{\numberline {4.2.3.3}Retour \`a notre algorithme}{18}{subsubsubsection.4.2.3}
+\contentsline {subsubsection}{\numberline {4.2.4}Signal avec un musique de fond - SNR -13dB}{19}{subsubsection.4.2.4}
+\contentsline {subsubsubsection}{\numberline {4.2.4.1}Algorithme utilisant le Spectral centroid et le STE( Short time Energy)}{19}{subsubsubsection.4.2.1}
+\contentsline {subsubsubsection}{\numberline {4.2.4.2}Algorithme utilisant l'entropie spectrale}{20}{subsubsubsection.4.2.2}
+\contentsline {subsubsubsection}{\numberline {4.2.4.3}Notre algorithme}{21}{subsubsubsection.4.2.3}
+\contentsline {subsubsection}{\numberline {4.2.5}Conclusion}{22}{subsubsection.4.2.5}
+\contentsline {subsection}{\numberline {4.3}Performances}{23}{subsection.4.3}
+\contentsline {subsubsection}{\numberline {4.3.1}D\'eroulement}{23}{subsubsection.4.3.1}
+\contentsline {subsubsection}{\numberline {4.3.2}R\'esultat}{23}{subsubsection.4.3.2}
+\contentsline {paragraph}{}{23}{paragraph*.12}
+\contentsline {section}{\numberline {5}Conclusion}{25}{section.5}
+\contentsline {section}{R\'ef\'erences}{26}{section.5}
