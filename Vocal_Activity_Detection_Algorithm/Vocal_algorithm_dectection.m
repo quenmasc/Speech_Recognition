@@ -111,32 +111,32 @@ function [segments,Signal,Limits,fs]=Vocal_algorithm_dectection(Init,time_record
     [segments, Limits, Fl, rej]=Segmentation_of_voiced_on_input_signal(Flags_k,Signal,weight,window_sample,step_sample,fs);
 
     %% PLOT %% 
-    figure(1)
-    subplot(611);
-    hold on
-    plot(endpoint);
-    plot(th);
-    title('MFCC feature and threshold');
-    hold off ;
-    subplot(612);
-    plot(Signal);
-    title('Input Signal');
-    subplot(613);
-    hold on
-    plot(entropy);
-    plot(th_e);
-    title('Entropy feature and threshold');
-    hold off
-    subplot(614);
-    hold on
-    plot(Fl);
-    plot(Flags_k);
-    hold off
-    legend('end','corr');
-    subplot(615);
-    plot(env);
-    title('SubFrame Envelope');
-    
+%     figure(1)
+%     subplot(611);
+%     hold on
+%     plot(endpoint);
+%     plot(th);
+%     title('MFCC feature and threshold');
+%     hold off ;
+%     subplot(612);
+%     plot(Signal);
+%     title('Input Signal');
+%     subplot(613);
+%     hold on
+%     plot(entropy);
+%     plot(th_e);
+%     title('Entropy feature and threshold');
+%     hold off
+%     subplot(614);
+%     hold on
+%     plot(Fl);
+%     plot(Flags_k);
+%     hold off
+%     legend('end','corr');
+%     subplot(615);
+%     plot(env);
+%     title('SubFrame Envelope');
+%     
 
   
     %% Result
