@@ -82,7 +82,7 @@ function [segments,Signal,Limits,fs]=Vocal_algorithm_dectection(Init,time_record
     
     % Treatment EndPoint function
         % threshold
-    th_noise=mean(endpoint(1:20))+3*std(endpoint(1:20));
+   % th_noise=mean(endpoint(1:20))+3*std(endpoint(1:20));
     th=sigmoide_function(10,endpoint);%variable_threshold(endpoint,th_noise,0.96);
     th_e_noise=mean(entropy(1:20))+3*std(entropy(1:20));
     th_e=variable_threshold(entropy,th_e_noise,0.96);
@@ -111,46 +111,33 @@ function [segments,Signal,Limits,fs]=Vocal_algorithm_dectection(Init,time_record
     [segments, Limits, Fl, rej]=Segmentation_of_voiced_on_input_signal(Flags_k,Signal,weight,window_sample,step_sample,fs);
 
     %% PLOT %% 
-%     figure(1)
-%     subplot(611);
-%     hold on
-%     plot(endpoint);
-%     plot(th);
-%     title('MFCC feature and threshold');
-%     hold off ;
-%     subplot(612);
-%     plot(Signal);
-%     title('Input Signal');
-%     subplot(613);
-%     hold on
-%     plot(entropy);
-%     plot(th_e);
-%     title('Entropy feature and threshold');
-%     hold off
-%     subplot(614);
-%     hold on
-%     plot(energy)
-%     plot(th_en*ones(1,numel(endpoint)));
-%     title('Energy feature and threshold');
-%     hold off
-%     subplot(615);
-%     hold on
-%     plot(Fl);
-%     plot(Flags_k);
-%     hold off
-%     legend('end','corr');
-%     subplot(616);
-%     plot(env);
-%     title('SubFrame Envelope');
-%     
-%     figure(3);
-%     subplot(211);
-%     plot(flux);
-%     subplot(212);
-%     hold on
-%     plot(zrc);
-%     plot(th_zrc*ones(1,numel(endpoint)));
-%     hold off
+    figure(1)
+    subplot(611);
+    hold on
+    plot(endpoint);
+    plot(th);
+    title('MFCC feature and threshold');
+    hold off ;
+    subplot(612);
+    plot(Signal);
+    title('Input Signal');
+    subplot(613);
+    hold on
+    plot(entropy);
+    plot(th_e);
+    title('Entropy feature and threshold');
+    hold off
+    subplot(614);
+    hold on
+    plot(Fl);
+    plot(Flags_k);
+    hold off
+    legend('end','corr');
+    subplot(615);
+    plot(env);
+    title('SubFrame Envelope');
+    
+
   
     %% Result
      %% PLOT RESULTS
