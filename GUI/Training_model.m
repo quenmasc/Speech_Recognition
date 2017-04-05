@@ -642,9 +642,9 @@ function button_data_Callback(hObject, eventdata, handles)
         local_gender=data(i).gender;
         switch data(i).nature
             case 'Voice'
-        a=strcat('../Data/sound/',data(i).name,'/',strjoin(data(i).word),'/',data(i).phoneme,'/',data(i).name,'_test_',data(i).test,'_',data(i).phoneme,'.wav');
+        a=strcat('../Data/sound/',data(i).name,'/',strjoin(data(i).word),'/',data(i).name,'_test_',data(i).test,'_',data(i).phoneme,'.wav');
         %% check folder
-        fn=fullfile(strcat('../Data/sound/',data(i).name,'/',strjoin(data(i).word),'/',data(i).phoneme));
+        fn=fullfile(strcat('../Data/sound/',data(i).name,'/',strjoin(data(i).word)));
         if ~exist(fn)
             mkdir(fn) ;
         end
@@ -653,12 +653,12 @@ function button_data_Callback(hObject, eventdata, handles)
         audiowrite([a],cell2mat(data(i).segments),fs,'BitsPerSample',16);
         
         %% save segments
-        b=strcat('../Data/features/features_saved/',data(i).name,'/',strjoin(data(i).word),'/',data(i).phoneme,'/',data(i).name,'_test_',data(i).test,'_',data(i).phoneme,'.mat');
+        b=strcat('../Data/features/features_saved/',data(i).name,'/',strjoin(data(i).word),'/',data(i).name,'_test_',data(i).test,'_',data(i).phoneme,'.mat');
         c=strcat('../Data/features/features_saved/ALL/',data(i).name,'_test_',data(i).test,'_',data(i).phoneme,'.mat');
-        e=strcat('../Data/features/features_filtered/',data(i).name,'/',strjoin(data(i).word),'/',data(i).phoneme,'/',data(i).name,'_test_',data(i).test,'_',data(i).phoneme,'.mat');
+        e=strcat('../Data/features/features_filtered/',data(i).name,'/',strjoin(data(i).word),'/',data(i).name,'_test_',data(i).test,'_',data(i).phoneme,'.mat');
         f=strcat('../Data/features/features_filtered/ALL/',data(i).name,'_test_',data(i).test,'_',data(i).phoneme,'.mat');
         %% check if folders exist
-        fn=fullfile(strcat('../Data/features/features_saved/',data(i).name,'/',strjoin(data(i).word),'/',data(i).phoneme));
+        fn=fullfile(strcat('../Data/features/features_saved/',data(i).name,'/',strjoin(data(i).word)));
         if ~exist(fn,'dir')
             mkdir (fn);
         end
@@ -666,7 +666,7 @@ function button_data_Callback(hObject, eventdata, handles)
         if ~exist(fn,'dir')
             mkdir (fn);
         end
-        fn=fullfile(strcat('../Data/features/features_filtered/',data(i).name,'/',strjoin(data(i).word),'/',data(i).phoneme));
+        fn=fullfile(strcat('../Data/features/features_filtered/',data(i).name,'/',strjoin(data(i).word)));
         if ~exist(fn,'dir')
             mkdir (fn);
         end
