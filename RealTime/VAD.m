@@ -12,7 +12,7 @@
 %% OUTPUT 
 % Segments : segments of speech extraction
 %
-function [segments,Signal,Limits,fs]=Vocal_algorithm_dectection(Init,time_record,fs)
+function [segments]=VAD(Init,time_record,fs)
 
     %% add path
     addpath('source/');
@@ -49,6 +49,13 @@ function [segments,Signal,Limits,fs]=Vocal_algorithm_dectection(Init,time_record
         entropy=spectral_entropy(localFrame,N);
         
         %% background noise vector
+        [background_mfcc, distance_mfcc]=updateBackgroundVectorAndDistance(background_mfcc,coeff,0.95);
+        [background_entropy, distance_entropy]=updateBackgroundVectorAndDistance(background_entropy,entropy,0.9);
+        
+        %% threshold
+        th_mfcc=sigmoide_function(10,distance_mfcc);
+        
+        %% flags
         
         
     end
