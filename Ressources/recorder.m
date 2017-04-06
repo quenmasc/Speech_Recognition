@@ -4,7 +4,7 @@
 
 function [V_im, Etiquette]=recorder(etiquette_name,time)
     recObj1= audiorecorder(16000,16,1);
-    disp(strcat(etiquette_name))
+    disp(etiquette_name)
     recordblocking(recObj1,time);
     disp('End of Recording.');
     V_im = getaudiodata(recObj1,'double');
