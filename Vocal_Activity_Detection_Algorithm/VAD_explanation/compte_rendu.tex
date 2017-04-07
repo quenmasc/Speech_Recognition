@@ -68,6 +68,7 @@
 \newpage
 \pageMATIERE{}
 \listoffigures
+\listoftables
 \newpage
 \pageTHEME
 \setcounter{page}{1}
@@ -92,7 +93,7 @@ L'énergie court-terme est un paramètre qui reflète les variations d'amplitude da
 \end{equation}
 où $w(n-k)$ est la fenêtre d'analyse, $n$ est l'échantillon sur lequel est centré la fenêtre d'analyse et $N$ la taille de la fenêtre d'analyse.
 \subsubsection{Taux de passage par zéro (Zero Crossing Rate, ZRC)}
-Le ZRC compte le nombre de passage par zéro du signal. Les trames de voisées\cite{voisée} ont un taux de passage à zéro faible alors l'inverse des trames non voisées qui ont un ZRC élevé . On peut définir le ZRC de la manière suivante :
+Le ZRC compte le nombre de passage par zéro du signal. Les trames de voisées\cite{voisee} ont un taux de passage à zéro faible alors l'inverse des trames non voisées qui ont un ZRC élevé . On peut définir le ZRC de la manière suivante :
 \begin{equation}
 	Z_n= \sum_{m=-\infty}^{infty} |sgn[x(m)]-sgn[x(m -1)]lw(n-m)
 \end{equation}
@@ -508,6 +509,48 @@ Nous avons toujours le même problème que précédemment [\figurename~\ref{us_2} - 
 
 %%%
 \newpage
+\clearpage
+\subsubsection{Tableau récapitulatif}
+Nous allons résumer l'ensemble des résultats de segmentation précédents [\tablename~\ref{tb}] dans le but d'avoir des résultats plus concrets. Les appellations suivantes ont pour signification :
+\begin{itemize}
+	\item NSD : Nombre de segments détectés
+	\item NSV : Nombre de segments contenant une activité vocale
+	\item NSB : Nombre de segments contenant du bruit de fond
+	\item DO : Détection optimale [\figurename~\ref{figure_1}]. La mention "Oui" signifiera que la segmentation est optimale sinon la mention "Non" apparaitra.
+	\item TE : Taux d'erreurs : \begin{equation} Taux_{erreur}= \frac{NSB}{NSD} \end{equation}
+	\item TR : Taux de réussite :  \begin{equation} Taux_{reussite}= \frac{NSV}{NSD} \end{equation}
+	\item TP : Taux de précision : \begin{equation} Taux_{précision} = \frac{TR - TE}{100}\end{equation}
+	\item SC : Spectral centroid
+	\item STE : Short time energy
+\end{itemize}
+\begin{table}[!h]
+\begin{tabular}{|l|c|c|c|c|c|c|c|c|c|}
+   \hline 
+   {\bfseries{Algorithme & Test}} & NSD& NSV & NSB & DO & TE & TR & TP\\
+   \hline \hline
+   Notre algorithme& Sans bruit & 4 & 4 & 0 & "Oui" & $0\%$ & $100\%$ & $1$ \\
+   \cline{2-9}
+   & SNR 30 dB & 3 & 3 & 0 & "Oui" & $0\%$ & $75\%$ & $0.75$ \\   
+  \cline{2-9}
+  & SNR 13 dB & 4 & 3 & 1 & "Oui" & $25\%$ & $75\%$ & $0.5$ \\  
+  \hline \hline
+   Entropie Spectrale & Sans bruit & 4 & 4 & 0 & "Oui" & $0\%$ & $100\%$ & $1$ \\
+   \cline{2-9}
+   & SNR 30 dB & 3 & 3 & 0 & "Oui" & $0\%$ & $75\%$ & $0.75$ \\   
+  \cline{2-9}
+  & SNR 13 dB & 1 & 1 & 0 & "Non" & $0\%$ & $25\%$ & $0.25$ \\ 
+  \hline \hline
+   SC et STE & Sans bruit & 4 & 4 & 0 & "Oui" & $0\%$ & $100\%$ & $1$ \\
+   \cline{2-9}
+   & SNR 30 dB & 22 & 4 & 18 & "Non" & $81\%$ & $100\%$ & $1.9$ \\   
+  \cline{2-9}
+  & SNR 13 dB & 12 & 3 & 9 & "Non" & $75\%$ & $75\%$ & $0$ \\  
+  \hline
+  \hline
+\end{tabular}
+\caption{tableau récapitulatif des segmentations de notre algorithme et ceux de références}
+\label{tb}
+\end{table}
 \subsubsection{Conclusion}
 On peut conclure cette partie concernant la robustesse aux bruits en énonçant que notre algorithme est très robuste au bruit comparé à ceux présentés. On voit très rapidement que le bruit "parasite" la détection de segments de voix. Ce n'est pas le cas pour notre algorithme même si des phonèmes ne sont pas détectés. Il faut donc par la suite veiller à bien superviser notre algorithme de reconnaissance de la parole\footnote{On parle ici de l'algorithme global et non le VAD présenté ici.}. En d'autres termes, il devra considérer des segments manquants selon le bruit qu'il détecte ou non. De plus, comme notre algorithme détecte des segments de voix (à quelques erreurs près), nos algorithmes en aval pourront donner des résultats plus précis. En effet, ils ne seront pas pollués par des données erronées (ou contenant de "bruit" qui n'ont aucune utilités). 
 \paragraph*{} Après avoir veillé à respecter le cahier des charges concernant la robustesse au bruit, il s'agit de nous intéresser aux performances de notre algorithme. 
@@ -518,6 +561,7 @@ Nous en avons parlé un peu plus haut, mais outre la robustesse, il faut être per
 \subsubsection{Résultat}
 Nous nous tâcherons de commenter les résultats après les avoir exposés ci-dessous.
 \paragraph{}
+\begin{table}[!h]
 \begin{tabular}{|l|c|c|c|c|}
    \hline 
    {\bfseries{Algorithme}} & Temps moyen & Temps min & Temps max & Ratio \\
@@ -529,6 +573,8 @@ Nous nous tâcherons de commenter les résultats après les avoir exposés ci-dessou
    Algorithme utilisant le Spectral centroid et le STE & 0.0195 & 0.0184 & 0.0216 & 1\\
    \hline
 \end{tabular}
+\caption{Tableau résumant les performances des algorithmes}
+\end{table}
 \paragraph*{} Nous ne sommes pas peu fier des performances de notre algorithme même si le temps d'exécution pour des trames de $5s$ est assez conséquent (40 fois plus lent que le plus rapide). Néanmoins, nous pouvons au moins réduire ce temps de moitié si ce n'est plus. Enfin, nous venons de mener une opération de détection sur une trame en temps non-réel. Peut-être est-il plus performant en temps réel ? Nous veillerons lors de notre implémentation en C++ à réduire le temps d'exécution de l'algorithme que nous vous avons présenté. Nous pensons qu'un réduction au tiers serait un bel enjeu. Cela permettrait de se qualifier de performant au vue de la complexité des calculs que nous employons. Une optimisation temps réel est aussi possible.
 \paragraph*{} L'algorithme utilisant l'entropie spectrale utilisant certaines de nos fonctions dont la transformée de Fourier à court terme, son temps d'exécution se trouve sans doute élevé à cet effet. Il faudra donc optimiser cette fonction. Pour information, le spectral centroid utilise aussi une transformée de Fourier ($fft.m$ sur Matlab$^{\textregistered}$) néanmoins elle semble plus optimisée que la notre.
 \newpage

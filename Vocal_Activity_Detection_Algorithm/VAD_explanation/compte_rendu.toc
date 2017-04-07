@@ -40,10 +40,11 @@
 \contentsline {subsubsubsection}{\numberline {4.2.4.1}Algorithme utilisant le Spectral centroid et le STE( Short time Energy)}{19}{subsubsubsection.4.2.1}
 \contentsline {subsubsubsection}{\numberline {4.2.4.2}Algorithme utilisant l'entropie spectrale}{20}{subsubsubsection.4.2.2}
 \contentsline {subsubsubsection}{\numberline {4.2.4.3}Notre algorithme}{21}{subsubsubsection.4.2.3}
-\contentsline {subsubsection}{\numberline {4.2.5}Conclusion}{22}{subsubsection.4.2.5}
-\contentsline {subsection}{\numberline {4.3}Performances}{23}{subsection.4.3}
-\contentsline {subsubsection}{\numberline {4.3.1}D\'eroulement}{23}{subsubsection.4.3.1}
-\contentsline {subsubsection}{\numberline {4.3.2}R\'esultat}{23}{subsubsection.4.3.2}
-\contentsline {paragraph}{}{23}{paragraph*.12}
-\contentsline {section}{\numberline {5}Conclusion}{25}{section.5}
-\contentsline {section}{R\'ef\'erences}{26}{section.5}
+\contentsline {subsubsection}{\numberline {4.2.5}Tableau r\'ecapitulatif}{23}{subsubsection.4.2.5}
+\contentsline {subsubsection}{\numberline {4.2.6}Conclusion}{23}{subsubsection.4.2.6}
+\contentsline {subsection}{\numberline {4.3}Performances}{25}{subsection.4.3}
+\contentsline {subsubsection}{\numberline {4.3.1}D\'eroulement}{25}{subsubsection.4.3.1}
+\contentsline {subsubsection}{\numberline {4.3.2}R\'esultat}{25}{subsubsection.4.3.2}
+\contentsline {paragraph}{}{25}{paragraph*.13}
+\contentsline {section}{\numberline {5}Conclusion}{27}{section.5}
+\contentsline {section}{R\'ef\'erences}{28}{section.5}
