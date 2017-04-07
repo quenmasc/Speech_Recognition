@@ -12,8 +12,8 @@
 %% OUTPUT 
 % Segments : segments of speech extraction
 %
-function [segments]=VAD(Init_mfcc,Init_entropy,time_record,fs)
-
+function [segments]=VAD(time_record,fs)
+    [Init_mfcc,Init_entropy]=environment_analysis();
     %% add path
     addpath('source/');
     % variables
@@ -40,7 +40,7 @@ function [segments]=VAD(Init_mfcc,Init_entropy,time_record,fs)
     background_entropy=Init_entropy;
     % buffer for entropy mean
     buffer_entropy=zeros(1,20);
-    buffer_mfcc=zeros(1,20);
+    buffer_mfcc=zeros(13,20);
     buffer_th_mfcc=zeros(1,20);
     i=1;
     flag_control=0;
@@ -84,7 +84,8 @@ function [segments]=VAD(Init_mfcc,Init_entropy,time_record,fs)
                 flag_interruption=1;
             end
             
-            buffer_label=(buffer_mfcc>=buffer_th_mfcc)&(buffer_entropy>=buffer_th_entropy_init);
+            buffer_label_init=(buffer_mfcc>=buffer_th_mfcc)&(buffer_entropy>=buffer_th_entropy_init);
+            buffer_label_all=[buffer_label_all buffer_label_init];
         end
         %% end 20 first frames
         %% for the next frames
@@ -96,10 +97,11 @@ function [segments]=VAD(Init_mfcc,Init_entropy,time_record,fs)
             buffer_th_entropy=update_treshold(buffer_th_entropy_init,0.96,buffer_entropy);
             buffer_label=(buffer_mfcc>=buffer_th_mfcc)&(buffer_entropy>=buffer_th_entropy);
             buffer_th_entropy_init=buffer_th_entropy;
+            buffer_label_all=[buffer_label_all buffer_label];
             i=1;
         end
         
-        buffer_label_all=[buffer_label_all buffer_label];
+        
         %% end frames
     end
 
