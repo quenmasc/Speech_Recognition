@@ -35,7 +35,8 @@ function [features,features_w]=SetFeactureExtraction(Segments,fs,window_ms,step_
     
     %% FEATURES %%
     features(1,:)=log(sum(short_time_fourier_transform(Segments, window_ms, step_ms, fs)));
-    features(2:13,:)=MFCC(Segments,window_ms,step_ms,fs);
+    MFCCs=MFCC(Segments,window_ms,step_ms,fs);
+    features(2:13,:)=MFCCs(2:13,:);
     features(14:26,:)=Delta_feature(features(1:13,:));
     features(27:end,:)=Delta_feature(features(14:26,:));
     features_w=MFCCsFilter(features);
