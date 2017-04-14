@@ -5,7 +5,7 @@ function [Mdl_short, Mdl_long, Mdl_classe]=SupportVectorMachine()
     clc ;
     
     %% import data
-    imageDir = fullfile('../Data/features/features_filtered/ALL/');
+    imageDir = fullfile('../Data/features/features_saved/ALL/');
     filenames = dir(fullfile(imageDir, '*.mat'));
     features=zeros(numel(filenames),7800);
     Output=zeros(numel(filenames),1);

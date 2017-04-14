@@ -1,4 +1,4 @@
-function [r,s]=Speech_recognition(Mdl_classe,Mdl_short,Mdl_long)
+function [r]=Speech_recognition(Mdl_classe,Mdl_short,Mdl_long)
     %% addpath
     addpath('../Ressources');
     addpath('../Vocal_Activity_Detection_Algorithm');
@@ -11,11 +11,11 @@ function [r,s]=Speech_recognition(Mdl_classe,Mdl_short,Mdl_long)
     [label,score] = predict(Mdl_classe,features);
     if (label==1)
         new_feature=features(1,1:3000);
-        [label,score] = predict(Mdl_short,new_feature);
+        [labels,score] = predict(Mdl_short,new_feature);
     else
-        [label,score] = predict(Mdl_long,features);
+        [labels,score] = predict(Mdl_long,features);
     end
-    labelsave=[labelsave,label];
+    labelsave=[labelsave,labels,label];
     end
 
     r=labelsave;
