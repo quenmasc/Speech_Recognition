@@ -7,17 +7,17 @@ function [Mdl_short, Mdl_long, Mdl_classe]=SupportVectorMachine()
     %% import data
     imageDir = fullfile('../Data/features/features_filtered/ALL/');
     filenames = dir(fullfile(imageDir, '*.mat'));
-    features=zeros(numel(filenames),5850);
+    features=zeros(numel(filenames),7800);
     Output=zeros(numel(filenames),1);
     Classe=zeros(numel(filenames),1);
         for i=1:numel(filenames)
             path=strcat(filenames(i).folder,'/',filenames(i).name);
             im=load(path); 
-            features(i,:)=im.local_feature_w;
+            features(i,:)=im.local_feature;
             Output(i)=im.local_classe;
-            if (Output(i)==18 || Output(i)==19)
+            if (Output(i)==8 || Output(i)==9)
                 Classe(i)=3;
-            elseif (Output(i)==17 || Output(i)==5 || Output(i)==3)
+            elseif (Output(i)==1 || Output(i)==2 || Output(i)==7)
                 Classe(i)=2;
             else
                 Classe(i)=1;
