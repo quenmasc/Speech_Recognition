@@ -109,8 +109,8 @@ set(handles.textbox_instructions,'String','Begin analysis');
 set(handles.textbox_number_segment,'String',num2str(length(segments)));
 data=repmat(struct('gender',[],'name',[],'word',[],'test',[],'nature',[],'phoneme',[],'feature',[],'feature_w',[],'segments',[],'classe',[]),1,length(segments));
 
-features=zeros(length(segments),150*39);
-features_w=zeros(length(segments),150*39);
+features=zeros(length(segments),200*39);
+features_w=zeros(length(segments),200*39);
 for i=1:length(segments)
     [features(i,:),features_w(i,:)]=SetFeactureExtraction(cell2mat(segments(i)),fs,15,5);
 end

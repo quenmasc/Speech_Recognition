@@ -28,7 +28,7 @@ function [features,features_w]=SetFeactureExtraction(Segments,fs,window_ms,step_
     number_of_feature=39;
     % nbFrame 
     nbFrame = floor((numel(Segments)-window_sample)/step_sample);
-    nbFrameMax=150;
+    nbFrameMax=200;
     Lmax=nbFrameMax*number_of_feature;
     % Allocation
     features =zeros(number_of_feature,nbFrame);
