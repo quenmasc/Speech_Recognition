@@ -2,8 +2,8 @@ function Lift_cepstral_coeffs=MFCC(Signal, window_ms, step_ms , fs, varargin)
    % checking nargin
    if(nargin ==4)
        nb_filter=20;
-       freq_limits=[10, fs/2];
-       nb_cepstral_coef=12;
+       freq_limits=[300, fs/2-300];
+       nb_cepstral_coef=13;
        cepstral_sine_lifter_parameter=22;
    elseif (nargin ==5)
        nb_filter= varargin{1};

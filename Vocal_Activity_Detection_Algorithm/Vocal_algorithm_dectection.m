@@ -25,8 +25,8 @@ function [segments,Signal,Limits,fs]=Vocal_algorithm_dectection(Init,time_record
     weight=2;
     p=0.95;
    % fs=16000; % fixed by default (need to be over 12 000 Hz according to Shanon Theorem)
-    step_ms= 5;% fixed by default 
-    window_ms = 15; % fixed by default
+    step_ms= 10;% fixed by default 
+    window_ms = 25; % fixed by default
     time_exclusion=0.100;%ms
     
     % conversion ms to samples
@@ -82,7 +82,7 @@ function [segments,Signal,Limits,fs]=Vocal_algorithm_dectection(Init,time_record
     
     % Treatment EndPoint function
         % threshold
-    th_noise=mean(endpoint(1:20))+3*std(endpoint(1:20));
+   % th_noise=mean(endpoint(1:20))+3*std(endpoint(1:20));
     th=sigmoide_function(10,endpoint);%variable_threshold(endpoint,th_noise,0.96);
     th_e_noise=mean(entropy(1:20))+3*std(entropy(1:20));
     th_e=variable_threshold(entropy,th_e_noise,0.96);
@@ -129,28 +129,15 @@ function [segments,Signal,Limits,fs]=Vocal_algorithm_dectection(Init,time_record
 %     hold off
 %     subplot(614);
 %     hold on
-%     plot(energy)
-%     plot(th_en*ones(1,numel(endpoint)));
-%     title('Energy feature and threshold');
-%     hold off
-%     subplot(615);
-%     hold on
 %     plot(Fl);
 %     plot(Flags_k);
 %     hold off
 %     legend('end','corr');
-%     subplot(616);
+%     subplot(615);
 %     plot(env);
 %     title('SubFrame Envelope');
 %     
-%     figure(3);
-%     subplot(211);
-%     plot(flux);
-%     subplot(212);
-%     hold on
-%     plot(zrc);
-%     plot(th_zrc*ones(1,numel(endpoint)));
-%     hold off
+
   
     %% Result
      %% PLOT RESULTS
