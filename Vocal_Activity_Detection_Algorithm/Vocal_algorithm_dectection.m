@@ -25,8 +25,8 @@ function [segments,Signal,Limits,fs]=Vocal_algorithm_dectection(Init,time_record
     weight=2;
     p=0.95;
    % fs=16000; % fixed by default (need to be over 12 000 Hz according to Shanon Theorem)
-    step_ms= 5;% fixed by default 
-    window_ms = 15; % fixed by default
+    step_ms= 10;% fixed by default 
+    window_ms = 25; % fixed by default
     time_exclusion=0.100;%ms
     
     % conversion ms to samples
