@@ -3,7 +3,7 @@
 % Copyright 2017 %
 
 function [V_im, Etiquette]=recorder(etiquette_name,time)
-    recObj1= audiorecorder(16000,16,1);
+    recObj1= audiorecorder(8000,16,1);
     disp(strcat(etiquette_name))
     recordblocking(recObj1,time);
     disp('End of Recording.');
