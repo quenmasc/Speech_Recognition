@@ -6,8 +6,8 @@ function [Mdl_short, Mdl_long, Mdl_classe]=SupportVectorMachine()
     
     %% import data
     imageDir = fullfile('../Data/features/features_saved/ALL/');
-    filenames = dir(fullfile(imageDir, '*.mat'));
-    features=zeros(numel(filenames),7800);
+    filenames = dir(fullfile(imageDir, 'quentin_8000*.mat'));
+    features=zeros(numel(filenames),3900);
     Output=zeros(numel(filenames),1);
     Classe=zeros(numel(filenames),1);
         for i=1:numel(filenames)
