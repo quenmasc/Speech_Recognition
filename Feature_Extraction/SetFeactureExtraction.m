@@ -1,4 +1,4 @@
-%% MASCRET Quentin - Copyright 2017
+  %% MASCRET Quentin - Copyright 2017
 %% 03.02.17
 % This function allows to set feactures of all segment find by the VAD
 % algorithm. 
