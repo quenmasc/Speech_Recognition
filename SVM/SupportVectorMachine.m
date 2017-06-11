@@ -3,7 +3,7 @@ function [Mdl_short, Mdl_long, Mdl_classe]=SupportVectorMachine()
     close all;
     clear ; 
     clc ;
-    
+    addpath('../Normalization')
     %% import data
     imageDir = fullfile('../Data/features/features_saved/ALL/');
     filenames = dir(fullfile(imageDir, 'quentin_8000*.mat'));
@@ -23,17 +23,20 @@ function [Mdl_short, Mdl_long, Mdl_classe]=SupportVectorMachine()
                 Classe(i)=1;
             end
         end
+        features=CreateASphere(features,Output);
         t = templateSVM('Standardize',1,'KernelFunction','rbf','KernelScale','auto');
 % t = templateSVM('Standardize',1,'KernelFunction','rbf');
 
 % Mdl = fitcecoc(X,Output,'Learners',t,'FitPosterior',1)
 [Mdl_classe,opt_classe] = fitcecoc(features,Classe,'Learners',t,'OptimizeHyperparameters','auto');
 disp('First SVM done');
+pause ;
 new_feature=features(Classe==1,1:3000);
 [Mdl_short,opt_short] = fitcecoc(new_feature,Output(Classe==1),'Learners',t,'OptimizeHyperparameters','auto');
 disp('Second SVM done');
+pause;
 [Mdl_long,opt_long] = fitcecoc(features(Classe==2,:),Output(Classe==2),'Learners',t,'OptimizeHyperparameters','auto');
-
-
+pause;
+save('ModelSphere.mat','Mdl_classe','Mdl_short','Mdl_long');
 
 end

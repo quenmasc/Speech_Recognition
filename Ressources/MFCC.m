@@ -35,16 +35,16 @@ function Lift_cepstral_coeffs=MFCC(Signal, window_ms, step_ms , fs, varargin)
    
    % STFT 
    Magnitude = short_time_fourier_transform (Signal, window_ms, step_ms, fs);
+
    % creation of triangular filterbank
    TFB = triangular_filterbank (nb_filter, freq_response,freq_limits, fs);
    % Filterbank application to unique part of FFT magnitude
    FBA = TFB * Magnitude(1:freq_response,:);
-   
    %DCT
    DCT=dctm(nb_cepstral_coef,nb_filter);
-   
    % Cepstral coefficients
    Cepstral_coeff= DCT*log(FBA);
+
    % lifter low pass
    lifter_low_pass=ceplifter(nb_cepstral_coef,cepstral_sine_lifter_parameter);
    

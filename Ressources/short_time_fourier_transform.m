@@ -12,7 +12,6 @@ function [X_im] = short_time_fourier_transform(Signal, window_ms, step_ms, fs, v
           step_sample=floor(step_ms*10^-3*fs);
           % size of FFT
           N=2^(nextpow2(window_sample));
-          
           % calcul de nbFrame %
           nbFrame=floor((numel(speech)-window_sample)/step_sample);
           % Allocation statique de X_im %  
